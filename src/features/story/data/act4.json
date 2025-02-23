@@ -1,0 +1,71 @@
+{
+  "ato4": {
+    "titulo": "Confronto Final",
+    "cenas": [
+      {
+        "id": "revelacao_final",
+        "titulo": "A Verdade do Culto",
+        "descricao": "Os amigos descobrem que o culto não apenas estava por trás do desaparecimento de Sebastian, mas que o líder do culto é alguém inesperado, possivelmente uma pessoa de confiança.",
+        "mensagem_grupo": {
+          "de": "@amigos",
+          "conteudo": "Não podemos acreditar... O líder do culto está entre nós. É alguém que estava nos ajudando desde o começo."
+        },
+        "escolhas": [
+          {
+            "texto": "Não pode ser... Precisamos confrontá-lo agora.",
+            "efeito": {
+              "confiança_amigos": 2,
+              "relacionamento_amigos": "Os amigos estão prontos para a confrontação, com mais determinação e força."
+            }
+          },
+          {
+            "texto": "Eu sabia que algo não estava certo. Temos que agir com calma e planejar nossa próxima jogada.",
+            "efeito": {
+              "confiança_amigos": 1,
+              "relacionamento_amigos": "A confiança dos amigos cresce, mas ainda há insegurança sobre como agir."
+            }
+          },
+          {
+            "texto": "Eu não acho que estamos prontos para isso. Vamos recuar e entender melhor antes de agir.",
+            "efeito": {
+              "confiança_amigos": -1,
+              "relacionamento_amigos": "Os amigos ficam frustrados. Eles percebem que você está hesitando, o que pode atrasar a ação."
+            }
+          }
+        ]
+      },
+      {
+        "id": "caminho_mais_perigoso",
+        "titulo": "A Decisão Final",
+        "descricao": "O jogador se vê diante de uma escolha difícil: confrontar o culto de frente ou tomar uma rota mais cautelosa, que pode deixar o perigo à solta, mas também garantir maior segurança.",
+        "mensagem_grupo": {
+          "de": "@amigos",
+          "conteudo": "Agora que sabemos quem está por trás disso, temos duas opções: confrontar o culto diretamente ou ir por um caminho mais furtivo para pegar todos de surpresa. O que vocês acham?"
+        },
+        "escolhas": [
+          {
+            "texto": "Vamos encarar isso de frente. Não podemos mais adiar essa luta.",
+            "efeito": {
+              "confiança_amigos": 3,
+              "relacionamento_amigos": "Os amigos estão dispostos a seguir sua liderança, com confiança total, prontos para o confronto."
+            }
+          },
+          {
+            "texto": "Vamos ser mais inteligentes. Temos que montar um plano e agir com precisão.",
+            "efeito": {
+              "confiança_amigos": 2,
+              "relacionamento_amigos": "Eles ainda estão com você, mas começam a se questionar sobre o quão eficaz será a estratégia escolhida."
+            }
+          },
+          {
+            "texto": "Não estamos preparados para uma guerra. Melhor recuar e evitar uma tragédia maior.",
+            "efeito": {
+              "confiança_amigos": -2,
+              "relacionamento_amigos": "Os amigos começam a se afastar, cientes de que você hesitou no momento decisivo, criando um clima de dúvida."
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

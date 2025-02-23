@@ -1,0 +1,138 @@
+{
+  "ato3": {
+    "titulo": "Revelações Sombrio",
+    "cenas": [
+      {
+        "id": "descoberta_do_perigo",
+        "titulo": "O Perigo Se Torna Claro",
+        "descricao": "O jogador começa a perceber que as investigações revelam que algo muito mais sombrio está acontecendo em Aurora. O desaparecimento de Sebastian pode ter sido parte de um plano maior, envolvendo forças que eles não compreendem completamente.",
+        "mensagem_grupo": {
+          "de": "@amigos",
+          "conteudo": "Gente, encontrei algo perturbador. Parece que Sebastian estava investigando desaparecimentos não apenas em Aurora, mas em outras cidades também. Isso está se tornando maior do que imaginávamos."
+        },
+        "escolhas": [
+          {
+            "texto": "Isso é muito maior do que a gente pensava. Precisamos nos preparar para o que vem pela frente.",
+            "efeito": {
+              "confiança_amigos": 2,
+              "relacionamento_amigos": "Os amigos começam a acreditar mais em sua liderança, se preparando para o que vem a seguir."
+            }
+          },
+          {
+            "texto": "Eu estou começando a achar que a gente não devia estar aqui. Aurora está nos engolindo.",
+            "efeito": {
+              "confiança_amigos": -1,
+              "relacionamento_amigos": "A confiança dos amigos diminui. Eles começam a questionar sua decisão de continuar a investigação."
+            }
+          },
+          {
+            "texto": "Temos que continuar. Só assim vamos descobrir a verdade, não podemos desistir agora.",
+            "efeito": {
+              "confiança_amigos": 1,
+              "relacionamento_amigos": "Eles percebem que você está determinado, mas ainda têm algumas dúvidas sobre como lidar com o perigo crescente."
+            }
+          }
+        ]
+      },
+      {
+        "id": "figura_misteriosa_r",
+        "titulo": "Encontro com 'R'",
+        "descricao": "O jogador encontra um contato misterioso chamado 'R', que pode ter informações cruciais sobre o desaparecimento de Sebastian. No entanto, a figura se mostra difícil de confiar.",
+        "mensagem_grupo": {
+          "de": "@amigos",
+          "conteudo": "Finalmente encontramos 'R'. Mas algo não parece certo. Ele sabe mais do que está dizendo, mas é difícil confiar nele."
+        },
+        "escolhas": [
+          {
+            "texto": "Vamos ouvir o que ele tem a dizer. Ele pode nos dar informações cruciais para desvendar tudo.",
+            "efeito": {
+              "confiança_amigos": 2,
+              "relacionamento_amigos": "Os amigos ficam mais receptivos à ideia de confiar em 'R', acreditando que ele pode ser útil na investigação."
+            }
+          },
+          {
+            "texto": "Eu não confio nesse cara. Vamos mantê-lo sob vigilância, mas não podemos acreditar nele ainda.",
+            "efeito": {
+              "confiança_amigos": -1,
+              "relacionamento_amigos": "A confiança dos amigos diminui. Eles percebem que você não está disposto a confiar em 'R'."
+            }
+          },
+          {
+            "texto": "Essa pessoa pode ser perigosa. Vamos dar um tempo e tentar investigar mais antes de decidir o que fazer.",
+            "efeito": {
+              "confiança_amigos": 1,
+              "relacionamento_amigos": "Os amigos começam a ver você como alguém cauteloso, mas ainda não têm certeza de qual é o melhor caminho a seguir."
+            }
+          }
+        ]
+      },
+      {
+        "id": "segredo_oculto",
+        "titulo": "Segredo Revelado",
+        "descricao": "O jogador descobre que Sebastian estava investigando um culto secreto em Aurora, e que seu desaparecimento pode estar relacionado a algo muito mais profundo, envolvendo o poder político e social da cidade.",
+        "mensagem_grupo": {
+          "de": "@amigos",
+          "conteudo": "Gente, encontramos uma documentação que Sebastian deixou. Ele estava investigando um culto secreto, com ligação direta com figuras poderosas de Aurora. Isso não é só sobre o Sebastian, é sobre todos nós."
+        },
+        "imagem": {
+          "descricao": "Imagem de um símbolo antigo, semelhante ao símbolo que Sebastian encontrou anteriormente, agora associado a um culto oculto."
+        },
+        "escolhas": [
+          {
+            "texto": "Isso é um aviso. Temos que sair daqui antes que seja tarde demais.",
+            "efeito": {
+              "confiança_amigos": -2,
+              "relacionamento_amigos": "Os amigos ficam assustados e percebem que o risco aumentou muito. Alguns deles começam a se afastar, temendo por suas vidas."
+            }
+          },
+          {
+            "texto": "Agora sabemos o que está acontecendo. Vamos expor esse culto e a verdade por trás do desaparecimento de Sebastian.",
+            "efeito": {
+              "confiança_amigos": 3,
+              "relacionamento_amigos": "A confiança dos amigos atinge um novo pico. Eles estão completamente comprometidos em expor a verdade, independentemente das consequências."
+            }
+          },
+          {
+            "texto": "Isso é sério, mas devemos ser mais cautelosos. Não podemos ir com tudo agora.",
+            "efeito": {
+              "confiança_amigos": 1,
+              "relacionamento_amigos": "Os amigos percebem que você está sendo cauteloso, mas também determinado a resolver a situação."
+            }
+          }
+        ]
+      },
+      {
+        "id": "enfrentando_o_culto",
+        "titulo": "Confronto com o Culto",
+        "descricao": "O jogador e seus amigos finalmente enfrentam os membros do culto, descobrindo que o desaparecimento de Sebastian foi apenas uma das muitas vítimas. O culto tem interesses muito maiores.",
+        "mensagem_grupo": {
+          "de": "@amigos",
+          "conteudo": "Não podemos mais fugir. Chegou a hora de enfrentar o culto. O que vocês acham, devemos arriscar tudo agora?"
+        },
+        "escolhas": [
+          {
+            "texto": "Sim, vamos enfrentar eles de frente. Precisamos dar um basta a isso agora.",
+            "efeito": {
+              "confiança_amigos": 3,
+              "relacionamento_amigos": "Os amigos estão completamente alinhados com você. Eles estão prontos para qualquer coisa, confiando em sua liderança."
+            }
+          },
+          {
+            "texto": "Estamos prontos, mas devemos ter um plano. Não podemos agir sem estratégia.",
+            "efeito": {
+              "confiança_amigos": 2,
+              "relacionamento_amigos": "Os amigos estão mais confiantes em suas habilidades, mas sabem que o risco é enorme."
+            }
+          },
+          {
+            "texto": "Eu não sei se estamos preparados para isso. O risco é alto demais.",
+            "efeito": {
+              "confiança_amigos": -1,
+              "relacionamento_amigos": "A confiança dos amigos diminui, eles começam a questionar se você realmente acredita que podem vencer essa batalha."
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

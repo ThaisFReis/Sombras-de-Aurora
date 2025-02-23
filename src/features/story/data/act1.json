@@ -1,0 +1,148 @@
+{
+  "ato1": {
+    "titulo": "O Sumiço",
+    "cenas": [
+      {
+        "id": "primeira_mensagem",
+        "titulo": "A Primeira Mensagem",
+        "descricao": "O jogador recebe uma mensagem de Aaron, o amigo de Sebastian, pedindo ajuda sobre o desaparecimento de Sebastian.",
+        "mensagem": {
+          "de": "@aaron_lyon",
+          "conteudo": "Ei, você viu os posts do Sebastian? Ele está falando umas coisas estranhas… eu não sei mais o que fazer. Ele sumiu, e ninguém sabe onde ele está. Eu não acho que isso seja só uma fase… Por favor, me ajuda. Eu sei que a gente não se fala tanto, mas eu realmente preciso de alguém que acredite que algo está errado."
+        },
+        "escolhas": [
+          {
+            "texto": "Claro, o que aconteceu com o Sebastian? Me conta mais.",
+            "efeito": {
+              "confiança_aaron": 1,
+              "relacionamento_aaron": "Aumenta a confiança de Aaron em você."
+            }
+          },
+          {
+            "texto": "Acho que está tudo bem, ele deve estar só passando por uma fase difícil.",
+            "efeito": {
+              "confiança_aaron": -1,
+              "relacionamento_aaron": "Reduz a confiança de Aaron em você, já que ele busca ajuda."
+            }
+          },
+          {
+            "texto": "Me dá um tempo. Não sei se posso me envolver nisso agora.",
+            "efeito": {
+              "confiança_aaron": -2,
+              "relacionamento_aaron": "Diminuí a confiança de Aaron em você. Ele começa a se sentir ignorado."
+            }
+          }
+        ]
+      },
+      {
+        "id": "grupo_adicionado",
+        "titulo": "O Convite para o Grupo",
+        "descricao": "O jogador é adicionado a um grupo privado com os amigos de Sebastian, onde começam a discutir sobre o desaparecimento.",
+        "mensagem_grupo": {
+          "de": "@amigos",
+          "conteudo": "Oi, pessoal. A gente não sabia mais o que fazer. O Aaron me pediu para adicionar o [Nome do jogador] aqui, porque a gente está tentando entender o que está acontecendo com o Sebastian."
+        },
+        "escolhas": [
+          {
+            "texto": "Eu também confio no Sebastian. Vamos investigar mais fundo.",
+            "efeito": {
+              "confiança_amigos": 1,
+              "relacionamento_amigos": "Aumenta a confiança dos amigos em você, todos começam a se sentir mais unidos."
+            }
+          },
+          {
+            "texto": "Talvez o Ian tenha razão. Não podemos surtar por causa de uns posts esquisitos.",
+            "efeito": {
+              "confiança_amigos": -1,
+              "relacionamento_amigos": "Os amigos ficam um pouco desapontados com a falta de urgência, mas ainda estão dispostos a te ouvir."
+            }
+          },
+          {
+            "texto": "Estou começando a achar que o Sebastian sabia mais do que a gente imagina. Temos que entender o que ele estava investigando.",
+            "efeito": {
+              "confiança_amigos": 2,
+              "relacionamento_amigos": "Ganha confiança dos amigos, especialmente de Amelia e Aaron, que acreditam em uma teoria mais sobrenatural."
+            }
+          }
+        ]
+      },
+      {
+        "id": "posts_enigmaticos",
+        "titulo": "O Post Estranho",
+        "descricao": "O jogador começa a explorar os últimos posts de Sebastian e percebe mensagens enigmáticas que levantam mais dúvidas sobre o desaparecimento.",
+        "posts": [
+          {
+            "conteudo": "Aurora está mais perto do que eu imaginava. Não sei se isso é bom ou ruim. Quando as sombras se movem, ninguém está seguro.",
+            "data": "3 dias antes"
+          },
+          {
+            "conteudo": "Eu vejo eles observando, mas não posso fugir... já não há mais volta.",
+            "data": "2 dias antes"
+          },
+          {
+            "conteudo": "Eu preciso sair. Eles sabem o que eu encontrei. As respostas estão em Aurora... é tarde demais para mim.",
+            "data": "1 dia antes"
+          }
+        ],
+        "escolhas": [
+          {
+            "texto": "O que significa Aurora? Ele estava envolvido em algo perigoso?",
+            "efeito": {
+              "confiança_amigos": 1,
+              "relacionamento_amigos": "Os amigos começam a confiar mais em você, já que você está tomando as mensagens de Sebastian a sério."
+            }
+          },
+          {
+            "texto": "Esses posts parecem de uma pessoa em pânico. Isso não ajuda em nada.",
+            "efeito": {
+              "confiança_amigos": -1,
+              "relacionamento_amigos": "Os amigos ficam um pouco desmotivados, achando que você não está levando o caso a sério."
+            }
+          },
+          {
+            "texto": "Acho que estamos lidando com algo maior. Preciso entender mais sobre o que ele estava pesquisando.",
+            "efeito": {
+              "confiança_amigos": 2,
+              "relacionamento_amigos": "Amelia e Aaron aumentam a confiança em você. Eles acreditam que você pode ajudar a desvendar o mistério."
+            }
+          }
+        ]
+      },
+      {
+        "id": "foto_enigmatica",
+        "titulo": "O Primeiro Mistério",
+        "descricao": "O jogador encontra uma foto enigmática em um dos arquivos de Sebastian, que parece indicar algo relacionado à cidade de Aurora.",
+        "mensagem_grupo": {
+          "de": "@amigos",
+          "conteudo": "Olhem isso. Encontrei essa foto no perfil do Sebastian. Parece que ele estava investigando algo relacionado à ‘Aurora’. O que isso significa?"
+        },
+        "foto": {
+          "descricao": "Foto de uma paisagem nebulosa com símbolos estranhos e uma vista para uma cidade ao fundo."
+        },
+        "escolhas": [
+          {
+            "texto": "Isso é definitivamente uma pista. Onde exatamente foi tirada essa foto?",
+            "efeito": {
+              "confiança_amigos": 1,
+              "relacionamento_amigos": "A confiança dos amigos aumenta, eles acreditam que você está focado na investigação."
+            }
+          },
+          {
+            "texto": "Parece uma imagem de algo muito antigo, mas nada que nos ajude por enquanto.",
+            "efeito": {
+              "confiança_amigos": -1,
+              "relacionamento_amigos": "Os amigos ficam frustrados com sua postura cética, questionando sua seriedade."
+            }
+          },
+          {
+            "texto": "Eu não sei o que é isso, mas tenho uma sensação estranha sobre essa cidade.",
+            "efeito": {
+              "confiança_amigos": 2,
+              "relacionamento_amigos": "Os amigos ficam mais atentos a sua perspectiva, considerando que você pode estar no caminho certo."
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

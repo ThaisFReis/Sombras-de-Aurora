@@ -1,0 +1,138 @@
+{
+  "ato2": {
+    "titulo": "A Investigação Começa",
+    "cenas": [
+      {
+        "id": "investigacao_completa",
+        "titulo": "Começo da Investigação",
+        "descricao": "O jogador decide iniciar uma investigação sobre o desaparecimento de Sebastian, visitando a cidade de Aurora e reunindo mais pistas.",
+        "mensagem": {
+          "de": "@amigos",
+          "conteudo": "Estamos indo para Aurora! Sei que você está em dúvida, mas temos que tentar entender o que aconteceu com o Sebastian. Já encontramos alguns lugares que ele frequentava."
+        },
+        "escolhas": [
+          {
+            "texto": "Eu estou dentro. Vamos descobrir tudo o que ele sabia sobre Aurora.",
+            "efeito": {
+              "confiança_amigos": 2,
+              "relacionamento_amigos": "Os amigos ficam mais confiantes de que você está totalmente comprometido com a investigação. Eles sentem que podem confiar em você."
+            }
+          },
+          {
+            "texto": "Aurora parece uma cidade estranha, mas não acho que a gente precise ir até lá. A situação não é tão séria.",
+            "efeito": {
+              "confiança_amigos": -1,
+              "relacionamento_amigos": "Os amigos começam a questionar o seu envolvimento, já que você não está disposto a ir mais a fundo."
+            }
+          },
+          {
+            "texto": "Eu não sei. Isso pode estar indo muito longe. Vamos ver onde isso nos leva.",
+            "efeito": {
+              "confiança_amigos": 1,
+              "relacionamento_amigos": "Os amigos sentem que você ainda tem alguma hesitação, mas acreditam que pode confiar no seu julgamento."
+            }
+          }
+        ]
+      },
+      {
+        "id": "descobrindo_a_pista",
+        "titulo": "A Primeira Pista",
+        "descricao": "O jogador encontra uma pista importante que Sebastian deixou em uma das últimas mensagens. É um símbolo misterioso encontrado em um antigo livro.",
+        "mensagem_grupo": {
+          "de": "@amigos",
+          "conteudo": "Gente, olhem isso. Achei um livro que Sebastian estava lendo antes de desaparecer. Ele tem um símbolo estranho. O que isso significa?"
+        },
+        "imagem": {
+          "descricao": "Imagem de um símbolo estranho, com uma forma geométrica complexa e símbolos antigos."
+        },
+        "escolhas": [
+          {
+            "texto": "Isso é uma pista clara. Vamos tentar decifrar o significado do símbolo.",
+            "efeito": {
+              "confiança_amigos": 2,
+              "relacionamento_amigos": "Os amigos ficam impressionados com sua iniciativa e a confiança aumenta."
+            }
+          },
+          {
+            "texto": "Acho que esse símbolo não ajuda em nada. Vamos procurar por mais pistas.",
+            "efeito": {
+              "confiança_amigos": -1,
+              "relacionamento_amigos": "A confiança dos amigos diminui um pouco, eles sentem que você não está levando o caso a sério."
+            }
+          },
+          {
+            "texto": "Isso é algo que Sebastian realmente queria que encontrássemos. Vamos investigar mais a fundo.",
+            "efeito": {
+              "confiança_amigos": 1,
+              "relacionamento_amigos": "Os amigos começam a ver você como alguém que está disposto a ajudar, mas ainda um pouco cético."
+            }
+          }
+        ]
+      },
+      {
+        "id": "visita_a_aurora",
+        "titulo": "Chegando em Aurora",
+        "descricao": "O grupo chega a Aurora, a cidade que parecia ter um papel importante no desaparecimento de Sebastian. Eles começam a explorar e descobrem um antigo esconderijo que ele visitava.",
+        "mensagem_grupo": {
+          "de": "@amigos",
+          "conteudo": "Estamos em Aurora. O lugar tem uma energia estranha. Temos que procurar o esconderijo que Sebastian usava. Ele estava aqui, temos que entender o que aconteceu."
+        },
+        "escolhas": [
+          {
+            "texto": "Eu estou começando a achar que Sebastian estava mais envolvido em algo que a gente imagina. Vamos explorar esse lugar.",
+            "efeito": {
+              "confiança_amigos": 2,
+              "relacionamento_amigos": "A confiança dos amigos cresce. Eles sentem que você está cada vez mais dentro da investigação."
+            }
+          },
+          {
+            "texto": "Eu não sei. Acho que não deveríamos invadir esse lugar. Pode ser perigoso.",
+            "efeito": {
+              "confiança_amigos": -1,
+              "relacionamento_amigos": "Os amigos ficam frustrados com a sua hesitação. Eles acham que você não está comprometido."
+            }
+          },
+          {
+            "texto": "Isso pode ser uma armadilha, mas vamos lá. Precisamos saber a verdade.",
+            "efeito": {
+              "confiança_amigos": 1,
+              "relacionamento_amigos": "A confiança dos amigos aumenta um pouco, mas eles ainda têm receio sobre a situação."
+            }
+          }
+        ]
+      },
+      {
+        "id": "descoverta_do_passado",
+        "titulo": "O Passado de Sebastian",
+        "descricao": "Dentro do esconderijo, o grupo encontra uma caixa com documentos que revelam que Sebastian estava investigando uma série de desaparecimentos na cidade. Ele estava em contato com uma figura misteriosa.",
+        "mensagem_grupo": {
+          "de": "@amigos",
+          "conteudo": "Olhem o que encontramos! Sebastian estava investigando uma série de desaparecimentos que aconteceram aqui em Aurora. E parece que ele estava em contato com alguém chamado 'R'."
+        },
+        "escolhas": [
+          {
+            "texto": "Essa figura misteriosa pode ter informações cruciais. Precisamos encontrá-la.",
+            "efeito": {
+              "confiança_amigos": 2,
+              "relacionamento_amigos": "Os amigos ficam ainda mais motivados e a confiança em você cresce. Eles acreditam que você está seguindo o caminho certo."
+            }
+          },
+          {
+            "texto": "Não podemos confiar nessa pessoa. Talvez seja uma armadilha.",
+            "efeito": {
+              "confiança_amigos": -1,
+              "relacionamento_amigos": "Os amigos começam a duvidar de sua liderança. Eles sentem que você está indo contra o objetivo principal da investigação."
+            }
+          },
+          {
+            "texto": "Vamos ver o que conseguimos descobrir. Essa figura pode nos dar respostas.",
+            "efeito": {
+              "confiança_amigos": 1,
+              "relacionamento_amigos": "A confiança aumenta, mas ainda há uma sensação de incerteza sobre o que fazer a seguir."
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

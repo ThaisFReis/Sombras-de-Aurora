@@ -1,0 +1,73 @@
+[
+    {
+      "id": "post1",
+      "autor": "gamer_ryan",
+      "conteudo": "Finalmente platinei Eclipse Online! Depois de 142 horas e 3 rage quits. Nunca mais jogo isso (até lançarem a DLC 😅).",
+      "hora": "2024-11-21T08:30:00",
+      "renderizar": "inicio_ato_1"
+    },
+    {
+      "id": "post2",
+      "autor": "marcela.art",
+      "conteudo": "Pintando algo novo! 🌌✨ A lua sempre me fascina... Talvez eu a tenha visto em um sonho antes? 🤔",
+      "hora": "2024-12-10T14:00:00",
+      "renderizar": "inicio_ato_1"
+    },
+    {
+      "id": "post3",
+      "autor": "lucas_fitness",
+      "conteudo": "Hoje corri 10km e quase vi minha vida passando diante dos olhos 😂 mas pelo menos estou vivo para postar isso.",
+      "hora": "2025-01-15T09:15:00",
+      "renderizar": "inicio_ato_1"
+    },
+    {
+      "id": "post4",
+      "autor": "mirella.music",
+      "conteudo": "🎵 Alguém mais percebeu que a letra de Into the Dark da banda Nocturna fala sobre desaparecer sem deixar rastros? Estranho...",
+      "hora": "2025-01-22T19:30:00",
+      "renderizar": "inicio_ato_1"
+    },
+    {
+      "id": "post5",
+      "autor": "noticias_hoje",
+      "conteudo": "📰 Polícia ainda sem respostas sobre o desaparecimento de estudante universitário há 7 dias. Familiares pedem ajuda. #Desaparecido",
+      "hora": "2025-02-10T07:00:00",
+      "renderizar": "inicio_ato_1"
+    },
+    {
+      "id": "post6",
+      "autor": "sebastian_aurora",
+      "conteudo": "Algumas verdades não deveriam ser descobertas. Mas e se já for tarde demais?",
+      "hora": "2025-02-12T16:30:00",
+      "renderizar": "inicio_ato_1"
+    },
+    {
+      "id": "post7",
+      "autor": "sebastian_aurora",
+      "conteudo": "\"Nem tudo que brilha é ouro, às vezes é apenas um reflexo da escuridão.\"",
+      "hora": "2025-02-14T11:00:00",
+      "renderizar": "inicio_ato_1"
+    },
+    {
+      "id": "post8",
+      "autor": "sebastian_aurora",
+      "conteudo": "📷 [Posta uma imagem de um prédio abandonado com a legenda:] \"Os segredos estão nas sombras.\"",
+      "hora": "2025-02-16T20:45:00",
+      "renderizar": "meio_ato_2"
+    },
+    {
+      "id": "post9",
+      "autor": "sebastian_aurora",
+      "conteudo": "Se eu desaparecer, não foi um acidente.",
+      "hora": "2025-02-18T18:00:00",
+      "renderizar": "meio_ato_2"
+    },
+    {
+      "id": "post10",
+      "autor": "sebastian_aurora",
+      "conteudo": "O tempo está acabando. Eu tentei avisar. ⏳ #Sombras",
+      "hora": "2025-02-20T22:15:00",
+      "renderizar": "meio_ato_3"
+    }
+  ]
+  

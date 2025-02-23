@@ -1,0 +1,61 @@
+{
+  "ato5": {
+    "titulo": "Conclusão e Finais",
+    "cenas": [
+      {
+        "id": "final_bom",
+        "titulo": "Final Bom",
+        "descricao": "O culto é derrotado, e a cidade de Aurora começa a se recuperar. O jogador descobre que o desaparecimento de Sebastian foi solucionado, e ele retorna em segurança, podendo reatar os laços com seus amigos.",
+        "mensagem_grupo": {
+          "de": "@amigos",
+          "conteudo": "Conseguimos, o culto foi desmascarado e a verdade veio à tona. Sebastian está de volta! Essa cidade vai se curar, e nós também."
+        },
+        "escolhas": [
+          {
+            "texto": "Eu sabia que podíamos fazer isso. Agora, vamos seguir em frente, juntos.",
+            "efeito": {
+              "confiança_amigos": 5,
+              "relacionamento_amigos": "Os amigos confiam plenamente em você. A relação se fortalece e todos estão preparados para seguir em frente."
+            }
+          }
+        ]
+      },
+      {
+        "id": "final_ruim",
+        "titulo": "Final Ruim",
+        "descricao": "O culto é derrotado, mas a cidade de Aurora paga um preço alto. O jogador perde amigos no confronto, e Sebastian nunca mais é encontrado. O desaparecimento se torna um mistério ainda maior.",
+        "mensagem_grupo": {
+          "de": "@amigos",
+          "conteudo": "O culto foi derrotado, mas a cidade ainda está em ruínas. Perdemos muito no caminho, e Sebastian... Ele não voltou. A verdade que encontramos não foi a que esperávamos."
+        },
+        "escolhas": [
+          {
+            "texto": "A dor é grande, mas precisamos seguir em frente. Ao menos fizemos o que era certo.",
+            "efeito": {
+              "confiança_amigos": -2,
+              "relacionamento_amigos": "Os amigos estão desolados. O grupo se dispersa, com a dor da perda pesando nas relações."
+            }
+          }
+        ]
+      },
+      {
+        "id": "final_neutro",
+        "titulo": "Final Neutro",
+        "descricao": "O culto é derrotado, mas a cidade permanece em silêncio. Sebastian nunca mais foi encontrado, mas a investigação chega a um impasse. Alguns amigos se afastam, enquanto outros permanecem, incertos sobre o futuro.",
+        "mensagem_grupo": {
+          "de": "@amigos",
+          "conteudo": "O culto foi desmantelado, mas nada parece ser o mesmo. A cidade ficou mais sombria, e o que aconteceu com Sebastian? A verdade está incompleta, mas pelo menos conseguimos derrotar o culto."
+        },
+        "escolhas": [
+          {
+            "texto": "A vitória foi amarga, mas podemos reconstruir. Vamos tentar seguir em frente, de algum modo.",
+            "efeito": {
+              "confiança_amigos": 0,
+              "relacionamento_amigos": "A relação com os amigos fica estagnada, com algumas pessoas começando a se afastar, enquanto outras tentam seguir em frente."
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
