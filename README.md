@@ -1,157 +1,87 @@
-# E-commerce Simples
+# Projeto de Narrativa Interativa
 
-Um e-commerce simples desenvolvido com React (TSX) no front-end e Node.js (Express) no back-end. O projeto inclui funcionalidades como listagem de produtos, detalhes do produto, carrinho de compras e integração com uma API RESTful.
+Este projeto é uma narrativa interativa onde o usuário pode acompanhar e interagir com diferentes postagens e destaques criados por personagens, com base no desenvolvimento de um enredo dinâmico. Os personagens principais e suas postagens são influenciados pelos atos da história, permitindo uma experiência imersiva e envolvente.
 
-## 🚀 Tecnologias Utilizadas
+## Sumário
 
-### Front-end
+- [Descrição do Projeto](#descrição-do-projeto)
+- [Como Rodar o Projeto](#como-rodar-o-projeto)
+- [Estrutura de Arquivos](#estrutura-de-arquivos)
+- [Tipos de Dados](#tipos-de-dados)
+- [Postagens e Destaques](#postagens-e-destaques)
+- [Licença](#licença)
 
-- **React** com TypeScript (TSX)
-- **Tailwind CSS** para estilização
-- **React Router** para navegação
-- **Axios** para chamadas à API
-- **Vite** como bundler
+## Descrição do Projeto
 
-### Back-end
+O projeto é um jogo de narrativa com eventos que alteram o comportamento e a interação entre os personagens, incluindo postagens em redes sociais e destaques fixados. Os dados das postagens e dos destaques são apresentados em tempo real, com um sistema de evolução de confiança e escolhas dos usuários.
 
-- **Node.js** com **Express**
-- **Mongoose** para conexão com o MongoDB
-- **TypeScript** para tipagem estática
-- **CORS** para permitir requisições do front-end
+## Como Rodar o Projeto
 
-## 📦 Estrutura do Projeto
+Para rodar o projeto, siga os passos abaixo:
 
-### Front-end
+1. **Clonar o repositório:**
+git clone https://github.com/seu-usuario/nome-do-repositorio.git
 
-ecommerce-frontend/
-├── public/
-├── src/
-│ ├── components/ # Componentes reutilizáveis
-│ ├── pages/ # Páginas do e-commerce
-│ ├── services/ # Chamadas à API
-│ ├── types/ # Tipos TypeScript
-│ ├── App.tsx
-│ ├── main.tsx
-│ └── index.css
-├── package.json
-├── tailwind.config.js
-└── vite.config.ts
+2. **Instalar as dependências:**
+Certifique-se de ter o Node.js instalado. Se não tiver, baixe [aqui](https://nodejs.org/).
+npm install
 
-### Back-end
+3. **Rodar o servidor de desenvolvimento:**
+npm run dev
 
-ecommerce-backend/
-├── src/
-│ ├── controllers/ # Lógica das rotas
-│ ├── models/ # Modelos do banco de dados
-│ ├── routes/ # Definição das rotas
-│ ├── services/ # Lógica de negócios
-│ ├── utils/ # Funções utilitárias
-│ ├── app.ts # Configuração do Express
-│ └── server.ts # Inicialização do servidor
-├── package.json
-├── tsconfig.json
-└── .env # Variáveis de ambiente
+4. **Abrir o navegador:**
+Abra seu navegador em [http://localhost:3000](http://localhost:3000).
 
-## 🛠️ Como Rodar o Projeto
+## Estrutura de Arquivos
 
-### Pré-requisitos
+/src /components # Componentes principais da UI /data # Arquivos de dados, como postagens, destaques e narrativa /hooks # Hooks customizados /styles # Arquivos de estilo, incluindo Tailwind /types # Tipos e interfaces do TypeScript App.tsx # Arquivo principal do React index.tsx # Ponto de entrada do projeto /public index.html # Arquivo HTML principal
 
-- Node.js (v16 ou superior)
-- Yarn (ou npm)
-- MongoDB (local ou Atlas)
+## Tipos de Dados
 
-### Passos para Execução
+O projeto utiliza diversos tipos para estruturar as postagens e destaques. Aqui estão os tipos principais que você vai encontrar no código:
 
-1. **Clone o repositório**:
-   ```bash
-   git clone https://github.com/seu-usuario/ecommerce.git
-   cd ecommerce
-   Configure o back-end:
-   ```
+```typescript
+interface Post {
+  id: string;
+  usuario: string;
+  texto: string;
+  tipo: 'texto' | 'imagem' | 'video' | 'audio';
+  data?: string; // A data da postagem
+}
 
-Acesse a pasta do back-end:
+interface Destaque {
+  id: string;
+  usuario: string;
+  titulo: string;
+  descricao: string;
+  tipo: 'texto' | 'imagem' | 'video' | 'audio';
+  descricao_imagem?: string; // Descrição para IA gerar imagens
+  renderizar: string; // Determina quando o destaque será renderizado
+}
+Postagens e Destaques
+As postagens e os destaques são carregados a partir de arquivos de dados em formato JSON. Eles são renderizados com base nas interações do usuário e na sequência dos atos da história.
 
-bash
-
-cd ecommerce-backend
-Instale as dependências:
-
-bash
-
-yarn install
-Crie um arquivo .env na raiz do back-end e configure as variáveis de ambiente:
-
-env
-
-PORT=5000
-MONGO_URI=sua_string_de_conexao_do_mongodb
-Inicie o servidor:
-
-bash
-
-yarn dev
-Configure o front-end:
-
-Acesse a pasta do front-end:
-
-bash
-
-cd ../ecommerce-frontend
-Instale as dependências:
-
-bash
-
-yarn install
-Inicie o servidor de desenvolvimento:
-
-bash
-
-yarn dev
-Acesse o projeto:
-
-O front-end estará disponível em: http://localhost:5173
-
-O back-end estará disponível em: http://localhost:5000
-
-🌐 Rotas da API
-Produtos
-GET /api/products - Lista todos os produtos.
-
-GET /api/products/:id - Retorna detalhes de um produto específico.
-
-Carrinho
-POST /api/cart - Adiciona um item ao carrinho.
-
-GET /api/cart - Retorna os itens do carrinho.
-
-DELETE /api/cart/:id - Remove um item do carrinho.
-
-🖼️ Screenshots
-Adicione algumas capturas de tela do projeto aqui. Por exemplo:
-
-Página inicial com a listagem de produtos.
-
-Página de detalhes do produto.
-
-Carrinho de compras.
-
-📝 Licença
-Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
-
-🤝 Como Contribuir
-Faça um fork do projeto.
-
-Crie uma branch para sua feature (git checkout -b feature/nova-feature).
-
-Commit suas mudanças (git commit -m 'Adiciona nova feature').
-
-Push para a branch (git push origin feature/nova-feature).
-
-Abra um Pull Request.
-
-🙏 Agradecimentos
-Vite por fornecer um ambiente de desenvolvimento rápido.
-
-Tailwind CSS por facilitar a estilização.
-
-MongoDB por fornecer um banco de dados flexível.
+Exemplo de Postagens
+json
+Copiar
+Editar
+{
+  "usuario": "@gamer_ryan",
+  "texto": "Finalmente platinei Eclipse Online! Depois de 142 horas e 3 rage quits. Nunca mais jogo isso (até lançarem a DLC 😅).",
+  "tipo": "texto",
+  "data": "3 meses atrás"
+}
+Exemplo de Destaques
+json
+Copiar
+Editar
+{
+  "id": "destaque1",
+  "usuario": "gamer_ryan",
+  "titulo": "Top Chefões Injustos",
+  "descricao": "Thread sobre os chefões mais difíceis e injustos dos games.",
+  "tipo": "texto",
+  "renderizar": "inicio_ato_1"
+}
+Licença
+Este projeto está licenciado sob a Licença MIT.
