@@ -1,14 +1,11 @@
-interface MessageProps {
-    sender: string;
-    text: string;
-    timestamp: string;
-  }
+import { MessageType } from "@/types/Message";
   
-  const Message = ({ sender, text, timestamp }: MessageProps) => {
+  const Message = ({ from, content, timestamp }: MessageType) => {
     return (
       <div className="mb-2">
-        <strong>{sender}:</strong> <span>{text}</span>
-        <small className="block text-gray-400 text-xs">{timestamp}</small>
+        <strong>{from}:</strong> <span>{content}</span>
+        <p>{from}</p>
+        <small className="block content-gray-400 content-xs">{timestamp}</small>
       </div>
     );
   };

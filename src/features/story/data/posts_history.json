@@ -51,6 +51,61 @@
     ]
   },
   {
+    "id": "post2",
+    "user": "marcela.art",
+    "content": "Pintando algo novo! 🌌✨ A lua sempre me fascina... Talvez eu a tenha visto em um sonho antes? 🤔",
+    "hour": "2024-12-10T14:00:00",
+    "likes": 357,
+    "comments": [
+      {
+        "id": 1,
+        "user": "artlover123",
+        "content": "A lua é incrível! Adorei a pintura, me fez pensar em tantas coisas!",
+        "hour": "2024-12-10T15:00:00",
+        "likes": 52,
+        "answer": [
+          {
+            "id": 1,
+            "user": "marcela.art",
+            "content": "Obrigada! Fico feliz que tenha gostado! 🌙✨",
+            "hour": "2024-12-10T15:30:00",
+            "likes": 10
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "user": "sonhadora999",
+        "content": "Já teve um sonho com a lua também, é um mistério tão profundo...",
+        "hour": "2024-12-10T16:15:00",
+        "likes": 25
+      }
+    ]
+  },
+    {
+      "id": "post3",
+      "user": "lucas_fitness",
+      "content": "Hoje corri 10km e quase vi minha vida passando diante dos olhos 😂 mas pelo menos estou vivo para postar isso.",
+      "hour": "2025-01-15T09:15:00",
+      "likes": 145,
+      "comments": [
+        {
+          "id": 1,
+          "user": "mariacorrendo",
+          "content": "Isso é incrível! A sensação depois de correr 10km é única!",
+          "hour": "2025-01-15T10:30:00",
+          "likes": 40
+        },
+        {
+          "id": 2,
+          "user": "alex_fit",
+          "content": "Já passei por isso também, mas é sempre gratificante chegar até o final. Parabéns!",
+          "hour": "2025-01-15T11:00:00",
+          "likes": 30
+        }
+      ]
+    },
+  {
     "id": "post4",
     "user": "mirella.music",
     "content": "🎵 Alguém mais percebeu que a letra de Into the Dark da banda Nocturna fala sobre desaparecer sem deixar rastros? Estranho...",
@@ -88,6 +143,71 @@
     ]
   },
   {
+    "id": "post5",
+    "user": "noticias_hoje",
+    "content": "📰 Polícia ainda sem respostas sobre o desaparecimento de estudante universitário há 7 dias. Familiares pedem ajuda. #Desaparecido",
+    "hour": "2025-02-10T07:00:00",
+    "likes": 320,
+    "comments": [
+      {
+        "id": 1,
+        "user": "jornalista_1",
+        "content": "Essa situação é realmente preocupante. Espero que a polícia consiga resolver o caso.",
+        "hour": "2025-02-10T08:00:00",
+        "likes": 18
+      }
+    ]
+  },
+  {
+    "id": "post6",
+    "user": "sebastian_aurora",
+    "content": "Algumas verdades não deveriam ser descobertas. Mas e se já for tarde demais?",
+    "hour": "2025-02-12T16:30:00",
+    "likes": 215,
+    "comments": [
+      {
+        "id": 1,
+        "user": "filosofico_92",
+        "content": "Isso soa como uma reflexão bem profunda sobre o que podemos ou não saber.",
+        "hour": "2025-02-12T17:00:00",
+        "likes": 40
+      }
+    ]
+  },
+  {
+    "id": "post7",
+    "user": "sebastian_aurora",
+    "content": "\"Nem tudo que brilha é ouro, às vezes é apenas um reflexo da escuridão.\"",
+    "hour": "2025-02-14T11:00:00",
+    "likes": 182,
+    "comments": [
+      {
+        "id": 1,
+        "user": "pensador_do_livre",
+        "content": "Essa frase é muito verdadeira. A aparência engana.",
+        "hour": "2025-02-14T12:00:00",
+        "likes": 35
+      }
+    ]
+  },
+  {
+    "id": "post8",
+    "user": "sebastian_aurora",
+    "content": "Os segredos estão nas sombras",
+    "hour": "2025-02-16T20:45:00",
+    "likes": 110,
+    "image": "src/assets/post8.jpg",
+    "comments": [
+      {
+        "id": 1,
+        "user": "caçador_de_histórias",
+        "content": "Eu sempre achei que lugares abandonados guardam histórias esquecidas. Fascinante.",
+        "hour": "2025-02-16T21:30:00",
+        "likes": 28
+      }
+    ]
+  },
+  {
     "id": "post9",
     "user": "sebastian_aurora",
     "content": "Se eu desaparecer, não foi um acidente.",
@@ -121,6 +241,14 @@
             "hour": "2025-02-18T18:35:00"
           }
         ]
+      },
+      {
+        "id": "post10",
+        "user": "sebastian_aurora",
+        "content": "O tempo está acabando. Eu tentei avisar. ⏳ #Sombras",
+        "hour": "2025-02-20T22:15:00",
+        "likes": 300,
+        "comments": []
       }
     ]
   }

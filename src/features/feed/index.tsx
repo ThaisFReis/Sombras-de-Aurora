@@ -12,15 +12,6 @@ export const Feed = () => {
         {posts.map((post) => (
           <div key={post.id}>
             <PostCard post={post} />
-            
-            {/* Verifica se há comentários antes de renderizar */}
-            {post.comments?.length > 0 && (
-              <div className="mt-4 pl-6 border-l border-gray-300">
-                {post.comments.map((comment) => (
-                  <CommentCard key={comment.id} comment={comment} />
-                ))}
-              </div>
-            )}
           </div>
         ))}
       </div>

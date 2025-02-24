@@ -5,6 +5,7 @@ export type PostType = {
     hour: string;
     comments?: CommentType[];
     likes?: number;
+    image?: string;
 };
 
 export type CommentType = {

@@ -31,6 +31,17 @@ export const PostCard = ({ post }: { post: PostType }) => {
         </div>
       </div>
 
+      {/* Imagem do post, se houver */}
+      {post.image && (
+        <div className="mb-3">
+          <img
+            src={post.image}
+            alt="Imagem do post"
+            className="w-[350px] h-[350px] object-cover rounded-lg mx-auto"
+          />
+        </div>
+      )}
+
       {/* Conteúdo do post */}
       <p className="text-sm text-gray-700 mb-3 leading-relaxed">{post.content}</p>
 

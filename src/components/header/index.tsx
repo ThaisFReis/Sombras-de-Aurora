@@ -3,10 +3,8 @@ import { MagnifyingGlassIcon, Cog6ToothIcon } from "@heroicons/react/24/solid";
 export const Header = () => {
   return (
     <header className="flex items-center w-full bg-[#a4a4a4] p-4 justify-between text-gray-700 shadow">
-      {/* Nome do jogo (anagrama de "Thais Ferreira Reis") */}
       <h1 className="text-xl font-bold">
-        StarfireHeirAries
-        Sr
+      Sombras de Aurora
       </h1>
 
       {/* Barra de busca */}
