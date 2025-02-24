@@ -1,30 +1,25 @@
 export type PostType = {
-    id: number;
-    username: string;
-    userImage: string;
-    alt: string;
-    postImage?: string;
-    postCaption?: string;
-    likes?: number;
+    id: string | number;
+    user: string;
+    content: string;
+    hour: string;
     comments?: CommentType[];
-    time: string;
+    likes?: number;
 };
 
 export type CommentType = {
     id: number;
-    username: string;
-    userImage: string;
-    alt: string;
-    comment: string;
-    time: string;
+    user: string;
+    content: string;
+    hour: string;
     answer?: AnswerType[];
-  };
+    likes?: number;
+};
 
 export type AnswerType = {
     id: number;
-    username: string;
-    userImage: string;
-    alt: string;
-    comment: string;
-    time: string;
+    user: string;
+    content: string;
+    hour: string;
+    likes?: number;
 };
