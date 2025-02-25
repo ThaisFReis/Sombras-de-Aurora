@@ -1,6 +1,6 @@
 import { CharacterType } from "@/types/Character";
 import CarolineAvatar from "@/assets/characters/caroline/caroline1.jpeg"
-
+import RyanAvatar from "@/assets/characters/ryan/download20250202023601.png";
 // Modelo
 // export const Characters: CharacterType[] = [
 //     {
@@ -26,7 +26,7 @@ export const CharactersData: CharacterType[] = [
       id: "1",
       name: "Ryan Brooks",
       user: "@gamer_ryan",
-      avatar: "",
+      avatar: RyanAvatar,
       bio: "🎮 Platinei jogos que você nunca terminou. Cuidado com os chefões, mas mais ainda com os spoilers.",
     },
     {
