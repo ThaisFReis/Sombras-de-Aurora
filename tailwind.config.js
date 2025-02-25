@@ -15,9 +15,11 @@ export default {
     },
     colors: {
       background: "#E8E6E3",
-
-      // Cores de texto
       gray: "#303436",
+      black: "#000000",
+      white: "#FFFFFF",
+      messageReceived: "#ccd0ff",
+      messageSent: "#d3d3d3",
     },
     extend: {
       fontFamily: {

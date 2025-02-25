@@ -1,26 +1,39 @@
 export type PostType = {
-    id: string | number;
-    user: string;
+    id: string;
+    userId: string;
     content: string;
-    hour: string;
-    comments?: CommentType[];
-    likes?: number;
+    timestamp: string;
+    comments: CommentType[];
+    likes: number;
     image?: string;
+    type: "text" | "image" | "video";
+    trigger?: {
+        type: "choice" | "progress" | "time";
+        condition: string;
+    };
 };
 
 export type CommentType = {
-    id: number;
-    user: string;
+    id: string;
+    userId: string;
     content: string;
-    hour: string;
-    answer?: AnswerType[];
-    likes?: number;
+    timestamp: string;
+    replies: ReplyType[];
+    likes: number;
+    trigger?: {
+        type: "choice" | "progress" | "time";
+        condition: string;
+    };
 };
 
-export type AnswerType = {
-    id: number;
-    user: string;
+export type ReplyType = {
+    id: string;
+    userId: string;
     content: string;
-    hour: string;
-    likes?: number;
+    timestamp: string;
+    likes: number;
+    trigger?: {
+        type: "choice" | "progress" | "time";
+        condition: string;
+    };
 };

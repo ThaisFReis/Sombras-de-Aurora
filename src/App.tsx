@@ -4,6 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import MainLayout from "@/layouts/MainLayout";
 import { Home } from "@/pages/Home";
+import { Perfil } from "./pages/Perfil";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route element={<MainLayout />}>
           <Route path="" element={<Home />} />
+          <Route path="/perfil/:userId" element={<Perfil />} />
          </Route>
       </Routes>
     </main>

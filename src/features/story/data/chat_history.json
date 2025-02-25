@@ -1,0 +1,15 @@
+[
+  {
+    "id": 1,
+    "name": null,
+    "characters": [
+      {
+        "id_character": 1
+      },
+      {
+        "id_character": 2
+      }
+    ],
+    "messages": ""
+  }
+]

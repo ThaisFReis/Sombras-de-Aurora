@@ -1,6 +1,13 @@
 export type MessageType = {
-    from: string; // O user do personagem que enviou a mensagem
-    content: string; // O conteúdo da mensagem
-    timestamp: string; // O timestamp da mensagem
+  id: string;
+  chatId: string;
+  senderId: string;
+  content: string;
+  timestamp: string;
+  isRead?: boolean;
+  type: "text" | "image" | "video";
+  trigger?: {
+      type: "choice" | "progress" | "time"; // Tipo de gatilho
+      condition: string; // Condição específica (ex: "após escolha X")
   };
-  
+};

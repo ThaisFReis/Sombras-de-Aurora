@@ -1,8 +1,9 @@
-export type Choice = {
-    texto: string; // Texto exibido para o jogador
-    efeito: {
-      confiança_amigos: number; // Alteração na confiança dos amigos, pode ser positivo ou negativo
-      relacionamento_amigos: string; // Descrição do relacionamento após a escolha
-    };
+export type ChoiceType = {
+  id: string; // Identificador único da escolha
+  text: string; // Texto da escolha exibido ao jogador
+  nextEvent?: string; // Evento que será disparado após essa escolha
+  consequences?: {
+      trustChange?: number; // Mudança na confiança de um personagem
+      unlock?: string[]; // IDs de mensagens, posts ou comentários que serão desbloqueados
   };
-  
+};

@@ -4,7 +4,7 @@ import { ChatProvider } from "@/context/ChatContext";
 
 export const Home = () => {
   return (
-    <div className="flex flex-row items-center w-screen min-h-screen p-2 gap-2">
+    <div className="flex items-center w-screen min-h-screen p-2 bg-gradient-to-r from-[#dddeeb] to-[#ccd0ff]">
       <Feed />
       <ChatProvider>
         <Chat />
