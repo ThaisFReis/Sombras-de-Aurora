@@ -10,9 +10,7 @@ export const Feed = () => {
   });
 
   return (
-    <div className="min-h-screen flex justify-center items-start py-8 px-4">
-      {/* Container centralizado para o feed */}
-      <div className="w-full max-w-2xl space-y-6">
+      <div className="w-full space-y-6">
         {sortedPosts.map((post) => {
           // Busca o personagem correspondente ao userId do post
           const character = CharactersData.find((char) => char.id === post.userId);
@@ -27,6 +25,5 @@ export const Feed = () => {
           );
         })}
       </div>
-    </div>
   );
 };

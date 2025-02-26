@@ -307,8 +307,315 @@ const postsRyan: PostType[] = [
   },
 ];
 
+const postsMarcela: PostType[] = [
+  {
+    id: "post1",
+    userId: "2", // ID da Marcela
+    content: "Acabei de terminar essa ilustração inspirada em um sonho que tive. Era um mundo flutuante com árvores que brilhavam no escuro. Alguém mais já desenhou algo inspirado em sonhos? 🌌🎨 #Arte #Sonhos",
+    timestamp: "2023-10-01T10:00:00Z",
+    comments: [
+      {
+        id: "comment1",
+        userId: "1", // ID de outro personagem (ex: Ryan)
+        content: "Que incrível, Marcela! Eu adoraria ver essa ilustração. Posta uma foto! 😊",
+        timestamp: "2023-10-01T10:15:00Z",
+        replies: [
+          {
+            id: "reply1",
+            userId: "2", // Resposta da Marcela
+            content: "Obrigada, Ryan! Acabei de postar a imagem aqui. Espero que goste! 🎨",
+            timestamp: "2023-10-01T10:20:00Z",
+            likes: 2,
+          },
+        ],
+        likes: 3,
+      },
+      {
+        id: "comment2",
+        userId: "3", // ID de outro personagem (ex: Lucas)
+        content: "Sonhos são uma fonte incrível de inspiração. Adorei a ideia das árvores brilhantes! 🌟",
+        timestamp: "2023-10-01T10:30:00Z",
+        replies: [],
+        likes: 1,
+      },
+    ],
+    likes: 10,
+    image: "https://example.com/ilustracao-sonho.jpg", // URL da ilustração
+    type: "image",
+  },
+  {
+    id: "post2",
+    userId: "2",
+    content: "Às vezes, sinto que a arte é a única maneira de expressar o que as palavras não conseguem capturar. Alguém mais se identifica? 🎨✨ #Reflexão #Arte",
+    timestamp: "2023-10-05T14:00:00Z",
+    comments: [
+      {
+        id: "comment3",
+        userId: "4", // ID de outro personagem (ex: Mirella)
+        content: "Totalmente! A música é assim pra mim também. A arte transcende a linguagem. 🎵",
+        timestamp: "2023-10-05T14:15:00Z",
+        replies: [
+          {
+            id: "reply2",
+            userId: "2", // Resposta da Marcela
+            content: "Exato, Mirella! A arte e a música têm esse poder mágico. 🎶",
+            timestamp: "2023-10-05T14:20:00Z",
+            likes: 5,
+          },
+        ],
+        likes: 4,
+      },
+    ],
+    likes: 8,
+    type: "text",
+  },
+  {
+    id: "post3",
+    userId: "2",
+    content: "Inspirada pelo outono, criei essa ilustração de uma floresta com folhas douradas. O que acham? 🍂🎨 #Arte #Outono",
+    timestamp: "2023-10-10T09:00:00Z",
+    comments: [
+      {
+        id: "comment4",
+        userId: "5", // ID de outro personagem (ex: Notícias Hoje)
+        content: "Que linda, Marcela! As cores estão incríveis. 😍",
+        timestamp: "2023-10-10T09:15:00Z",
+        replies: [
+          {
+            id: "reply3",
+            userId: "2", // Resposta da Marcela
+            content: "Obrigada! Fiquei horas escolhendo as cores certas. 🎨",
+            timestamp: "2023-10-10T09:20:00Z",
+            likes: 3,
+          },
+        ],
+        likes: 6,
+      },
+      {
+        id: "comment5",
+        userId: "6", // ID de outro personagem (ex: Clima Agora)
+        content: "Adorei o clima aconchegante da ilustração. Me deu vontade de tomar um chocolate quente! ☕",
+        timestamp: "2023-10-10T09:25:00Z",
+        replies: [],
+        likes: 4,
+      },
+    ],
+    likes: 12,
+    image: "https://example.com/floresta-outono.jpg", // URL da ilustração
+    type: "image",
+  },
+  {
+    id: "post4",
+    userId: "2",
+    content: "Alguém mais já teve a sensação de que os sonhos são como portas para outros universos? Às vezes, acordo com a mente cheia de ideias malucas. 🌌💭 #Sonhos #Inspiração",
+    timestamp: "2023-10-15T18:00:00Z",
+    comments: [
+      {
+        id: "comment6",
+        userId: "7", // ID de outro personagem (ex: Sebastian)
+        content: "Sim! Eu sempre anoto meus sonhos. Eles são uma mina de ouro para histórias. 📖",
+        timestamp: "2023-10-15T18:15:00Z",
+        replies: [
+          {
+            id: "reply4",
+            userId: "2", // Resposta da Marcela
+            content: "Que legal, Sebastian! Eu também tenho um caderno só para isso. ✍️",
+            timestamp: "2023-10-15T18:20:00Z",
+            likes: 7,
+          },
+        ],
+        likes: 5,
+      },
+    ],
+    likes: 15,
+    type: "text",
+  },
+  {
+    id: "post5",
+    userId: "2",
+    content: "Hoje eu me desafiei a desenhar algo completamente fora da minha zona de conforto. Foi assustador, mas também libertador. Alguém mais já fez isso? 🎨✨ #Desafio #Arte",
+    timestamp: "2023-10-20T09:00:00Z",
+    comments: [
+      {
+        id: "comment7",
+        userId: "8", // ID de outro personagem (ex: Aaron)
+        content: "Já tentei, mas sempre volto para o que conheço. Parabéns pela coragem! 👏",
+        timestamp: "2023-10-20T09:15:00Z",
+        replies: [
+          {
+            id: "reply5",
+            userId: "2", // Resposta da Marcela
+            content: "Obrigada, Aaron! Foi difícil, mas valeu a pena. 🎨",
+            timestamp: "2023-10-20T09:20:00Z",
+            likes: 2,
+          },
+        ],
+        likes: 5,
+      },
+    ],
+    likes: 14,
+    type: "text",
+  },
+];
+
+import { PostType } from "@/types/Post";
+
+const postsLucas: PostType[] = [
+  {
+    id: "post1",
+    userId: "3", // ID do Lucas
+    content: "Hoje foi dia de perna! 💪 Fiz um treino pesado de agachamento e levantamento terra. Quem mais ama treinar perna? 🏋️‍♂️ #Fitness #Treino",
+    timestamp: "2023-10-01T18:00:00Z",
+    comments: [
+      {
+        id: "comment1",
+        userId: "1", // ID de outro personagem (ex: Ryan)
+        content: "Treino de perna é osso, mas vale a pena! 💀",
+        timestamp: "2023-10-01T18:15:00Z",
+        replies: [
+          {
+            id: "reply1",
+            userId: "3", // Resposta do Lucas
+            content: "Com certeza, Ryan! No pain, no gain. 💪",
+            timestamp: "2023-10-01T18:20:00Z",
+            likes: 2,
+          },
+        ],
+        likes: 3,
+      },
+      {
+        id: "comment2",
+        userId: "2", // ID de outro personagem (ex: Marcela)
+        content: "Eu prefiro treinar braço, mas admiro quem aguenta perna! 👏",
+        timestamp: "2023-10-01T18:30:00Z",
+        replies: [],
+        likes: 1,
+      },
+    ],
+    likes: 12,
+    image: "https://example.com/treino-perna.jpg", // URL da imagem do treino
+    type: "image",
+  },
+  {
+    id: "post2",
+    userId: "3",
+    content: "Dica do dia: Não pule o café da manhã! Ele é essencial para dar energia pro treino. O meu hoje foi ovos, aveia e uma fruta. 🍳🥣🍌 #Alimentação #Fitness",
+    timestamp: "2023-10-05T08:00:00Z",
+    comments: [
+      {
+        id: "comment3",
+        userId: "4", // ID de outro personagem (ex: Mirella)
+        content: "Adoro café da manhã reforçado! Mas e os hambúrgueres, Lucas? 🍔",
+        timestamp: "2023-10-05T08:15:00Z",
+        replies: [
+          {
+            id: "reply2",
+            userId: "3", // Resposta do Lucas
+            content: "Hahaha, hambúrguer é no cheat day, Mirella! Tudo com equilíbrio. 😉",
+            timestamp: "2023-10-05T08:20:00Z",
+            likes: 5,
+          },
+        ],
+        likes: 4,
+      },
+    ],
+    likes: 8,
+    type: "text",
+  },
+  {
+    id: "post3",
+    userId: "3",
+    content: "Desafio aceito: 30 dias de abdominais! Quem topa fazer comigo? 💪🔥 #Desafio #Fitness",
+    timestamp: "2023-10-10T12:00:00Z",
+    comments: [
+      {
+        id: "comment4",
+        userId: "5", // ID de outro personagem (ex: Notícias Hoje)
+        content: "Eu topo! Mas só se você postar updates diários. 😄",
+        timestamp: "2023-10-10T12:15:00Z",
+        replies: [
+          {
+            id: "reply3",
+            userId: "3", // Resposta do Lucas
+            content: "Combinado! Vou postar todo dia. 💪",
+            timestamp: "2023-10-10T12:20:00Z",
+            likes: 3,
+          },
+        ],
+        likes: 6,
+      },
+      {
+        id: "comment5",
+        userId: "6", // ID de outro personagem (ex: Clima Agora)
+        content: "Eu vou tentar, mas não prometo nada depois do dia 5. 😅",
+        timestamp: "2023-10-10T12:25:00Z",
+        replies: [],
+        likes: 4,
+      },
+    ],
+    likes: 15,
+    type: "text",
+  },
+  {
+    id: "post4",
+    userId: "3",
+    content: "Hoje foi dia de cardio! Corri 10 km e terminei com essa vista incrível. 🏃‍♂️🌅 Quem mais gosta de correr ao ar livre? #Cardio #Fitness",
+    timestamp: "2023-10-15T07:00:00Z",
+    comments: [
+      {
+        id: "comment6",
+        userId: "7", // ID de outro personagem (ex: Sebastian)
+        content: "Eu prefiro a esteira, mas essa vista é de cair o queixo! 👏",
+        timestamp: "2023-10-15T07:15:00Z",
+        replies: [
+          {
+            id: "reply4",
+            userId: "3", // Resposta do Lucas
+            content: "Vale a pena experimentar correr ao ar livre, Sebastian! 😊",
+            timestamp: "2023-10-15T07:20:00Z",
+            likes: 7,
+          },
+        ],
+        likes: 5,
+      },
+    ],
+    likes: 18,
+    image: "https://example.com/cardio-vista.jpg", // URL da imagem da corrida
+    type: "image",
+  },
+  {
+    id: "post5",
+    userId: "3",
+    content: "Cheat day chegou! Hoje é dia de hambúrguer artesanal e batata frita. 🍔🍟 Vocês também têm um dia da semana pra relaxar na dieta? #CheatDay #Fitness",
+    timestamp: "2023-10-20T19:00:00Z",
+    comments: [
+      {
+        id: "comment7",
+        userId: "8", // ID de outro personagem (ex: Aaron)
+        content: "Cheat day é sagrado! Hoje foi pizza pra mim. 🍕",
+        timestamp: "2023-10-20T19:15:00Z",
+        replies: [
+          {
+            id: "reply5",
+            userId: "3", // Resposta do Lucas
+            content: "Hahaha, pizza também é uma ótima escolha! 😋",
+            timestamp: "2023-10-20T19:20:00Z",
+            likes: 2,
+          },
+        ],
+        likes: 5,
+      },
+    ],
+    likes: 14,
+    image: "https://example.com/cheat-day.jpg", // URL da imagem do hambúrguer
+    type: "image",
+  },
+];
+
 // Lista de posts disponíveis
 export const posts: PostType[] = [
     ...postsCaroline,
-    ...postsRyan
+    ...postsRyan,
+    //...postsMarcela,
+    //...postsLucas,
 ];

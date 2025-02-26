@@ -1,4 +1,4 @@
-import { Header } from "@/components/header";
+import { Sidebar } from "@/components/Sidebar";
 
 import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
@@ -10,8 +10,8 @@ type MainLayoutProps = {
 
 const MainLayout = ({ children }: MainLayoutProps) => {
   return (
-    <div className="h-screen w-screen">
-      <Header />
+    <div className="min-h-screen w-screen flex bg-gradient-to-r from-[#dddeeb] to-[#ccd0ff]">
+      <Sidebar />
       <div className="">
       <Suspense>
       {children ?? <Outlet />}
