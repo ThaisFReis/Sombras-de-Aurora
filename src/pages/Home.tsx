@@ -1,11 +1,11 @@
-import { Chat } from "@/pages/Chat";
 import { Feed } from "@/features/feed";
-import { ChatProvider } from "@/context/ChatContext";
+import { ProgressBar } from "@/components/ProgressBar";
 
 export const Home = () => {
   return (
-    <div className="flex items-center w-full min-h-screen p-2">
+    <div className="flex w-full min-h-screen justify-evenly space-y-4">
       <Feed />
+      <ProgressBar />
     </div>
   );
 };

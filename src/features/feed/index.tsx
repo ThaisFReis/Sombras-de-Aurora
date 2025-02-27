@@ -1,4 +1,3 @@
-import { PostType } from "@/types/Post";
 import { CharactersData } from "@/data/CharactersData";
 import { posts } from "@/data/PostData";
 import { PostCard } from "./components/PostCard";
@@ -10,7 +9,7 @@ export const Feed = () => {
   });
 
   return (
-      <div className="w-full space-y-6">
+      <div className="space-y-6 py-6 absolute left-44">
         {sortedPosts.map((post) => {
           // Busca o personagem correspondente ao userId do post
           const character = CharactersData.find((char) => char.id === post.userId);

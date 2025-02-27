@@ -616,6 +616,6 @@ const postsLucas: PostType[] = [
 export const posts: PostType[] = [
     ...postsCaroline,
     ...postsRyan,
-    //...postsMarcela,
+    ...postsMarcela,
     //...postsLucas,
 ];
