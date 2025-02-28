@@ -2,7 +2,7 @@
 
 export const ChatHeader = () => {
   return (
-    <div className="flex items-center justify-between p-2 ">
+    <div className="flex items-center justify-between p-2 bg-lightGray ">
           <input
             type="text"
             placeholder="Pesquisar..."

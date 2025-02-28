@@ -1,5 +1,4 @@
-import { CharacterType } from "./Character";
-import { MessageType } from "./Message";
+;import { MessageType } from "./Message";
 
 export type ChatType = {
   id: string; // Identificador único do chat
