@@ -9,7 +9,7 @@ export const Feed = () => {
   });
 
   return (
-      <div className="space-y-6 py-6 absolute left-44">
+      <div className="space-y-6 py-6">
         {sortedPosts.map((post) => {
           // Busca o personagem correspondente ao userId do post
           const character = CharactersData.find((char) => char.id === post.userId);

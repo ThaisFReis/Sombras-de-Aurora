@@ -9,7 +9,7 @@ export default {
   theme: {
     screens: {
       mobile: "410px",
-      tablet: "768px",
+      tablet: "783px",
       laptop: "1024px",
       desktop: "1280px",
     },

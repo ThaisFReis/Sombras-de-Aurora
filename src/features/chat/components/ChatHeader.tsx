@@ -1,4 +1,5 @@
-import { XMarkIcon, MagnifyingGlassIcon } from "@heroicons/react/24/solid";
+import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
+import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded';
 
 export const ChatHeader = ({
   onClose,
@@ -23,7 +24,7 @@ export const ChatHeader = ({
       <div className="flex items-center gap-2">
         {/* Input de pesquisa */}
         <div className="relative">
-          <MagnifyingGlassIcon className="w-4 h-4 absolute left-2 top-2 text-gray-200" />
+          <ArrowBackIosRoundedIcon className="w-4 h-4 absolute left-2 top-2 text-gray" />
           <input
             type="text"
             placeholder="Pesquisar..."
@@ -33,7 +34,7 @@ export const ChatHeader = ({
 
         {/* Botão para minimizar/fechar o chat */}
         <button onClick={onClose} title="Minimizar chat">
-          <XMarkIcon className="w-5 h-5" />
+          <CloseRoundedIcon className="w-5 h-5 text-gray" />
         </button>
       </div>
     </div>

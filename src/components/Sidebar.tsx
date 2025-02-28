@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 export const Sidebar = () => {
   return (
     <div
-      className="fixed top-0 left-0 h-screen w-fit bg-white flex flex-col items-center rounded-r-xl rounded-br-xl shadow-sm p-6 gap-10"
+      className="fixed top-0 left-0 h-screen w-[100px] bg-white flex flex-col items-center rounded-r-xl rounded-br-xl shadow-sm p-6 gap-10"
     >
       <Link to={"/"} className="mt-0 mb-auto">
         <Icon src={icon_ic} width={26} height={26} />

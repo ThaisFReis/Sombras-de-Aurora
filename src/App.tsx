@@ -4,7 +4,8 @@ import "react-toastify/dist/ReactToastify.css";
 
 import MainLayout from "@/layouts/MainLayout";
 import { Home } from "@/pages/Home";
-import { Perfil } from "./pages/Perfil";
+import { Perfil } from "@/pages/Perfil";
+import { Chat } from "@/pages/Chat";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route element={<MainLayout />}>
           <Route path="" element={<Home />} />
           <Route path="/perfil/:userId" element={<Perfil />} />
+          <Route path="/chat" element={<Chat />} />
          </Route>
       </Routes>
     </main>

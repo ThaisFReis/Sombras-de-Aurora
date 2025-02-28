@@ -18,7 +18,7 @@ export const Highlights = ({ userId }: { userId: string }) => {
   );
 
   return (
-    <div className="flex w-[550px] ml-14 items-center justify-between p-2 rounded-lg">
+    <div className="flex w-[550px] items-center justify-between p-2 rounded-lg">
       {characterHighlights?.content.map((highlight) => (
         <div
           className="bg-white rounded-lg w-[156px] h-[156px] cursor-pointer shadow-sm hover:shadow-lg hover:shadow-[#969ef592] flex items-center"
