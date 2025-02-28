@@ -32,7 +32,7 @@ export const Perfil = () => {
   });
 
   return (
-    <div className="grid grid-cols-2 items-center w-full min-h-screen py-6">
+    <div className="w-full min-h-screen flex justify-between py-6">
       {/* Card do Perfil */}
       <div className="flex flex-col space-y-6 items-center">
         <div className="bg-white rounded-lg flex flex-col shadow-md w-[550px] h-fit p-4 items-center justify-center">

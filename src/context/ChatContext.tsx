@@ -2,7 +2,7 @@ import { createContext, useContext, useState } from "react";
 import { ChatType } from "@/types/Chat";
 
 type ChatContextType = {
-  activeConversation: ChatType | null; // Agora armazenamos a conversa inteira
+  activeConversation: ChatType | null;
   setActiveConversation: (chat: ChatType | null) => void;
 };
 

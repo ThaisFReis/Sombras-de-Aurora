@@ -20,6 +20,7 @@ export default {
       white: "#FFFFFF",
       messageReceived: "#ccd0ff",
       messageSent: "#d3d3d3",
+      lightGray: "#DDDEEB"
     },
     extend: {
       fontFamily: {

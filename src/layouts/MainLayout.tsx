@@ -1,6 +1,7 @@
 import { Sidebar } from "@/components/Sidebar";
 import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
+import { ChatProvider } from "@/context/ChatContext"; // Importe o ChatProvider
 
 type MainLayoutProps = {
   children?: React.ReactNode;
@@ -8,11 +9,13 @@ type MainLayoutProps = {
 
 const MainLayout = ({ children }: MainLayoutProps) => {
   return (
-    <div className="h-screen w-screen flex justify-between">
-      <Sidebar /> {/* Sidebar fixa no canto esquerdo */}
-      <div className="ml-56 flex-1"> {/* Margem à esquerda para evitar sobreposição */}
+    <div className="min-h-screen w-screen flex bg-gradient-to-r from-[#dddeeb] to-[#ccd0ff]">
+      <Sidebar />
+      <div className="ml-64 flex-1">
         <Suspense>
-          {children ?? <Outlet />}
+          <ChatProvider> {/* Envolva o conteúdo com ChatProvider */}
+            {children ?? <Outlet />}
+          </ChatProvider>
         </Suspense>
       </div>
     </div>
