@@ -1,9 +1,9 @@
-export const highlightHashtags = (text: string) => {
+export const highlightHashtags = (text: string, hashtagColor: string) => {
   // Regex para encontrar hashtags com caracteres especiais
   const hashtagRegex = /#[^\s#]+/g;
 
-  // Substitui as hashtags por um span com a cor #969EF5
+  // Substitui as hashtags por um span com a cor do tema
   return text.replace(hashtagRegex, (match) => {
-    return `<span style="color: #969EF5;">${match}</span>`;
+    return `<span class="${hashtagColor}">${match}</span>`;
   });
 };

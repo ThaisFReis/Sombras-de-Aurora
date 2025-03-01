@@ -1,24 +1,29 @@
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { ThemeProvider } from "@/context/ThemeContext"; // Importe o ThemeProvider
 
 import MainLayout from "@/layouts/MainLayout";
 import { Home } from "@/pages/Home";
 import { Perfil } from "@/pages/Perfil";
 import { Chat } from "@/pages/Chat";
+import { Settings } from "@/pages/Settings"; // Importe a página de Settingsurações
 
 function App() {
   return (
-    <main>
-      <ToastContainer />
-      <Routes>
-        <Route element={<MainLayout />}>
-          <Route path="" element={<Home />} />
-          <Route path="/perfil/:userId" element={<Perfil />} />
-          <Route path="/chat" element={<Chat />} />
-         </Route>
-      </Routes>
-    </main>
+    <ThemeProvider> {/* Envolva toda a aplicação com ThemeProvider */}
+      <main>
+        <ToastContainer />
+        <Routes>
+          <Route element={<MainLayout />}>
+            <Route path="" element={<Home />} />
+            <Route path="/perfil/:userId" element={<Perfil />} />
+            <Route path="/chat" element={<Chat />} />
+            <Route path="/Settings" element={<Settings />} /> {/* Rota para Settingsurações */}
+          </Route>
+        </Routes>
+      </main>
+    </ThemeProvider>
   );
 }
 

@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, CSSProperties } from "react"; // Importe CSSProperties
 import { Link } from "react-router-dom";
 import { Icon } from "@/components/ui/Icon";
 
@@ -11,6 +11,7 @@ type CardProps = {
   actions?: ReactNode;
   children?: ReactNode;
   classname?: string;
+  style?: CSSProperties; // Adicione a propriedade style
 };
 
 export const Card = ({
@@ -21,10 +22,14 @@ export const Card = ({
   content,
   actions,
   children,
-  classname
+  classname,
+  style, // Adicione a propriedade style
 }: CardProps) => {
   return (
-    <div className={`bg-white rounded-lg flex flex-col ${classname}`}>
+    <div
+      className={`bg-white rounded-lg flex flex-col ${classname}`}
+      style={style} // Aplique o estilo
+    >
       <div className="flex">
         {/* Avatar */}
         <div className="w-[70px] flex justify-start items-start">

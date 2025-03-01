@@ -2,6 +2,8 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // Estilos do carousel
 import { Icon } from "@/components/ui/Icon";
 import { highlightHashtags } from "@/components/ui/Hashtags";
+import { useTheme } from "@/context/ThemeContext"; // Importe o useTheme
+import { themes } from "@/utils/themes";
 
 interface HighlightModalProps {
   isOpen: boolean;
@@ -21,18 +23,26 @@ export const HighlightModal = ({
   onClose,
   highlight,
 }: HighlightModalProps) => {
+  const { theme } = useTheme(); // Acesse o tema atual
+  const currentTheme = themes[theme]; // Obtenha as cores do tema atual
+
   if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 z-50">
-      <div className="bg-white rounded-lg w-[600px] h-[540px] p-6 relative">
+      <div
+        className="rounded-lg w-[600px] h-[540px] p-6 relative"
+        style={{ backgroundColor: currentTheme.cardBackground }} // Aplica a cor de fundo do tema
+      >
         <button
           onClick={onClose}
           className="absolute top-2 right-2 text-gray-700 hover:text-gray"
         >
           &times;
         </button>
-        <h2 className="text-xl font-bold mb-4">{highlight.title}</h2>
+        <h2 className="text-xl font-bold mb-4" style={{ color: currentTheme.textPrimary }}>
+          {highlight.title}
+        </h2>
         <Carousel showThumbs={false} showStatus={false}>
           {highlight.posts.map((post, index) => (
             <div key={index} className="text-center">
@@ -45,9 +55,10 @@ export const HighlightModal = ({
               )}
               {post.text && (
                 <p
-                  className="text-sm text-gray font-medium leading-relaxed"
+                  className="text-sm font-medium leading-relaxed"
+                  style={{ color: currentTheme.textSecondary }}
                   dangerouslySetInnerHTML={{
-                    __html: highlightHashtags(post.text),
+                    __html: highlightHashtags(post.text, currentTheme.hashtag),
                   }}
                 />
               )}

@@ -56,7 +56,7 @@ export const Chat = () => {
   }
 
   return (
-    <div className="bg-white rounded-lg flex flex-col shadow-md w-[550px] h-[550px] items-center justify-center mt-6 p-6">
+    <div className="bg-white rounded-lg flex flex-col shadow-md w-[550px] h-[550px] items-center justify-center my-[75px] p-6">
       {/* Campo de busca */}
       <div className="w-full mb-4 flex items-center justify-center">
         <Input
@@ -81,7 +81,7 @@ export const Chat = () => {
       {/* Conversa ativa (exibida quando uma conversa é selecionada) */}
       {activeConversation && (
         <div className="flex-1 flex flex-col w-full">
-          <div className="p-2 border-b border-gray-200 flex justify-end">
+          <div className="p-2 flex justify-end">
             <button
               onClick={handleBackToHistory}
               className="bg-gray-300 text-gray-700 px-2 py-1 rounded text-sm"

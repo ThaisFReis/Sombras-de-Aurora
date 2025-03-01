@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { highlightsData } from "@/data/HighlightsData";
-import { HighlightModal } from "./HighlightModal";
+import { HighlightModal } from "./ui/HighlightModal";
+import { useTheme } from "@/context/ThemeContext"; // Importe o useTheme
+import { themes } from "@/utils/themes";
 
 export const Highlights = ({ userId }: { userId: string }) => {
   const [selectedHighlight, setSelectedHighlight] = useState<{
@@ -12,23 +14,29 @@ export const Highlights = ({ userId }: { userId: string }) => {
     }[];
   } | null>(null);
 
+  const { theme } = useTheme(); // Acesse o tema atual
+  const currentTheme = themes[theme]; // Obtenha as cores do tema atual
+
   // Filtra os destaques do personagem
   const characterHighlights = highlightsData.find(
     (post) => post.userId === userId
   );
 
   return (
-    <div className="flex w-[550px] items-center justify-between p-2 rounded-lg">
+    <div className="flex w-[550px] items-center justify-between p-2">
       {characterHighlights?.content.map((highlight) => (
         <div
-          className="bg-white rounded-lg w-[156px] h-[156px] cursor-pointer shadow-sm hover:shadow-lg hover:shadow-[#969ef592] flex items-center"
           key={highlight.id}
+          className={`bg-white rounded-lg w-[156px] h-[156px] cursor-pointer shadow-sm hover:shadow-lg ${currentTheme.cardHover} flex items-center`}// Aplica a cor de fundo do tema
           onClick={() => setSelectedHighlight(highlight)}
         >
           <div
-            className="flex items-center w-full h-full rounded-lg justify-center bg-white"
+            className="flex items-center w-full h-full rounded-lg justify-center"
+            style={{ backgroundColor: currentTheme.cardBackground }} // Aplica a cor de fundo do tema
           >
-            <p className="font-semibold text-center text-pretty px-2 py-1 rounded w-full h-full items-center justify-center flex hover:text-[#969EF5] transition-colors hover:border-[#c8cdfc] border border-white">
+            <p
+              className={`font-semibold text-center text-pretty px-2 py-1 rounded w-full h-full items-center justify-center flex transition-colors border ${currentTheme.highlightHover}`}
+            >
               {highlight.title}
             </p>
           </div>

@@ -34,7 +34,7 @@ export const ChatBox = ({ chat, character }: ChatBoxProps) => {
   const hasTrustField = character && "trust" in character;
 
   return (
-    <div className="w-full h-96 bg-white rounded shadow p-4 overflow-y-auto flex flex-col" ref={messagesContainerRef}>
+    <div className="w-full h-96 bg-white rounded p-4 overflow-y-auto flex flex-col" ref={messagesContainerRef}>
       <h2 className="text-lg font-bold mb-4">{chat.name}</h2>
 
       {/* Exibe a mensagem de erro se o personagem não tiver o campo "trust" */}
