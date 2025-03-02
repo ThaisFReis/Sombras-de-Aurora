@@ -1,120 +1,185 @@
+import tema1 from "@/assets/temas/Tema_1.svg";
+import tema1Dark from "@/assets/temas/Tema_1_dark.svg";
+import tema2 from "@/assets/temas/Tema_2.svg";
+import tema3 from "@/assets/temas/Tema_3.svg";
+import tema5 from "@/assets/temas/Tema_5.svg";
+import tema9 from "@/assets/temas/Tema_9.svg";
+
 export const themes = {
   // Tema Principal (Light Mode)
   default: {
-    cardBackground: "bg-[#FFF]",
-    cardHover: "shadow-[#969ef592]",
-    primaryBackground: "bg-gradient-to-r from-[#dddeeb] to-[#ccd0ff]",
-    messageReceived: "bg-[#ccd0ff]",
-    iconAtive: "text-[#ccd0ff]",
-    iconDisable: "text-[#d3d3d3]",
+    primaryBackground: tema1,
+    progressBarBG: "bg-[#DDDEEB]",
+    // Icon
+    cardBackground: "bg-white",
+    cardHover: "shadow-[#B1B7FF]",
+    // Message
+    receivedBackground: "bg-[#CCD0FF]",
+    sentBackground: "bg-[#DDDEEB]",
+    // Text
     hashtag: "text-[#969EF5]",
-    highlightHover: "hover:text-[#969EF5] hover:border-[#c8cdfc]",
-    textPrimary: "text-gray-900", // Preto ou cinza escuro
-    textSecondary: "text-gray-700",
+    textPrimary: "text-[#1E1E25]",
+    textDefault: "text-gray",
+    textLight: "text-[#C5C6D0]",
+    // Highlight
+    highlightHover: "hover:text-[#B1B7FF] hover:shadow-[#B1B7FF]",
   },
-
-  // Tema Rosa (#ff0090)
-  pink: {
-    cardBackground: "bg-[#FFF]",
-    cardHover: "shadow-[#ff009092]",
-    primaryBackground: "bg-gradient-to-r from-[#ffe5f5] to-[#ffc2e2]",
-    messageReceived: "bg-[#ffc2e2]",
-    messageSent: "bg-[#d3d3d3]",
-    iconAtive: "text-[#ffc2e2]",
-    iconDisable: "text-[#d3d3d3]",
-    hashtag: "text-[#ff0090]",
-    highlightHover: "hover:text-[#ff0090] hover:border-[#ffc2e2]",
-    textPrimary: "text-gray-900",
-    textSecondary: "text-gray-700",
-  },
-
-  // Tema Verde (Light Mode)
-  green: {
-    cardBackground: "bg-[#FFF]",
-    cardHover: "shadow-[#00ff9092]",
-    primaryBackground: "bg-gradient-to-r from-[#e5ffe5] to-[#c2ffc2]",
-    messageReceived: "bg-[#c2ffc2]",
-    messageSent: "bg-[#d3d3d3]",
-    iconAtive: "text-[#c2ffc2]",
-    iconDisable: "text-[#d3d3d3]",
-    hashtag: "text-[#00ff90]",
-    highlightHover: "hover:text-[#00ff90] hover:border-[#c2ffc2]",
-    textPrimary: "text-gray-900",
-    textSecondary: "text-gray-700",
-  },
-
-  // Tema Amarelo (Light Mode)
-  yellow: {
-    cardBackground: "bg-[#FFF]",
-    cardHover: "shadow-[#ffff0092]",
-    primaryBackground: "bg-gradient-to-r from-[#fffee5] to-[#ffffc2]",
-    messageReceived: "bg-[#ffffc2]",
-    messageSent: "bg-[#d3d3d3]",
-    iconAtive: "text-[#ffffc2]",
-    iconDisable: "text-[#d3d3d3]",
-    hashtag: "text-[#ffff00]",
-    highlightHover: "hover:text-[#ffff00] hover:border-[#ffffc2]",
-    textPrimary: "text-gray-900",
-    textSecondary: "text-gray-700",
-  },
-
-  // Tema Dark Mode (Baseado no tema principal)
-  dark: {
-    cardBackground: "bg-[#1e1e1e]",
-    cardHover: "shadow-[#969ef592]",
-    primaryBackground: "bg-gradient-to-r from-[#2d2d2d] to-[#1a1a1a]",
-    messageReceived: "bg-[#2d2d2d]",
-    messageSent: "bg-[#3d3d3d]",
-    iconAtive: "text-[#969EF5]",
-    iconDisable: "text-[#d3d3d3]",
+  defaultDark: {
+    primaryBackground: tema1Dark,
+    progressBarBG: "bg-[#D2D3FB]",
+    // Icon
+    cardBackground: "bg-[#1E1E25]",
+    cardHover: "shadow-[#B1B7FF]",
+    // Message
+    receivedBackground: "bg-[#CCD0FF]",
+    sentBackground: "bg-[#DDDEEB]",
+    // Text
     hashtag: "text-[#969EF5]",
-    highlightHover: "hover:text-[#969EF5] hover:border-[#c8cdfc]",
-    textPrimary: "text-gray-100", // Branco ou cinza claro
-    textSecondary: "text-gray-300",
+    textPrimary: "text-[#f1f1f1]",
+    textDefault: "text-gray",
+    textLight: "text-[#F1F1F1]",
+    // Highlight
+    highlightHover: "hover:text-[#B1B7FF] hover:shadow-[#B1B7FF]",
+  },
+  // Tema Salmon (#EE6F74)
+  salmon: {
+    primaryBackground: tema2,
+    progressBarBG: "bg-[#EEE7E1]",
+    //Card
+    cardBackground: "bg-white",
+    cardHover: "shadow-[#FFD1C1]",
+    // Message
+    receivedBackground: "bg-[#FFD1C1]",
+    sentBackground: "bg-[#EEE7E1]",
+    // Text
+    hashtag: "text-[#EE6F74]",
+    textPrimary: "text-[#1E1E25]",
+    textDefault: "text-gray",
+    textLight: "text-[#EEE7E1]",
+    // Highlight
+    highlightHover: "hover:text-[#FDA4AF] hover:shadow-[#FFD1C1]",
+  },
+  salmonDark: {
+    primaryBackground: tema2,
+    progressBarBG: "bg-[#EEE7E1]",
+    //Card
+    cardBackground: "bg-[#282828]",
+    cardHover: "shadow-[#FFD1C1]",
+    // Message
+    receivedBackground: "bg-[#FFD1C1]",
+    sentBackground: "bg-[#EEE7E1]",
+    // Text
+    hashtag: "text-[#EE6F74]",
+    textPrimary: "text-[#f1f1f1]",
+    textDefault: "text-gray",
+    textLight: "text-[#EEE7E1]",
+    // Highlight
+    highlightHover: "hover:text-[#FDA4AF] hover:shadow-[#FFD1C1]",
   },
 
-  // Tema Rosa Dark Mode
-  pinkDark: {
-    cardBackground: "bg-[#1e1e1e]",
-    cardHover: "shadow-[#ff009092]",
-    primaryBackground: "bg-gradient-to-r from-[#2d1a1a] to-[#1a0d0d]",
-    messageReceived: "bg-[#2d1a1a]",
-    messageSent: "bg-[#3d3d3d]",
-    iconAtive: "text-[#ff0090]",
-    iconDisable: "text-[#d3d3d3]",
-    hashtag: "text-[#ff0090]",
-    highlightHover: "hover:text-[#ff0090] hover:border-[#ffc2e2]",
-    textPrimary: "text-gray-100",
-    textSecondary: "text-gray-300",
+  // Tema Blue (#48648C)
+  pixelBlue: {
+    primaryBackground: tema3,
+    progressBarBG: "bg-[#E8EBF2]", // Cor HEX equivalente a rgba(72, 100, 140, 0.12)
+    // Card
+    cardBackground: "bg-white",
+    cardHover: "shadow-[#52689A]",
+    // Message
+    receivedBackground: "bg-[#48648C]",
+    sentBackground: "bg-[#E8EBF2]", // Cor HEX equivalente a rgba(72, 100, 140, 0.12)
+    // Text
+    hashtag: "text-[#48648C]",
+    textPrimary: "text-[#1E1E25]",
+    textDefault: "text-gray",
+    textLight: "text-[#D4D5E1]",
+    // Highlight
+    highlightHover: "hover:text-[#52689A] hover:shadow-[#52689A]",
   },
-
-  // Tema Verde Dark Mode
-  greenDark: {
-    cardBackground: "bg-[#1e1e1e]",
-    cardHover: "shadow-[#00ff9092]",
-    primaryBackground: "bg-gradient-to-r from-[#1a2d1a] to-[#0d1a0d]",
-    messageReceived: "bg-[#1a2d1a]",
-    messageSent: "bg-[#3d3d3d]",
-    iconAtive: "text-[#00ff90]",
-    iconDisable: "text-[#d3d3d3]",
-    hashtag: "text-[#00ff90]",
-    highlightHover: "hover:text-[#00ff90] hover:border-[#c2ffc2]",
-    textPrimary: "text-gray-100",
-    textSecondary: "text-gray-300",
+  pixelBlueDark: {
+    primaryBackground: tema3,
+    progressBarBG: "bg-[#ACB7CB]", // Cor HEX equivalente a rgba(72, 100, 140, 0.12)
+    // Card
+    cardBackground: "bg-[#121212]",
+    cardHover: "shadow-[#52689A]",
+    // Message
+    receivedBackground: "bg-[#48648C]",
+    sentBackground: "bg-[#E8EBF2]", // Cor HEX equivalente a rgba(72, 100, 140, 0.12)
+    // Text
+    hashtag: "text-[#48648C]",
+    textPrimary: "text-[#f1f1f1]",
+    textDefault: "text-gray",
+    textLight: "text-[#D4D5E1]",
+    // Highlight
+    highlightHover: "hover:text-[#52689A] hover:shadow-[#52689A]",
   },
-
-  // Tema Amarelo Dark Mode
-  yellowDark: {
-    cardBackground: "bg-[#1e1e1e]",
-    cardHover: "shadow-[#ffff0092]",
-    primaryBackground: "bg-gradient-to-r from-[#2d2d1a] to-[#1a1a0d]",
-    messageReceived: "bg-[#2d2d1a]",
-    messageSent: "bg-[#3d3d3d]",
-    iconAtive: "text-[#ffff00]",
-    iconDisable: "text-[#d3d3d3]",
-    hashtag: "text-[#ffff00]",
-    highlightHover: "hover:text-[#ffff00] hover:border-[#ffffc2]",
-    textPrimary: "text-gray-100",
-    textSecondary: "text-gray-300",
+  // Tema Blue dots
+  dotsBlue: {
+    primaryBackground: tema5,
+    progressBarBG: "bg-[#DDDEEB]",
+    // Card
+    cardBackground: "bg-white",
+    cardHover: "shadow-[#3C3AA1]",
+    // Message
+    receivedBackground: "bg-[#B1B1FA]", // Cor mais clara: #B1B1FA
+    sentBackground: "bg-[#E8EBF2]", // Cor HEX equivalente a rgba(72, 100, 140, 0.12)
+    // Text
+    hashtag: "text-[#3C3AA1]",
+    textPrimary: "text-[#1E1E25]",
+    textDefault: "text-gray",
+    textLight: "text-[#D4D5E1]",
+    // Highlight
+    highlightHover: "hover:text-[#3C3AA1] hover:shadow-[#3C3AA1]",
+  },
+  dotsBlueDark: {
+    primaryBackground: tema5,
+    progressBarBG: "bg-[#DDDEEB]",
+    // Card
+    cardBackground: "bg-[#121212]",
+    cardHover: "shadow-[#1E1A78]",
+    // Message
+    receivedBackground: "bg-[#B1B1FA]", // Cor mais clara: #B1B1FA
+    sentBackground: "bg-[#E8EBF2]", // Cor HEX equivalente a rgba(72, 100, 140, 0.12)
+    // Text
+    hashtag: "text-[#3C3AA1]",
+    textPrimary: "text-[#f1f1f1]",
+    textDefault: "text-gray",
+    textLight: "text-[#D4D5E1]",
+    // Highlight
+    highlightHover: "hover:text-[#1E1A78] hover:shadow-[#1E1A78]",
+  },
+  // Tema Red
+  red: {
+    primaryBackground: tema9,
+    progressBarBG: "bg-[#E0E0E0]",
+    // Card
+    cardBackground: "bg-white",
+    cardHover: "shadow-[#CC1B1E]", // Cor HEX equivalente a rgba(204, 27, 30, 0.79)
+    // Message
+    receivedBackground: "bg-[#F5C6C7]", // Cor HEX equivalente a rgba(204, 27, 30, 0.28)
+    sentBackground: "bg-[#E0E0E0]",
+    // Text
+    hashtag: "text-[#CC1B1E]",
+    textPrimary: "text-[#1E1E25]",
+    textDefault: "text-gray",
+    textLight: "text-[#F5C6C7]", // Cor HEX equivalente a rgba(212, 0, 212, 0.0549)
+    // Highlight
+    highlightHover: "hover:text-[#CC1B1E] hover:shadow-[#CC1B1E]",
+  },
+  redDark: {
+    primaryBackground: tema9,
+    progressBarBG: "bg-[#E0E0E0]",
+    // Card
+    cardBackground: "bg-[#121212]",
+    cardHover: "shadow-[#CC1B1E]", // Cor HEX equivalente a rgba(204, 27, 30, 0.79)
+    // Message
+    receivedBackground: "bg-[#CC1B1E]", // Cor HEX equivalente a rgba(204, 27, 30, 0.28)
+    sentBackground: "bg-[#282828]",
+    // Text
+    hashtag: "text-[#CC1B1E]",
+    textPrimary: "text-[#f1f1f1]",
+    textDefault: "text-gray",
+    textLight: "text-[#F5A594]", // Cor HEX equivalente a rgba(212, 0, 212, 0.0549)
+    // Highlight
+    highlightHover: "hover:text-[#CC1B1E] hover:shadow-[#CC1B1E]",
   },
 };

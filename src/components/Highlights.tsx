@@ -27,7 +27,7 @@ export const Highlights = ({ userId }: { userId: string }) => {
       {characterHighlights?.content.map((highlight) => (
         <div
           key={highlight.id}
-          className={`bg-white rounded-lg w-[156px] h-[156px] cursor-pointer shadow-sm hover:shadow-lg ${currentTheme.cardHover} flex items-center`}// Aplica a cor de fundo do tema
+          className={` rounded-lg w-[156px] h-[156px] cursor-pointer hover:shadow-lg ${currentTheme.cardHover} flex items-center ${currentTheme.cardBackground}`}// Aplica a cor de fundo do tema
           onClick={() => setSelectedHighlight(highlight)}
         >
           <div
@@ -35,7 +35,7 @@ export const Highlights = ({ userId }: { userId: string }) => {
             style={{ backgroundColor: currentTheme.cardBackground }} // Aplica a cor de fundo do tema
           >
             <p
-              className={`font-semibold text-center text-pretty px-2 py-1 rounded w-full h-full items-center justify-center flex transition-colors border ${currentTheme.highlightHover}`}
+              className={`font-semibold text-center text-pretty px-2 py-1 rounded w-full h-full items-center justify-center flex transition-colors hover:shadow-md ${currentTheme.highlightHover} ${currentTheme.textPrimary}`}
             >
               {highlight.title}
             </p>

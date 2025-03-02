@@ -1,8 +1,10 @@
 import { useEffect, useState, useRef } from "react";
 import { groupMessagesByDay, getDaysDifference } from "@/utils/dateUtils";
-import { ChatType} from "@/types/Chat";
+import { ChatType } from "@/types/Chat";
 import { CharacterType } from "@/types/Character";
 import { MessageType } from "@/types/Message";
+import { useTheme } from "@/context/ThemeContext"; // Importe o useTheme
+import { themes } from "@/utils/themes";
 
 type ChatBoxProps = {
   chat: ChatType;
@@ -10,9 +12,12 @@ type ChatBoxProps = {
 };
 
 export const ChatBox = ({ chat, character }: ChatBoxProps) => {
-  const [groupedMessages, setGroupedMessages] = useState<{ [key: string]: MessageType[] }>({});
+  const [groupedMessages, setGroupedMessages] = useState<{
+    [key: string]: MessageType[];
+  }>({});
   const messagesContainerRef = useRef<HTMLDivElement>(null); // Referência para o contêiner de mensagens
-
+  const { theme } = useTheme(); // Acesse o tema atual
+  const currentTheme = themes[theme]; // Obtenha as cores do tema atual
 
   useEffect(() => {
     if ((chat.messages ?? []).length > 0) {
@@ -25,21 +30,27 @@ export const ChatBox = ({ chat, character }: ChatBoxProps) => {
   // Rola para o final do chat sempre que as mensagens forem atualizadas
   useEffect(() => {
     if (messagesContainerRef.current) {
-      messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
+      messagesContainerRef.current.scrollTop =
+        messagesContainerRef.current.scrollHeight;
     }
   }, [groupedMessages]); // Executa sempre que groupedMessages mudar
-
 
   // Verifica se o personagem tem o campo "trust"
   const hasTrustField = character && "trust" in character;
 
   return (
-    <div className="w-full h-96 bg-white rounded p-4 overflow-y-auto flex flex-col" ref={messagesContainerRef}>
-      <h2 className="text-lg font-bold mb-4">{chat.name}</h2>
+    <div
+      className="w-full h-96 rounded p-4 overflow-y-auto flex flex-col"
+      style={{ backgroundColor: currentTheme.cardBackground }} // Aplica a cor de fundo do tema
+      ref={messagesContainerRef}
+    >
+      <h2 className={`text-lg font-bold mb-4 ${currentTheme.hashtag}`}>
+        {chat.name}
+      </h2>
 
       {/* Exibe a mensagem de erro se o personagem não tiver o campo "trust" */}
       {!hasTrustField && (
-        <div className="text-sm text-black mb-4 ml-auto mr-auto">
+        <div className={`text-sm mb-4 ml-auto mr-auto ${currentTheme.textDefault}`}>
           Erro ao carregar o histórico da conversa.
         </div>
       )}
@@ -52,7 +63,9 @@ export const ChatBox = ({ chat, character }: ChatBoxProps) => {
         return (
           <div key={date} className="mb-4">
             {/* Exibe a diferença de dias para o bloco de mensagens */}
-            <div className="text-sm text-gray-500 mb-2">
+            <div
+              className={`text-xs font-medium mb-2 ${currentTheme.hashtag}`}
+            >
               {daysDifference === 0
                 ? "Hoje"
                 : `Há ${daysDifference} dia${daysDifference !== 1 ? "s" : ""}`}
@@ -62,14 +75,16 @@ export const ChatBox = ({ chat, character }: ChatBoxProps) => {
             {messages.map((msg, index) => (
               <div key={index} className="my-2">
                 <div
-                  className={`flex min-h-14 text-sm ${
+                  className={`flex min-h-14 text-sm p-2 rounded ${
                     msg.senderId !== "0"
-                      ? "text-black bg-[#ccd0ff] p-2 rounded mr-10"
-                      : "text-black bg-[#d3d3d3] ml-10 p-2 rounded"
+                      ? `${currentTheme.receivedBackground} text-black mr-10` // Mensagem recebida
+                      : `${currentTheme.sentBackground} text-black ml-10` // Mensagem enviada
                   }`}
                 >
                   <span>{msg.content}</span>
-                  <div className="text-[10px] text-gray mb-0 mt-auto ml-auto mr-0">
+                  <div
+                    className={`text-[10px] mb-0 mt-auto ml-auto mr-0 ${currentTheme.textDefault}`}
+                  >
                     {new Date(msg.timestamp).toLocaleTimeString([], {
                       hour: "2-digit",
                       minute: "2-digit",

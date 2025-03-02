@@ -66,7 +66,7 @@ const IconMenu = ({ link, icon: IconComponent, classname, size }: IconMenuProps)
     >
       <IconComponent
         className={`transition-colors duration-200 ${
-          isActive || isHovered ? themes[theme].iconAtive : themes[theme].iconDisable
+          isActive || isHovered ? themes[theme].hashtag : themes[theme].textLight
         }`} // Aplica a cor correta
         style={{ fontSize: isHovered ? (size || 0) + 2 : size }} // Aumenta o tamanho em 2px no hover
       />
@@ -77,10 +77,10 @@ const IconMenu = ({ link, icon: IconComponent, classname, size }: IconMenuProps)
 export const Sidebar = () => {
   const { theme } = useTheme(); // Acesse o tema atual
 
+  
   return (
     <div
-      className="fixed top-0 left-0 h-screen w-[100px] bg-white flex flex-col items-center rounded-r-xl rounded-br-xl shadow-sm p-8 justify-center"
-      style={{ backgroundColor: themes[theme].cardBackground }} // Aplica o fundo do tema
+      className={`fixed top-0 left-0 h-screen w-[100px] flex flex-col items-center rounded-r-xl rounded-br-xl shadow-sm p-8 justify-center ${themes[theme].cardBackground}`}
     >
       {menuData.map((item, index) => (
         <IconMenu

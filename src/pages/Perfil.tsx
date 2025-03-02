@@ -20,7 +20,9 @@ export const Perfil = () => {
 
   if (!character) {
     return (
-      <div className="bg-[#f5f5f5] w-full min-h-screen flex items-center justify-center">
+      <div
+        className={`w-full min-h-screen flex items-center justify-center ${currentTheme.cardBackground}`}
+      >
         <p className="text-xl text-gray-800">Personagem não encontrado.</p>
       </div>
     );
@@ -35,36 +37,36 @@ export const Perfil = () => {
       {/* Card do Perfil */}
       <div className="flex flex-col space-y-6 items-center">
         <div
-          className="rounded-lg flex flex-col shadow-md w-[550px] h-fit p-4 items-center justify-center bg-white"
+          className={`rounded-lg flex flex-col shadow-md w-[550px] h-fit p-4 items-center justify-center ${currentTheme.cardBackground}`}
         >
           {character.avatar ? (
             <Icon
               src={character.avatar}
-              className="w-[170px] h-[170px] rounded-full object-cover border-[#ccd0ff] border-2"
+              className="w-[170px] h-[170px] rounded-full object-cover"
             />
           ) : (
             <div
-              className="w-[130px] h-[130px] flex items-center justify-center rounded-full text-gray font-semibold"
-              style={{ backgroundColor: currentTheme.messageReceived }}
+              className="w-[130px] h-[130px] flex items-center justify-center rounded-full text-gray font-semibold border-[#c9c9c9] border-2 text-5xl"
+              style={{ backgroundColor: currentTheme.receivedBackground }}
             >
               {character.name.charAt(0).toUpperCase()}
             </div>
           )}
-          <p className="font-bold text-2xl mt-2">{character.name}</p>
-          <p style={{ color: currentTheme.hashtag }}>{character.user}</p>
-          <p className="leading-relaxed text-center text-sm p-4">
+          <p className={`font-bold text-2xl mt-2 ${currentTheme.textPrimary}`}>
+            {character.name}
+          </p>
+          <p className={`font-light text-base ${currentTheme.hashtag}`}>
+            {character.user}
+          </p>
+          <p
+            className={`leading-relaxed text-center text-sm p-4 ${currentTheme.textPrimary}`}
+          >
             {character.bio}
           </p>
         </div>
 
-        {/* Linha Divisória */}
-        <hr className="w-[550px] text-[#e9ebf958]" />
-
         {/* Destaques */}
         <Highlights userId={userId} />
-
-        {/* Linha Divisória */}
-        <hr className="w-[550px] text-[#e9ebf958]" />
 
         {/* Posts */}
         {sortedPosts.map((post) => (
@@ -77,7 +79,7 @@ export const Perfil = () => {
         ))}
       </div>
       {/* ProgressBar */}
-      <ProgressBar />
+      {/* <ProgressBar /> */}
     </div>
   );
 };

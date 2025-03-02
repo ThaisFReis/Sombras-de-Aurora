@@ -1,4 +1,7 @@
 import { ChatType } from "@/types/Chat";
+import { useTheme } from "@/context/ThemeContext"; // Importe o useTheme
+import { themes } from "@/utils/themes";
+import CircleRoundedIcon from '@mui/icons-material/CircleRounded';
 
 interface ChatListProps {
   conversations: ChatType[]; // Propriedade para receber as conversas
@@ -9,6 +12,9 @@ export const ChatList = ({
   conversations,
   onSelectConversation,
 }: ChatListProps) => {
+    const { theme } = useTheme(); // Acesse o tema atual
+    const currentTheme = themes[theme]; // Obtenha as cores do tema atual
+
   // Ordena as conversas pela data da última mensagem
   const sortedConversations = conversations.sort((a, b) => {
     const lastMessageA = a.messages?.[a.messages.length - 1]?.timestamp || "0";
@@ -28,15 +34,13 @@ export const ChatList = ({
             {conv.name?.charAt(0).toUpperCase()}
           </div>
           <div className="flex flex-col ml-2 mr-2 w-80">
-            <span className="font-semibold text-sm">{conv.name}</span>
-            <span className="text-xs text-gray-600">
+            <span className={`font-semibold text-sm ${currentTheme.hashtag}`}>{conv.name}</span>
+            <span className={`text-xs ${currentTheme.textPrimary}`}>
               {conv.messages?.[conv.messages.length - 1]?.content}
             </span>
           </div>
           {conv.messages && conv.messages.length > 0 && (
-            <span className="text-white text-xs h-5 w-5 rounded-full flex items-center justify-center bg-blue-500">
-              {conv.messages.length}
-            </span>
+            <CircleRoundedIcon className={`${currentTheme.hashtag}`} style={{ width: 5, height: 5 }} />
           )}
         </div>
       ))}

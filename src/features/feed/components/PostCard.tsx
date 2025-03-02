@@ -6,7 +6,7 @@ import { Card } from "@/components/ui/Card";
 import { highlightHashtags } from "@/components/ui/Hashtags";
 import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
 import InsertCommentRoundedIcon from "@mui/icons-material/InsertCommentRounded";
-import { useTheme } from "@/context/ThemeContext"; // Importe o useTheme
+import { useTheme } from "@/context/ThemeContext";
 import { themes } from "@/utils/themes";
 
 type PostCardProps = {
@@ -16,21 +16,19 @@ type PostCardProps = {
 };
 
 export const PostCard = ({ post, classname, style }: PostCardProps) => {
-  const [likes, setLikes] = useState(post.likes);
+  const [likes, setLikes] = useState(post.likes || 0); // Corrigir tipagem
   const [liked, setLiked] = useState(false);
   const [showComments, setShowComments] = useState(false);
-  const { theme } = useTheme(); // Acesse o tema atual
-  const currentTheme = themes[theme]; // Obtenha as cores do tema atual
+  const { theme } = useTheme();
+  const currentTheme = themes[theme];
 
-  // Busca o personagem correspondente ao userId do post
   const character = getCharacterById(post.userId);
 
   const toggleLike = () => {
     setLiked(!liked);
-    setLikes((prev = 0) => (liked ? prev - 1 : prev + 1));
+    setLikes((prev) => (liked ? prev - 1 : prev + 1));
   };
 
-  // Conteúdo do post (imagem e texto)
   const postContent = (
     <>
       {post.image && (
@@ -38,14 +36,14 @@ export const PostCard = ({ post, classname, style }: PostCardProps) => {
           <img
             src={post.image}
             alt="Imagem do post"
-            className="w-full h-[176px] object-cover"
+            className="w-full h-[176px] object-cover my-2"
           />
         </div>
       )}
       {post.content && (
-        <div className="w-full h-fit py-1">
+        <div className="w-full h-fit py-1 mt-2">
           <p
-            className="text-sm text-gray font-medium leading-relaxed"
+            className={`text-sm font-medium leading-relaxed ${currentTheme.textPrimary}`}
             dangerouslySetInnerHTML={{
               __html: highlightHashtags(post.content, currentTheme.hashtag),
             }}
@@ -55,21 +53,17 @@ export const PostCard = ({ post, classname, style }: PostCardProps) => {
     </>
   );
 
-  // Ações do post (curtir e comentar)
   const postActions = (
     <div className="flex items-center gap-6">
-      <button
-        onClick={toggleLike}
-        className="flex items-center gap-1"
-      >
+      <button onClick={toggleLike} className="flex items-center gap-1">
         {liked ? (
           <FavoriteRoundedIcon
-            className={currentTheme.hashtag} // Cor do tema para ícone curtido
+            className={currentTheme.hashtag}
             style={{ width: 15, height: 15 }}
           />
         ) : (
           <FavoriteRoundedIcon
-            className={currentTheme.iconAtive} // Cor do tema para ícone não curtido
+            className={currentTheme.textLight}
             style={{ width: 15, height: 15 }}
           />
         )}
@@ -82,12 +76,12 @@ export const PostCard = ({ post, classname, style }: PostCardProps) => {
       >
         {showComments ? (
           <InsertCommentRoundedIcon
-            className={currentTheme.hashtag} // Cor do tema para ícone de comentários ativo
+            className={currentTheme.hashtag}
             style={{ width: 15, height: 15 }}
           />
         ) : (
           <InsertCommentRoundedIcon
-            className={currentTheme.iconAtive} // Cor do tema para ícone de comentários inativo
+            className={currentTheme.textLight}
             style={{ width: 15, height: 15 }}
           />
         )}
@@ -104,10 +98,9 @@ export const PostCard = ({ post, classname, style }: PostCardProps) => {
       timestamp={post.timestamp}
       content={postContent}
       actions={postActions}
-      classname={`shadow-md p-6 hover:shadow-lg transition-shadow w-[600px] ${classname}`}
-      style={{ backgroundColor: currentTheme.cardBackground }} // Aplica a cor de fundo do tema
+      classname={`shadow-md p-6 hover:shadow-lg transition-shadow w-[600px] ${currentTheme.highlightHover} ${classname}`}
+      style={{ backgroundColor: currentTheme.cardBackground }} // Corrigir nome da propriedade
     >
-      {/* Lista de Comentários */}
       {showComments && post.comments && (
         <div className="mt-4">
           {post.comments.map((comment) => (

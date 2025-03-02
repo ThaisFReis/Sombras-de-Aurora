@@ -1,6 +1,8 @@
 import { ReactNode, CSSProperties } from "react"; // Importe CSSProperties
 import { Link } from "react-router-dom";
 import { Icon } from "@/components/ui/Icon";
+import { useTheme } from "@/context/ThemeContext"; // Importe o useTheme
+import { themes } from "@/utils/themes";
 
 type CardProps = {
   userId: string;
@@ -23,12 +25,13 @@ export const Card = ({
   actions,
   children,
   classname,
-  style, // Adicione a propriedade style
 }: CardProps) => {
+  const { theme } = useTheme(); // Acesse o tema atual
+  const currentTheme = themes[theme]; // Obtenha as cores do tema atual
+
   return (
     <div
-      className={`bg-white rounded-lg flex flex-col ${classname}`}
-      style={style} // Aplique o estilo
+      className={`rounded-lg flex flex-col ${classname} ${currentTheme.cardBackground} `}
     >
       <div className="flex">
         {/* Avatar */}
@@ -41,7 +44,9 @@ export const Card = ({
                   className="w-[50px] h-[50px] rounded-full object-cover"
                 />
               ) : (
-                <div className="w-[50px] h-[50px] flex items-center justify-center bg-[#ccd0ff] rounded-full text-gray font-semibold">
+                <div
+                  className={`w-[50px] h-[50px] flex items-center justify-center rounded-full font-semibold ${currentTheme.receivedBackground} ${currentTheme.textDefault}`} // Aplica a cor de fundo do tema
+                >
                   {name.charAt(0).toUpperCase()}
                 </div>
               )}
@@ -50,13 +55,15 @@ export const Card = ({
         </div>
 
         {/* Conteúdo Principal */}
-        <div className="w-full flex flex-col">
+        <div className={`w-full flex flex-col ${currentTheme.hashtag}`}>
           {/* Cabeçalho */}
           <div className="h-fit">
             <Link to={`/perfil/${userId}`}>
-              <p className="text-base font-bold">{name}</p>
+              <p className={`text-base font-bold ${currentTheme.hashtag}`}>
+                {name}
+              </p>
             </Link>
-            <p className="text-xs text-[#979797] -mt-0.5 mb-1">
+            <p className={`text-xs -mt-0.5 mb-1 ${currentTheme.textLight}`}>
               {new Date(timestamp).toLocaleDateString("pt-BR", {
                 day: "numeric",
                 month: "long",
@@ -66,7 +73,12 @@ export const Card = ({
           </div>
 
           {/* Conteúdo Personalizado */}
-          {content}
+          <span
+            className={`${currentTheme.textPrimary} `}
+            style={{ color: currentTheme.textPrimary }}
+          >
+            {content}
+          </span>
 
           {/* Ações Personalizadas */}
           {actions && (
