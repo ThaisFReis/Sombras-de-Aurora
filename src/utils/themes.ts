@@ -13,6 +13,7 @@ export const themes = {
     // Icon
     cardBackground: "bg-white",
     cardHover: "shadow-[#B1B7FF]",
+    cardHeader: "bg-[#969EF5]",
     // Message
     receivedBackground: "bg-[#CCD0FF]",
     sentBackground: "bg-[#DDDEEB]",
@@ -30,6 +31,7 @@ export const themes = {
     // Icon
     cardBackground: "bg-[#1E1E25]",
     cardHover: "shadow-[#B1B7FF]",
+    cardHeader: "bg-[#969EF5]",
     // Message
     receivedBackground: "bg-[#CCD0FF]",
     sentBackground: "bg-[#DDDEEB]",
@@ -48,6 +50,7 @@ export const themes = {
     //Card
     cardBackground: "bg-white",
     cardHover: "shadow-[#FFD1C1]",
+    cardHeader: "bg-[#EE6F74]",
     // Message
     receivedBackground: "bg-[#FFD1C1]",
     sentBackground: "bg-[#EEE7E1]",
@@ -65,6 +68,7 @@ export const themes = {
     //Card
     cardBackground: "bg-[#282828]",
     cardHover: "shadow-[#FFD1C1]",
+    cardHeader: "bg-[#EE6F74]",
     // Message
     receivedBackground: "bg-[#FFD1C1]",
     sentBackground: "bg-[#EEE7E1]",
@@ -84,6 +88,7 @@ export const themes = {
     // Card
     cardBackground: "bg-white",
     cardHover: "shadow-[#52689A]",
+    cardHeader: "bg-[#48648C]",
     // Message
     receivedBackground: "bg-[#48648C]",
     sentBackground: "bg-[#E8EBF2]", // Cor HEX equivalente a rgba(72, 100, 140, 0.12)
@@ -101,6 +106,7 @@ export const themes = {
     // Card
     cardBackground: "bg-[#121212]",
     cardHover: "shadow-[#52689A]",
+    cardHeader: "bg-[#48648C]",
     // Message
     receivedBackground: "bg-[#48648C]",
     sentBackground: "bg-[#E8EBF2]", // Cor HEX equivalente a rgba(72, 100, 140, 0.12)
@@ -119,6 +125,7 @@ export const themes = {
     // Card
     cardBackground: "bg-white",
     cardHover: "shadow-[#3C3AA1]",
+    cardHeader: "bg-[#3C3AA1]",
     // Message
     receivedBackground: "bg-[#B1B1FA]", // Cor mais clara: #B1B1FA
     sentBackground: "bg-[#E8EBF2]", // Cor HEX equivalente a rgba(72, 100, 140, 0.12)
@@ -136,6 +143,7 @@ export const themes = {
     // Card
     cardBackground: "bg-[#121212]",
     cardHover: "shadow-[#1E1A78]",
+    cardHeader: "bg-[#3C3AA1]",
     // Message
     receivedBackground: "bg-[#B1B1FA]", // Cor mais clara: #B1B1FA
     sentBackground: "bg-[#E8EBF2]", // Cor HEX equivalente a rgba(72, 100, 140, 0.12)
@@ -154,6 +162,7 @@ export const themes = {
     // Card
     cardBackground: "bg-white",
     cardHover: "shadow-[#CC1B1E]", // Cor HEX equivalente a rgba(204, 27, 30, 0.79)
+    cardHeader: "bg-[#CC1B1E]",
     // Message
     receivedBackground: "bg-[#F5C6C7]", // Cor HEX equivalente a rgba(204, 27, 30, 0.28)
     sentBackground: "bg-[#E0E0E0]",
@@ -171,6 +180,7 @@ export const themes = {
     // Card
     cardBackground: "bg-[#121212]",
     cardHover: "shadow-[#CC1B1E]", // Cor HEX equivalente a rgba(204, 27, 30, 0.79)
+    cardHeader: "bg-[#CC1B1E]",
     // Message
     receivedBackground: "bg-[#CC1B1E]", // Cor HEX equivalente a rgba(204, 27, 30, 0.28)
     sentBackground: "bg-[#282828]",

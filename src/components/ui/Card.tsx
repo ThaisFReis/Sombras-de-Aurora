@@ -45,7 +45,7 @@ export const Card = ({
                 />
               ) : (
                 <div
-                  className={`w-[50px] h-[50px] flex items-center justify-center rounded-full font-semibold ${currentTheme.receivedBackground} ${currentTheme.textDefault}`} // Aplica a cor de fundo do tema
+                  className={`w-[50px] h-[50px] flex items-center justify-center rounded-full font-semibold font-josefin ${currentTheme.receivedBackground} ${currentTheme.textDefault}`} // Aplica a cor de fundo do tema
                 >
                   {name.charAt(0).toUpperCase()}
                 </div>
@@ -59,11 +59,11 @@ export const Card = ({
           {/* Cabeçalho */}
           <div className="h-fit">
             <Link to={`/perfil/${userId}`}>
-              <p className={`text-base font-bold ${currentTheme.hashtag}`}>
+              <p className={`text-base font-bold font-josefin ${currentTheme.hashtag}`}>
                 {name}
               </p>
             </Link>
-            <p className={`text-xs -mt-0.5 mb-1 ${currentTheme.textLight}`}>
+            <p className={`text-xs -mt-0.5 mb-1 font-josefin ${currentTheme.textLight}`}>
               {new Date(timestamp).toLocaleDateString("pt-BR", {
                 day: "numeric",
                 month: "long",
@@ -90,7 +90,7 @@ export const Card = ({
       </div>
 
       {/* Conteúdo Adicional (como comentários ou respostas) */}
-      {children && <div className="mt-4">{children}</div>}
+      {children && <div className="mt-4 font-medium font-ubuntu">{children}</div>}
     </div>
   );
 };

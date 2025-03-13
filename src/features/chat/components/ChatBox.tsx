@@ -40,17 +40,15 @@ export const ChatBox = ({ chat, character }: ChatBoxProps) => {
 
   return (
     <div
-      className="w-full h-96 rounded p-4 overflow-y-auto flex flex-col"
-      style={{ backgroundColor: currentTheme.cardBackground }} // Aplica a cor de fundo do tema
+      className={`w-full h-full rounded p-4 overflow-y-auto flex flex-col`}
+      style={{ backgroundColor: currentTheme.cardBackground }} // Aplica a cor de fundo do tema e a cor do scroll
       ref={messagesContainerRef}
     >
-      <h2 className={`text-lg font-bold mb-4 ${currentTheme.hashtag}`}>
-        {chat.name}
-      </h2>
-
       {/* Exibe a mensagem de erro se o personagem não tiver o campo "trust" */}
       {!hasTrustField && (
-        <div className={`text-sm mb-4 ml-auto mr-auto ${currentTheme.textDefault}`}>
+        <div
+          className={`text-sm mb-4 ml-auto mr-auto ${currentTheme.hashtag}`}
+        >
           Erro ao carregar o histórico da conversa.
         </div>
       )}
@@ -63,9 +61,7 @@ export const ChatBox = ({ chat, character }: ChatBoxProps) => {
         return (
           <div key={date} className="mb-4">
             {/* Exibe a diferença de dias para o bloco de mensagens */}
-            <div
-              className={`text-xs font-medium mb-2 ${currentTheme.hashtag}`}
-            >
+            <div className={`text-xs font-medium mb-2 ${currentTheme.hashtag}`}>
               {daysDifference === 0
                 ? "Hoje"
                 : `Há ${daysDifference} dia${daysDifference !== 1 ? "s" : ""}`}

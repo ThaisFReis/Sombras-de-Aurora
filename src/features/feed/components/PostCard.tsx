@@ -43,7 +43,7 @@ export const PostCard = ({ post, classname, style }: PostCardProps) => {
       {post.content && (
         <div className="w-full h-fit py-1 mt-2">
           <p
-            className={`text-sm font-medium leading-relaxed ${currentTheme.textPrimary}`}
+            className={`text-[15px] leading-relaxed font-medium font-ubuntu ${currentTheme.textPrimary}`}
             dangerouslySetInnerHTML={{
               __html: highlightHashtags(post.content, currentTheme.hashtag),
             }}

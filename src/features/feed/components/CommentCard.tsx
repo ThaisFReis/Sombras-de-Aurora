@@ -88,7 +88,7 @@ export const CommentCard = ({ comment }: { comment: CommentType }) => {
               name={replyCharacter?.name || "Usuário Desconhecido"}
               timestamp={reply.timestamp}
               content={
-                <p className={`text-sm leading-relaxed ${currentTheme.textDefault}`}>
+                <p className={`text-sm leading-relaxed font-medium font-ubuntu ${currentTheme.textDefault}`}>
                   {reply.content}
                 </p>
               }

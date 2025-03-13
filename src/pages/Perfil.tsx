@@ -52,14 +52,18 @@ export const Perfil = () => {
               {character.name.charAt(0).toUpperCase()}
             </div>
           )}
-          <p className={`font-bold text-2xl mt-2 ${currentTheme.textPrimary}`}>
+          <p
+            className={` font-josefin font-bold text-3xl mt-2 ${currentTheme.textPrimary}`}
+          >
             {character.name}
           </p>
-          <p className={`font-light text-base ${currentTheme.hashtag}`}>
+          <p
+            className={`font-josefin font-light text-base ${currentTheme.hashtag}`}
+          >
             {character.user}
           </p>
           <p
-            className={`leading-relaxed text-center text-sm p-4 ${currentTheme.textPrimary}`}
+            className={`font-ubuntu text-center text-sm font-medium p-4 ${currentTheme.textPrimary}`}
           >
             {character.bio}
           </p>
