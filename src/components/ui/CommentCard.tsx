@@ -1,14 +1,11 @@
-import { getCharacterById } from "@/utils/characterUtils";
 import { useTheme } from "@/context/ThemeContext";
 import { themes } from "@/utils/themes";
+import { getCharacterById } from "@/utils/characterUtils";
 import { Icon } from "@/components/ui/Icon";
 import { Link } from "react-router-dom";
+import { CommentType } from "@/types/Post";
 
-type Comment = {
-  userId: string;
-  content: string;
-  timestamp: string | number | Date;
-};
+type Comment = CommentType;
 
 export const CommentCard = ({ comment }: { comment: Comment }) => {
   const { theme } = useTheme();

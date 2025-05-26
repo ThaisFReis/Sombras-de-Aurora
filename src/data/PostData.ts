@@ -458,8 +458,6 @@ const postsMarcela: PostType[] = [
   },
 ];
 
-import { PostType } from "@/types/Post";
-
 const postsLucas: PostType[] = [
   {
     id: "post1",

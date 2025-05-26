@@ -1,15 +1,15 @@
-import { Link } from "react-router-dom";
-import { Icon } from "@/components/ui/Icon";
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { useTheme } from "@/context/ThemeContext";
-import { themes } from "@/utils/themes";
-import { PostType } from "@/types/Post";
-import { CommentCard } from "./CommentCard";
-import { getCharacterById } from "@/utils/characterUtils";
-import { highlightHashtags } from "@/components/ui/Hashtags";
 import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
 import InsertCommentRoundedIcon from "@mui/icons-material/InsertCommentRounded";
+import { useState } from "react";
+import { useTheme } from "@/context/ThemeContext";
+import { themes } from "@/utils/themes";
+import { getCharacterById } from "@/utils/characterUtils";
+import { Icon } from "@/components/ui/Icon";
+import { Link } from "react-router-dom";
+import { CommentCard } from "@/components/ui/CommentCard";
+import { PostType } from "@/types/Post";
+import { highlightHashtags } from "./Hashtags";
 
 type PostCardProps = {
   post: PostType;
@@ -35,7 +35,10 @@ export const PostCard = ({ post, classname, style }: PostCardProps) => {
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      whileHover={{ scale: 1.01, boxShadow: "0px 0px 20px rgba(255,255,255,0.04)" }}
+      whileHover={{
+        scale: 1.01,
+        boxShadow: "0px 0px 20px rgba(255,255,255,0.04)",
+      }}
       transition={{ duration: 0.3, ease: "easeOut" }}
       className={`w-full max-w-[600px] rounded-xl p-5 border border-zinc-800 backdrop-blur-md transition-all bg-gradient-to-br from-zinc-900/80 to-zinc-800/80 ${classname}`}
       style={style}

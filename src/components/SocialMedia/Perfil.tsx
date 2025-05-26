@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { PostCard } from "@/features/feed/components/PostCard";
+// import { PostCard } from "@/features/feed/components/PostCard";
 import { Highlights } from "@/components/Highlights";
 import { ProgressBar } from "@/components/ProgressBar";
 import { CharactersData } from "@/data/CharactersData";
@@ -7,6 +7,7 @@ import { posts } from "@/data/PostData";
 import { Icon } from "@/components/ui/Icon";
 import { useTheme } from "@/context/ThemeContext"; // Importe o useTheme
 import { themes } from "@/utils/themes";
+import { PostCard } from "../ui/PostCard";
 
 export const Perfil = () => {
   const { userId } = useParams<{ userId: string }>();
@@ -20,14 +21,16 @@ export const Perfil = () => {
 
   if (!character) {
     return (
-      <div className={`w-full min-h-screen flex items-center justify-center ${currentTheme.cardBackground}`}>
+      <div
+        className={`w-full min-h-screen flex items-center justify-center ${currentTheme.cardBackground}`}
+      >
         <p className="text-xl text-gray-400">Personagem não encontrado.</p>
       </div>
     );
   }
 
-  const sortedPosts = characterPosts.sort((a, b) =>
-    new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
+  const sortedPosts = characterPosts.sort(
+    (a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
   );
 
   return (
@@ -48,11 +51,17 @@ export const Perfil = () => {
               {character.name.charAt(0).toUpperCase()}
             </div>
           )}
-          <h1 className={`font-josefin text-3xl font-bold mt-4 ${currentTheme.textPrimary}`}>
+          <h1
+            className={`font-josefin text-3xl font-bold mt-4 ${currentTheme.textPrimary}`}
+          >
             {character.name}
           </h1>
-          <p className={`font-josefin text-sm text-gray-400`}>{character.user}</p>
-          <p className={`font-ubuntu text-sm text-center mt-4 ${currentTheme.textPrimary}`}>
+          <p className={`font-josefin text-sm text-gray-400`}>
+            {character.user}
+          </p>
+          <p
+            className={`font-ubuntu text-sm text-center mt-4 ${currentTheme.textPrimary}`}
+          >
             {character.bio}
           </p>
         </div>
@@ -66,12 +75,7 @@ export const Perfil = () => {
             <PostCard
               key={post.id}
               post={post}
-              classname="!w-full"
-              style={{
-                backgroundColor: "rgba(255, 255, 255, 0.03)",
-                backdropFilter: "blur(12px)",
-                border: "1px solid rgba(255, 255, 255, 0.08)",
-              }}
+              classname="w-full max-w-[600px] mx-auto"
             />
           ))}
         </div>

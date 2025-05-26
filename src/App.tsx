@@ -5,8 +5,7 @@ import { ThemeProvider } from "@/context/ThemeContext"; // Importe o ThemeProvid
 
 import MainLayout from "@/layouts/MainLayout";
 import { Home } from "@/pages/Home";
-import { Perfil } from "@/pages/Perfil";
-import { Chat } from "@/pages/Chat";
+import { Perfil } from "@/components/SocialMedia/Perfil";
 import { Settings } from "@/pages/Settings"; // Importe a página de Settingsurações
 
 function App() {
@@ -18,7 +17,6 @@ function App() {
           <Route element={<MainLayout />}>
             <Route path="" element={<Home />} />
             <Route path="/perfil/:userId" element={<Perfil />} />
-            <Route path="/chat" element={<Chat />} />
             <Route path="/Settings" element={<Settings />} /> {/* Rota para Settingsurações */}
           </Route>
         </Routes>

@@ -8,7 +8,7 @@ import { themes } from "@/utils/themes";
 import { SystemHeader } from "@/components/SystemHeader";
 
 // Importe os componentes dos aplicativos simulados
-import { Feed } from "@/apps/Feed"; // Exemplo — você criará esse depois
+import { SocialMedia } from "@/apps/SocialMedia"; // Exemplo — você criará esse depois
 import { Forum } from "@/apps/Forum";
 import { Arquivos } from "@/apps/Arquivos";
 
@@ -22,7 +22,7 @@ const MainLayout = () => {
   const renderApp = () => {
     switch (janelaAtiva) {
       case "feed":
-        return <Feed onClose={() => setJanelaAtiva(null)} />;
+        return <SocialMedia onClose={() => setJanelaAtiva(null)} />;
       case "forum":
         return <Forum />;
       case "arquivos":

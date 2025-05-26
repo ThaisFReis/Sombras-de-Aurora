@@ -46,7 +46,7 @@ export const Home = () => {
   return (
     <div className="relative w-full min-h-screen bg-gradient-to-br from-[#0a0a0a] to-[#1a1a1a] text-white">
       <div className="absolute top-4 left-4">
-        <IconDesktop />
+        <IconDesktop setJanelaAtiva={setActiveApp} />
       </div>
 
       <div className="flex justify-center items-center h-full pt-20">
