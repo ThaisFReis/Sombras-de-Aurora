@@ -33,6 +33,9 @@ export const Card = ({
     <div
       className={`rounded-lg flex flex-col ${classname} ${currentTheme.cardBackground} `}
     >
+      {/* <div
+      className={`rounded-lg flex flex-col ${classname} ${currentTheme.cardBackground} `}
+    > */}
       <div className="flex">
         {/* Avatar */}
         <div className="w-[70px] flex justify-start items-start">
@@ -59,11 +62,15 @@ export const Card = ({
           {/* Cabeçalho */}
           <div className="h-fit">
             <Link to={`/perfil/${userId}`}>
-              <p className={`text-base font-bold font-josefin ${currentTheme.hashtag}`}>
+              <p
+                className={`text-base font-bold font-josefin ${currentTheme.hashtag}`}
+              >
                 {name}
               </p>
             </Link>
-            <p className={`text-xs -mt-0.5 mb-1 font-josefin ${currentTheme.textLight}`}>
+            <p
+              className={`text-xs -mt-0.5 mb-1 font-josefin ${currentTheme.textLight}`}
+            >
               {new Date(timestamp).toLocaleDateString("pt-BR", {
                 day: "numeric",
                 month: "long",
@@ -90,7 +97,9 @@ export const Card = ({
       </div>
 
       {/* Conteúdo Adicional (como comentários ou respostas) */}
-      {children && <div className="mt-4 font-medium font-ubuntu">{children}</div>}
+      {children && (
+        <div className="mt-4 font-medium font-ubuntu">{children}</div>
+      )}
     </div>
   );
 };

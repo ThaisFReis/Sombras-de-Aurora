@@ -10,8 +10,8 @@ import { themes } from "@/utils/themes";
 
 export const Perfil = () => {
   const { userId } = useParams<{ userId: string }>();
-  const { theme } = useTheme(); // Acesse o tema atual
-  const currentTheme = themes[theme]; // Obtenha as cores do tema atual
+  const { theme } = useTheme();
+  const currentTheme = themes[theme];
 
   if (!userId) return null;
 
@@ -20,51 +20,39 @@ export const Perfil = () => {
 
   if (!character) {
     return (
-      <div
-        className={`w-full min-h-screen flex items-center justify-center ${currentTheme.cardBackground}`}
-      >
-        <p className="text-xl text-gray-800">Personagem não encontrado.</p>
+      <div className={`w-full min-h-screen flex items-center justify-center ${currentTheme.cardBackground}`}>
+        <p className="text-xl text-gray-400">Personagem não encontrado.</p>
       </div>
     );
   }
 
-  const sortedPosts = characterPosts.sort((a, b) => {
-    return new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime();
-  });
+  const sortedPosts = characterPosts.sort((a, b) =>
+    new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
+  );
 
   return (
-    <div className="w-full min-h-screen flex justify-between py-6">
-      {/* Card do Perfil */}
-      <div className="flex flex-col space-y-6 items-center">
-        <div
-          className={`rounded-lg flex flex-col shadow-md w-[550px] h-fit p-4 items-center justify-center ${currentTheme.cardBackground}`}
-        >
+    <div className="w-full min-h-screen flex justify-center py-10 px-4 bg-black bg-opacity-90">
+      <div className="flex flex-col items-center gap-6 max-w-[650px] w-full">
+        {/* Card do Perfil */}
+        <div className="w-full backdrop-blur-lg bg-white/5 rounded-2xl shadow-xl p-6 flex flex-col items-center transition-all hover:shadow-2xl border border-white/10">
           {character.avatar ? (
             <Icon
               src={character.avatar}
-              className="w-[170px] h-[170px] rounded-full object-cover"
+              className="w-[160px] h-[160px] rounded-full object-cover shadow-md"
             />
           ) : (
             <div
-              className="w-[130px] h-[130px] flex items-center justify-center rounded-full text-gray font-semibold border-[#c9c9c9] border-2 text-5xl"
+              className="w-[160px] h-[160px] flex items-center justify-center rounded-full border-2 border-gray-400 text-6xl font-josefin"
               style={{ backgroundColor: currentTheme.receivedBackground }}
             >
               {character.name.charAt(0).toUpperCase()}
             </div>
           )}
-          <p
-            className={` font-josefin font-bold text-3xl mt-2 ${currentTheme.textPrimary}`}
-          >
+          <h1 className={`font-josefin text-3xl font-bold mt-4 ${currentTheme.textPrimary}`}>
             {character.name}
-          </p>
-          <p
-            className={`font-josefin font-light text-base ${currentTheme.hashtag}`}
-          >
-            {character.user}
-          </p>
-          <p
-            className={`font-ubuntu text-center text-sm font-medium p-4 ${currentTheme.textPrimary}`}
-          >
+          </h1>
+          <p className={`font-josefin text-sm text-gray-400`}>{character.user}</p>
+          <p className={`font-ubuntu text-sm text-center mt-4 ${currentTheme.textPrimary}`}>
             {character.bio}
           </p>
         </div>
@@ -73,17 +61,21 @@ export const Perfil = () => {
         <Highlights userId={userId} />
 
         {/* Posts */}
-        {sortedPosts.map((post) => (
-          <PostCard
-            key={post.id}
-            post={post}
-            classname={"!w-[550px]"}
-            style={{ backgroundColor: currentTheme.cardBackground }}
-          />
-        ))}
+        <div className="flex flex-col gap-6 w-full">
+          {sortedPosts.map((post) => (
+            <PostCard
+              key={post.id}
+              post={post}
+              classname="!w-full"
+              style={{
+                backgroundColor: "rgba(255, 255, 255, 0.03)",
+                backdropFilter: "blur(12px)",
+                border: "1px solid rgba(255, 255, 255, 0.08)",
+              }}
+            />
+          ))}
+        </div>
       </div>
-      {/* ProgressBar */}
-      {/* <ProgressBar /> */}
     </div>
   );
 };

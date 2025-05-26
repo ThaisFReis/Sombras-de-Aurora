@@ -1,102 +1,60 @@
-import { useState } from "react";
-import { CommentType } from "@/types/Post";
 import { getCharacterById } from "@/utils/characterUtils";
-import { Card } from "@/components/ui/Card";
-import KeyboardArrowDownRoundedIcon from "@mui/icons-material/KeyboardArrowDownRounded";
-import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
-import { useTheme } from "@/context/ThemeContext"; // Importe o useTheme
+import { useTheme } from "@/context/ThemeContext";
 import { themes } from "@/utils/themes";
+import { Icon } from "@/components/ui/Icon";
+import { Link } from "react-router-dom";
 
-export const CommentCard = ({ comment }: { comment: CommentType }) => {
-  const [likes, setLikes] = useState(comment.likes);
-  const [liked, setLiked] = useState(false);
-  const [showReplies, setShowReplies] = useState(false);
-  const { theme } = useTheme(); // Acesse o tema atual
-  const currentTheme = themes[theme]; // Obtenha as cores do tema atual
+type Comment = {
+  userId: string;
+  content: string;
+  timestamp: string | number | Date;
+};
 
-  // Busca o personagem correspondente ao userId do comentário
+export const CommentCard = ({ comment }: { comment: Comment }) => {
+  const { theme } = useTheme();
+  const currentTheme = themes[theme];
   const character = getCharacterById(comment.userId);
 
-  const toggleLike = () => {
-    setLiked(!liked);
-    setLikes((prev = 0) => (liked ? prev - 1 : prev + 1));
-  };
-
-  // Ações do comentário (curtir e mostrar respostas)
-  const commentActions = (
-    <div className="flex items-center gap-4 mt-2">
-      <button
-        onClick={toggleLike}
-        className="flex items-center gap-1 transition-colors"
-      >
-        {liked ? (
-          <FavoriteRoundedIcon
-            className={currentTheme.hashtag} // Cor do tema para ícone curtido
-            style={{ width: 15, height: 15 }}
-          />
-        ) : (
-          <FavoriteRoundedIcon
-            className={currentTheme.textLight} // Cor do tema para ícone não curtido
-            style={{ width: 15, height: 15 }}
-          />
-        )}
-        <span className="text-xs">{likes}</span>
-      </button>
-
-      {(comment.replies?.length ?? 0) > 0 && (
-        <button
-          onClick={() => setShowReplies(!showReplies)}
-          className="flex items-center gap-1 transition-colors"
-        >
-          {showReplies ? (
-            <KeyboardArrowDownRoundedIcon
-              className={currentTheme.hashtag} // Cor do tema para ícone ativo
-              style={{ width: 15, height: 15 }}
+  return (
+    <div className="w-full flex gap-3 p-3 rounded-md border border-zinc-800 bg-zinc-900/70 backdrop-blur-md transition-all hover:shadow-md">
+      {/* Avatar */}
+      <div className="min-w-[40px]">
+        <Link to={`/perfil/${comment.userId}`}>
+          {character?.avatar ? (
+            <Icon
+              src={character.avatar}
+              className="w-[38px] h-[38px] rounded-full object-cover border border-zinc-700"
             />
           ) : (
-            <KeyboardArrowDownRoundedIcon
-              className={currentTheme.textLight} // Cor do tema para ícone inativo
-              style={{ width: 15, height: 15 }}
-            />
+            <div className="w-[38px] h-[38px] flex items-center justify-center rounded-full bg-zinc-700 text-white font-josefin font-semibold">
+              {character?.name?.charAt(0).toUpperCase() || "?"}
+            </div>
           )}
-          <span className="text-xs">{comment.replies?.length}</span>
-        </button>
-      )}
-    </div>
-  );
+        </Link>
+      </div>
 
-  return (
-    <Card
-      userId={comment.userId}
-      avatar={character?.avatar}
-      name={character?.name || "Usuário Desconhecido"}
-      timestamp={comment.timestamp}
-      content={<p className={`text-sm leading-relaxed ${currentTheme.textDefault}`}>{comment.content}</p>}
-      actions={commentActions}
-      classname="ml-[61px]"
-      style={{ backgroundColor: currentTheme.cardBackground }} // Aplica a cor de fundo do tema
-    >
-      {/* Respostas */}
-      {showReplies &&
-        comment.replies?.map((reply) => {
-          const replyCharacter = getCharacterById(reply.userId);
-          return (
-            <Card
-              key={reply.id}
-              userId={reply.userId}
-              avatar={replyCharacter?.avatar}
-              name={replyCharacter?.name || "Usuário Desconhecido"}
-              timestamp={reply.timestamp}
-              content={
-                <p className={`text-sm leading-relaxed font-medium font-ubuntu ${currentTheme.textDefault}`}>
-                  {reply.content}
-                </p>
-              }
-              classname="ml-[61px]"
-              style={{ backgroundColor: currentTheme.cardBackground }} // Aplica a cor de fundo do tema
-            />
-          );
-        })}
-    </Card>
+      {/* Conteúdo */}
+      <div className="flex flex-col w-full">
+        <div className="flex items-center justify-between">
+          <Link to={`/perfil/${comment.userId}`}>
+            <span className="text-sm font-josefin font-semibold text-white hover:underline">
+              {character?.name || "Usuário"}
+            </span>
+          </Link>
+          <span className="text-xs text-zinc-500 font-ubuntu">
+            {new Date(comment.timestamp).toLocaleString("pt-BR", {
+              day: "2-digit",
+              month: "short",
+              hour: "2-digit",
+              minute: "2-digit",
+            })}
+          </span>
+        </div>
+
+        <p className="mt-1 text-sm text-zinc-200 font-ubuntu whitespace-pre-line leading-relaxed">
+          {comment.content}
+        </p>
+      </div>
+    </div>
   );
 };

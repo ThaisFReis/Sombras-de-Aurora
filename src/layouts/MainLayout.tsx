@@ -1,36 +1,75 @@
-import { Sidebar } from "@/components/Sidebar";
-import { Suspense } from "react";
+import { Dock } from "@/components/Dock";
+import { IconDesktop } from "@/components/IconDesktop";
+import { Suspense, useState } from "react";
 import { Outlet } from "react-router-dom";
 import { ChatProvider } from "@/context/ChatContext";
 import { useTheme } from "@/context/ThemeContext";
 import { themes } from "@/utils/themes";
+import { SystemHeader } from "@/components/SystemHeader";
 
-type MainLayoutProps = {
-  children?: React.ReactNode;
-};
+// Importe os componentes dos aplicativos simulados
+import { Feed } from "@/apps/Feed"; // Exemplo — você criará esse depois
+import { Forum } from "@/apps/Forum";
+import { Arquivos } from "@/apps/Arquivos";
 
-const MainLayout = ({ children }: MainLayoutProps) => {
-  const { theme } = useTheme(); // Acesse o tema atual
-  const currentTheme = themes[theme]; // Obtenha as cores do tema atual
+const MainLayout = () => {
+  const { theme } = useTheme();
+  const currentTheme = themes[theme];
+  const [janelaAtiva, setJanelaAtiva] = useState<string | null>(null);
+  const [mostrarDock, setMostrarDock] = useState(false);
+
+  // Mapeia os apps ativos
+  const renderApp = () => {
+    switch (janelaAtiva) {
+      case "feed":
+        return <Feed onClose={() => setJanelaAtiva(null)} />;
+      case "forum":
+        return <Forum />;
+      case "arquivos":
+        return <Arquivos />;
+      default:
+        return <IconDesktop setJanelaAtiva={setJanelaAtiva} />;
+    }
+  };
 
   return (
     <div
-      className="min-h-screen w-screen flex"
+      className="min-h-screen w-screen flex flex-col"
       style={{
-        backgroundImage: `url(${currentTheme.primaryBackground})`, // Aplica o SVG como fundo
-        backgroundRepeat: "repeat-y", // Repete a imagem verticalmente
-        backgroundSize: "cover", // Mantém o tamanho original da imagem
-        backgroundAttachment: "fixed", // Fixa o fundo para não rolar com a página
+        backgroundImage: `url(${currentTheme.primaryBackground})`,
+        backgroundRepeat: "repeat-y",
+        backgroundSize: "cover",
+        backgroundAttachment: "fixed",
       }}
     >
-      <Sidebar />
-      <div className="ml-64 flex-1">
-        <Suspense fallback={<div>Carregando...</div>}>
-          <ChatProvider>
-            {children ?? <Outlet />}
-          </ChatProvider>
-        </Suspense>
-      </div>
+      <ChatProvider>
+        <SystemHeader />
+        <div className="flex-1 relative overflow-hidden">
+          <Suspense fallback={<div>Carregando...</div>}>{renderApp()}</Suspense>
+
+          {/* Zona de hover para mostrar o dock */}
+          {/* Dock + Hover Container */}
+          {janelaAtiva ? (
+            <div
+              className="absolute bottom-0 left-0 w-full h-32 flex justify-center items-end z-50"
+              onMouseEnter={() => setMostrarDock(true)}
+              onMouseLeave={() => setMostrarDock(false)}
+            >
+              <div
+                className={`transition-all duration-300 ${
+                  mostrarDock
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-6 pointer-events-none"
+                }`}
+              >
+                <Dock onSelectApp={setJanelaAtiva} />
+              </div>
+            </div>
+          ) : (
+            <Dock onSelectApp={setJanelaAtiva} />
+          )}
+        </div>
+      </ChatProvider>
     </div>
   );
 };
