@@ -11,6 +11,7 @@ import { SystemHeader } from "@/components/SystemHeader";
 import { SocialMedia } from "@/apps/SocialMedia"; // Exemplo — você criará esse depois
 import { Forum } from "@/apps/Forum";
 import { Arquivos } from "@/apps/Arquivos";
+import { Settings } from "@/apps/Settings"; // Certifique-se de que o caminho está correto
 
 const MainLayout = () => {
   const { theme } = useTheme();
@@ -24,9 +25,11 @@ const MainLayout = () => {
       case "feed":
         return <SocialMedia onClose={() => setJanelaAtiva(null)} />;
       case "forum":
-        return <Forum />;
+        return <Forum onClose={() => setJanelaAtiva(null)} />;
       case "arquivos":
-        return <Arquivos />;
+        return <Arquivos onClose={() => setJanelaAtiva(null)} />;
+        case "settings":
+        return <Settings onClose={() => setJanelaAtiva(null)} />;
       default:
         return <IconDesktop setJanelaAtiva={setJanelaAtiva} />;
     }
@@ -34,7 +37,7 @@ const MainLayout = () => {
 
   return (
     <div
-      className="min-h-screen w-screen flex flex-col"
+      className="h-screen w-screen flex flex-col"
       style={{
         backgroundImage: `url(${currentTheme.primaryBackground})`,
         backgroundRepeat: "repeat-y",
@@ -47,27 +50,23 @@ const MainLayout = () => {
         <div className="flex-1 relative overflow-hidden">
           <Suspense fallback={<div>Carregando...</div>}>{renderApp()}</Suspense>
 
-          {/* Zona de hover para mostrar o dock */}
-          {/* Dock + Hover Container */}
-          {janelaAtiva ? (
+          {/* Zona sensível ao hover, sempre ativa */}
+          <div
+            className="absolute bottom-0 flex justify-center items-center mt-auto mb-0 w-full h-28 z-40"
+            onMouseEnter={() => setMostrarDock(true)}
+            onMouseLeave={() => setMostrarDock(false)}
+          >
+            {/* Dock fixo e animado */}
             <div
-              className="absolute bottom-0 left-0 w-full h-32 flex justify-center items-end z-50"
-              onMouseEnter={() => setMostrarDock(true)}
-              onMouseLeave={() => setMostrarDock(false)}
+              className={`transition-all duration-300 flex justify-center ${
+                mostrarDock || !janelaAtiva
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-6 pointer-events-none"
+              }`}
             >
-              <div
-                className={`transition-all duration-300 ${
-                  mostrarDock
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-6 pointer-events-none"
-                }`}
-              >
-                <Dock onSelectApp={setJanelaAtiva} />
-              </div>
+              <Dock onSelectApp={setJanelaAtiva} />
             </div>
-          ) : (
-            <Dock onSelectApp={setJanelaAtiva} />
-          )}
+          </div>
         </div>
       </ChatProvider>
     </div>

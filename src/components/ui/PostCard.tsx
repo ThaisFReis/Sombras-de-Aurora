@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
 import InsertCommentRoundedIcon from "@mui/icons-material/InsertCommentRounded";
+import ShareRoundedIcon from "@mui/icons-material/ShareRounded";
 import { useState } from "react";
 import { useTheme } from "@/context/ThemeContext";
 import { themes } from "@/utils/themes";
@@ -13,14 +14,22 @@ import { highlightHashtags } from "./Hashtags";
 
 type PostCardProps = {
   post: PostType;
+  onExpand?: () => void;
+  expandido?: boolean;
   classname?: string;
   style?: React.CSSProperties;
 };
 
-export const PostCard = ({ post, classname, style }: PostCardProps) => {
+export const PostCard = ({
+  post,
+  onExpand,
+  expandido = false,
+  classname,
+  style,
+}: PostCardProps) => {
   const [likes, setLikes] = useState(post.likes || 0);
   const [liked, setLiked] = useState(false);
-  const [showComments, setShowComments] = useState(false);
+  const [showComments, setShowComments] = useState(expandido); // já abre se estiver expandido
   const { theme } = useTheme();
   const currentTheme = themes[theme];
 
@@ -36,11 +45,11 @@ export const PostCard = ({ post, classname, style }: PostCardProps) => {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       whileHover={{
-        scale: 1.01,
+        scale: expandido ? 1 : 1.01,
         boxShadow: "0px 0px 20px rgba(255,255,255,0.04)",
       }}
       transition={{ duration: 0.3, ease: "easeOut" }}
-      className={`w-full max-w-[600px] rounded-xl p-5 border border-zinc-800 backdrop-blur-md transition-all bg-gradient-to-br from-zinc-900/80 to-zinc-800/80 ${classname}`}
+      className={`w-full max-w-2xl rounded-xl p-5 border border-zinc-800 backdrop-blur-md transition-all bg-gradient-to-br from-zinc-900/80 to-zinc-800/80 h-fit ${classname}`}
       style={style}
     >
       {/* Header */}
@@ -77,11 +86,22 @@ export const PostCard = ({ post, classname, style }: PostCardProps) => {
 
       {/* Imagem */}
       {post.image && (
-        <div className="rounded-md overflow-hidden mb-3 border border-zinc-700">
+        <div
+          className={`rounded-md overflow-hidden mb-3 border border-zinc-700 transition-all cursor-pointer ${
+            expandido ? "max-h-[600px]" : "h-[180px]"
+          }`}
+          onClick={() => {
+            if (!expandido && onExpand) onExpand();
+          }}
+        >
           <img
             src={post.image}
             alt="Imagem do post"
-            className="w-full h-[180px] object-cover"
+            className="w-full object-cover"
+            style={{
+              height: expandido ? "auto" : "180px",
+              maxHeight: expandido ? "600px" : undefined,
+            }}
           />
         </div>
       )}
@@ -97,10 +117,10 @@ export const PostCard = ({ post, classname, style }: PostCardProps) => {
       )}
 
       {/* Ações */}
-      <div className="flex items-center gap-6 mt-4">
+      <div className="flex items-center gap-6 mt-4 text-sm text-zinc-400">
         <button
           onClick={toggleLike}
-          className="flex items-center gap-1 text-sm text-zinc-400 hover:text-indigo-400 transition-colors"
+          className="flex items-center gap-1 hover:text-indigo-400 transition-colors"
         >
           <FavoriteRoundedIcon
             style={{ width: 16, height: 16 }}
@@ -111,13 +131,24 @@ export const PostCard = ({ post, classname, style }: PostCardProps) => {
 
         <button
           onClick={() => setShowComments(!showComments)}
-          className="flex items-center gap-1 text-sm text-zinc-400 hover:text-indigo-400 transition-colors"
+          className="flex items-center gap-1 hover:text-indigo-400 transition-colors"
         >
           <InsertCommentRoundedIcon
             style={{ width: 16, height: 16 }}
             className={showComments ? "text-indigo-400" : "text-zinc-500"}
           />
           {post.comments?.length ?? 0}
+        </button>
+
+        <button
+          onClick={() => {
+            // lógica de compartilhamento (copiar link, etc.)
+            navigator.clipboard.writeText(window.location.href + `?post=${post.id}`);
+          }}
+          className="flex items-center gap-1 hover:text-indigo-400 transition-colors"
+        >
+          <ShareRoundedIcon style={{ width: 16, height: 16 }} />
+          Compartilhar
         </button>
       </div>
 

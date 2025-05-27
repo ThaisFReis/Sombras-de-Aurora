@@ -9,8 +9,10 @@ import { useTheme } from "@/context/ThemeContext"; // Importe o useTheme
 import { themes } from "@/utils/themes";
 import { PostCard } from "../ui/PostCard";
 
-export const Perfil = () => {
-  const { userId } = useParams<{ userId: string }>();
+export const Perfil = (props: { userId?: string } = {}) => {
+  const { userId: paramUserId } = useParams<{ userId: string }>();
+  const userId = props.userId ?? paramUserId;
+
   const { theme } = useTheme();
   const currentTheme = themes[theme];
 
@@ -34,7 +36,7 @@ export const Perfil = () => {
   );
 
   return (
-    <div className="w-full min-h-screen flex justify-center py-10 px-4 bg-black bg-opacity-90">
+    <div className="w-full min-h-screen flex justify-center py-10 px-4">
       <div className="flex flex-col items-center gap-6 max-w-[650px] w-full">
         {/* Card do Perfil */}
         <div className="w-full backdrop-blur-lg bg-white/5 rounded-2xl shadow-xl p-6 flex flex-col items-center transition-all hover:shadow-2xl border border-white/10">

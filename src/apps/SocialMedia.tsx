@@ -3,35 +3,54 @@ import { Search } from "lucide-react";
 import { PostCard } from "@/components/ui/PostCard";
 import { Sidebar } from "@/components/SocialMedia/Sidebar";
 import { posts } from "@/data/PostData";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Perfil } from "@/components/SocialMedia/Perfil";
+import { Chat } from "@/components/SocialMedia/Chat";
+import { Notificacoes } from "@/components/SocialMedia/Notificacoes";
+import { Configuracoes } from "@/components/SocialMedia/Configuracoes";
+import { PostModal } from "@/components/SocialMedia/PostModal";
 
 export const SocialMedia = ({ onClose }: { onClose: () => void }) => {
   const [componenteAtivo, setComponenteAtivo] = useState("Feed");
+  const [postSelecionado, setPostSelecionado] = useState<string | null>(null);
+  const [perfilAberto, setPerfilAberto] = useState<string | null>(null);
+
 
   const renderComponente = () => {
     switch (componenteAtivo) {
       case "Feed":
       case "Início":
         return (
-          <div className="p-4 space-y-4">
+          <div className="flex flex-col p-4 space-y-4">
             {posts.map((post) => (
-              <PostCard key={post.id} post={post} />
+              <PostCard
+                key={post.id}
+                post={post}
+                onExpand={() => setPostSelecionado(post.id)}
+              />
             ))}
           </div>
         );
       case "Mensagens":
-        return <div className="p-4">Mensagens</div>;
+        return <Chat onClose={onClose} />;
       case "Perfil":
-        return <Perfil />;
+        return <Perfil userId="1" />;
       case "Notificacoes":
-        return <div className="p-4">Notificações</div>;
+        return <Notificacoes onClose={onClose} />;
       case "Configuracoes":
-        return <div className="p-4">Configurações</div>;
+        return <Configuracoes onClose={onClose} />;
       default:
         return <div className="p-4">Componente não encontrado.</div>;
     }
   };
+
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setPostSelecionado(null);
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, []);
 
   return (
     <WindowApp title="Rede Social" onClose={onClose}>
@@ -42,11 +61,14 @@ export const SocialMedia = ({ onClose }: { onClose: () => void }) => {
         {/* Conteúdo central */}
         <main className="flex-1 flex flex-col border-r border-zinc-800 overflow-y-auto">
           <header className="sticky top-0 z-10 backdrop-blur bg-zinc-900/70 border-b border-zinc-800 p-4 text-lg font-semibold">
-            {componenteAtivo === "feed"
+            {postSelecionado
+              ? "Post"
+              : componenteAtivo === "feed"
               ? "Início"
               : componenteAtivo.charAt(0).toUpperCase() +
                 componenteAtivo.slice(1)}
           </header>
+
           {renderComponente()}
         </main>
 
@@ -69,6 +91,14 @@ export const SocialMedia = ({ onClose }: { onClose: () => void }) => {
           </div>
         </aside>
       </div>
+
+      {/* Modal de Post Expandido */}
+      {postSelecionado && (
+        <PostModal
+          post={posts.find((p) => p.id === postSelecionado)!}
+          onClose={() => setPostSelecionado(null)}
+        />
+      )}
     </WindowApp>
   );
 };

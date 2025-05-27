@@ -25,7 +25,6 @@ const apps = [
     icon: <FolderOpen />,
     color: "bg-emerald-600",
   },
-  { id: "mapa", name: "Diário", icon: <MapPinned />, color: "bg-rose-500" },
 ];
 
 export const IconDesktop = ({ setJanelaAtiva }: IconDesktopProps) => {

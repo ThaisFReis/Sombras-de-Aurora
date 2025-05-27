@@ -1,23 +1,23 @@
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { ThemeProvider } from "@/context/ThemeContext"; // Importe o ThemeProvider
+import { ThemeProvider } from "@/context/ThemeContext";
 
 import MainLayout from "@/layouts/MainLayout";
-import { Home } from "@/pages/Home";
 import { Perfil } from "@/components/SocialMedia/Perfil";
-import { Settings } from "@/pages/Settings"; // Importe a página de Settingsurações
+import { Settings } from "@/pages/Settings";
 
 function App() {
   return (
-    <ThemeProvider> {/* Envolva toda a aplicação com ThemeProvider */}
+    <ThemeProvider>
       <main>
         <ToastContainer />
         <Routes>
-          <Route element={<MainLayout />}>
-            <Route path="" element={<Home />} />
-            <Route path="/perfil/:userId" element={<Perfil />} />
-            <Route path="/Settings" element={<Settings />} /> {/* Rota para Settingsurações */}
+          {/* O MainLayout já centraliza toda a navegação, então o Home é fundido nele */}
+          <Route path="/" element={<MainLayout />}>
+            {/* Rotas internas como perfil e settings ainda são válidas */}
+            <Route path="perfil/:userId" element={<Perfil />} />
+            <Route path="settings" element={<Settings />} />
           </Route>
         </Routes>
       </main>

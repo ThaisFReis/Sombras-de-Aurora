@@ -17,6 +17,7 @@
     "@iconify/react": "^5.0.2",
     "@mui/icons-material": "^6.4.5",
     "@mui/material": "^6.4.5",
+    "@radix-ui/react-switch": "^1.2.5",
     "axios": "^1.7.9",
     "caniuse-lite": "^1.0.30001701",
     "date-fns": "^4.1.0",
