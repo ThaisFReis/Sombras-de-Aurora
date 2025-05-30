@@ -3,12 +3,14 @@ import {
   MessageCircle,
   MapPinned,
   Ghost,
-  Settings,
+  SquareTerminal,
   AtSign,
-  Gamepad2
+  Gamepad2,
 } from "lucide-react";
+
 interface DockProps {
   onSelectApp: (app: string | null) => void;
+  activeApp: string | null;
 }
 
 const apps = [
@@ -24,14 +26,15 @@ const apps = [
     icon: <FolderOpen />,
     color: "bg-emerald-600",
   },
-  { 
-    id: "chat", 
-    name: "Chat", 
-    icon: <MessageCircle /> },
   {
-    id: "settings",
-    name: "Configurações",
-    icon: <Settings />,
+    id: "chat",
+    name: "Chat",
+    icon: <MessageCircle />,
+  },
+  {
+    id: "terminal",
+    name: "Terminal",
+    icon: <SquareTerminal />,
   },
   {
     id: "map",
@@ -41,17 +44,17 @@ const apps = [
   {
     id: "minigames",
     name: "Mini Jogos",
-    icon: <Gamepad2 />
-  }
+    icon: <Gamepad2 />,
+  },
 ];
 
-export const Dock = ({ onSelectApp }: DockProps) => {
+export const Dock = ({ onSelectApp, activeApp }: DockProps) => {
   return (
     <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-6 bg-zinc-800/60 rounded-full px-6 py-3 shadow-inner backdrop-blur-md">
       {apps.map((app) => (
         <button
           key={app.id + "dock"}
-          onClick={() => onSelectApp(app.id)}
+          onClick={() => onSelectApp(activeApp === app.id ? null : app.id)}
           className="flex flex-col items-center text-zinc-300 hover:text-white"
         >
           {app.icon}

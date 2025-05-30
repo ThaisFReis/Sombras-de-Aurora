@@ -12,9 +12,10 @@ import { ChatMessage } from "@/types/types";
 
 type MensagensAppProps = {
   onClose: () => void;
+  onOpenApp: (appName: string, payload?: any) => void;
 };
 
-export const ChatApp = ({ onClose }: MensagensAppProps) => {
+export const ChatApp = ({ onClose, onOpenApp }: MensagensAppProps) => {
   const [activeUserId, setActiveUserId] = useState<string | null>(null);
 
   // Chat log e índice para controlar avanço da conversa
@@ -52,7 +53,6 @@ export const ChatApp = ({ onClose }: MensagensAppProps) => {
   );
 
   const handleChoice = (effect: string, text: string) => {
-    // Adiciona a escolha do jogador como uma mensagem
     const playerResponse: ChatMessage = {
       id: `choice-${Date.now()}`,
       sender: "player",
@@ -60,17 +60,30 @@ export const ChatApp = ({ onClose }: MensagensAppProps) => {
       content: text,
     };
 
-    // Se for uma escolha terminal
-    if (effect.includes("end_chat")) {
+    const triggers = effect.split("|");
+
+    // 🔓 Verifica se há um minigame para desbloquear
+    const minigameTrigger = triggers.find((t) =>
+      t.startsWith("unlock_minigame--")
+    );
+    if (minigameTrigger) {
+      const gameId = minigameTrigger.split("--")[1];
       setChatLog((prev) => [...prev, playerResponse]);
-      setTimeout(() => setActiveUserId(null), 1000); // fecha após 1s
+
+      // Pequeno delay opcional para UX
+      setTimeout(() => {
+        onOpenApp("minigames", { gameId }); // 💡 Passa qual jogo abrir
+      }, 800);
+
       return;
     }
 
-    // Dividir efeitos múltiplos
-    const triggers = effect.split("|");
+    if (effect.includes("end_chat")) {
+      setChatLog((prev) => [...prev, playerResponse]);
+      setTimeout(() => setActiveUserId(null), 1000);
+      return;
+    }
 
-    // Procurar próxima mensagem
     const next = testChapter.chat.find(
       (msg) =>
         (msg.triggers && msg.triggers.some((t) => triggers.includes(t))) ||
@@ -78,7 +91,6 @@ export const ChatApp = ({ onClose }: MensagensAppProps) => {
     );
 
     const newMessages: ChatMessage[] = [playerResponse];
-
     if (next) {
       newMessages.push(next);
       setCurrentIndex((prev) => prev + 1);
@@ -156,6 +168,7 @@ export const ChatApp = ({ onClose }: MensagensAppProps) => {
                       onChoiceSelect={handleChoice}
                     />
                   ))}
+
                   <div ref={messagesEndRef} />
                 </div>
 

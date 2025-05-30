@@ -27,7 +27,7 @@ export const testChapter: Chapter = {
         },
         {
           text: "Notei algo estranho… vou investigar.",
-          effect: "unlock_minigame",
+          effect: "unlock_minigame--audio-decoder-janela",
         },
       ],
     },

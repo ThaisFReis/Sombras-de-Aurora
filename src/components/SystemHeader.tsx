@@ -8,7 +8,20 @@ import relativeTime from "dayjs/plugin/relativeTime";
 dayjs.locale("pt-br");
 dayjs.extend(relativeTime);
 
-export const SystemHeader = () => {
+interface SystemHeaderProps {
+  onSelectApp: (app: string | null) => void;
+  activeApp: string | null;
+}
+
+const apps = [
+  {
+    id: "settings",
+    name: "Configurações",
+    icon: <Settings />,
+  },
+];
+
+export const SystemHeader = ({ onSelectApp, activeApp }: SystemHeaderProps) => {
   const [time, setTime] = useState(dayjs());
   const unreadCount = useNotificationStore((state) => state.unreadCount());
   const [showPanel, setShowPanel] = useState(false);
@@ -38,11 +51,11 @@ export const SystemHeader = () => {
       {/* Lado direito */}
       <div className="flex items-center gap-4 text-zinc-400 relative">
         <div className="relative">
-          <div className="cursor-pointer" onClick={() => setShowPanel(!showPanel)}>
-            <Bell
-              className="w-4 h-4 hover:text-zinc-100"
-              
-            />
+          <div
+            className="cursor-pointer"
+            onClick={() => setShowPanel(!showPanel)}
+          >
+            <Bell className="w-4 h-4 hover:text-zinc-100" />
             {unreadCount > 0 && (
               <span className="absolute -top-1 -right-2 bg-red-500 text-white text-[10px] rounded-full px-1">
                 {unreadCount}
@@ -79,8 +92,26 @@ export const SystemHeader = () => {
 
         <Wifi className="w-4 h-4 hover:text-zinc-100" />
         <Volume2 className="w-4 h-4 hover:text-zinc-100" />
-        <Settings className="w-4 h-4 hover:text-zinc-100" />
-        <User className="w-4 h-4 hover:text-zinc-100" />
+
+        {/* Apps */}
+        {apps.map((app) => (
+          <button
+            key={app.id}
+            onClick={() => onSelectApp(activeApp === app.id ? null : app.id)}
+            className="flex flex-col items-center hover:text-white"
+          >
+            {app.icon}
+          </button>
+        ))}
+
+        {/* Ícone usuário, exemplo: poderia abrir app de perfil ou algo */}
+        <button
+          className="flex flex-col items-center hover:text-white"
+          title="Perfil"
+          onClick={() => onSelectApp("profile")}
+        >
+          <User className="w-4 h-4 hover:text-zinc-100" />
+        </button>
       </div>
     </div>
   );

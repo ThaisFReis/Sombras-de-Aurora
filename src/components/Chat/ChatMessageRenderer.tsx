@@ -57,7 +57,12 @@ export const ChatMessageRenderer = ({ message, onChoiceSelect }: Props) => {
             }`}
           >
             {getEffectIcon(choice.effect)}
-            {choice.text}
+            <span>
+              {choice.text}
+              {choice.effect.includes("unlock_minigame") && (
+                <span className="ml-1 text-indigo-300">(Minijogo)</span>
+              )}
+            </span>
           </motion.button>
         ))}
       </div>

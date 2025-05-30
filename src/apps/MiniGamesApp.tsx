@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { WindowApp } from "@/components/WindowApp";
 import { AudioDecoderMinigame } from "@/components/Minijogos/AudioDecoderMinigame";
 import { Button } from "@/components/ui/Button";
 
 type MiniGamesAppProps = {
   onClose: () => void;
+  gameId?: string;
 };
 
 const PlaceholderMinigame = ({
@@ -28,7 +29,7 @@ const PlaceholderMinigame = ({
   );
 };
 
-export const MiniGamesApp = ({ onClose }: MiniGamesAppProps) => {
+export const MiniGamesApp = ({ onClose, gameId }: MiniGamesAppProps) => {
   const [activeMinigame, setActiveMinigame] = useState<string | null>(null);
 
   const minigames = [
@@ -81,6 +82,13 @@ export const MiniGamesApp = ({ onClose }: MiniGamesAppProps) => {
   ];
 
   const selected = minigames.find((g) => g.id === activeMinigame);
+
+    useEffect(() => {
+    if (gameId) {
+      // Carregar ou iniciar minigame específico
+      console.log("Iniciar minigame:", gameId);
+    }
+  }, [gameId]);
 
   return (
     <WindowApp title="Mini Games" onClose={onClose} isChat={false}>

@@ -26,9 +26,17 @@ export default {
         imFell: ["IM Fell English", "serif"], // Fonte IM Fell English
         bebas: ["Bebas Neue", "sans-serif"], // Fonte Bebas Neue
       },
+      animation: {
+        "fade-in": "fadeIn 0.4s ease-out",
+        ping: "ping 1s cubic-bezier(0, 0, 0.2, 1) infinite",
+      },
+      keyframes: {
+        fadeIn: {
+          "0%": { opacity: 0, transform: "translateY(4px)" },
+          "100%": { opacity: 1, transform: "translateY(0)" },
+        },
+      },
     },
   },
-  plugins: [
-    require('tailwind-scrollbar'),
-],
+  plugins: [require("tailwind-scrollbar")],
 };
