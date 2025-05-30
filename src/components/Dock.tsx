@@ -4,8 +4,9 @@ import {
   MapPinned,
   Ghost,
   Settings,
+  AtSign,
+  Gamepad2
 } from "lucide-react";
-
 interface DockProps {
   onSelectApp: (app: string | null) => void;
 }
@@ -14,23 +15,34 @@ const apps = [
   {
     id: "feed",
     name: "Rede Social",
-    icon: <MessageCircle />,
-    color: "bg-indigo-500",
+    icon: <AtSign />,
   },
-  { id: "forum", name: "Deepfeed", icon: <Ghost />, color: "bg-purple-600" },
+  { id: "forum", name: "Deepfeed", icon: <Ghost /> },
   {
     id: "arquivos",
     name: "Arquivos",
     icon: <FolderOpen />,
     color: "bg-emerald-600",
   },
-  { id: "mapa", name: "Diário", icon: <MapPinned />, color: "bg-rose-500" },
+  { 
+    id: "chat", 
+    name: "Chat", 
+    icon: <MessageCircle /> },
   {
     id: "settings",
     name: "Configurações",
     icon: <Settings />,
-    color: "bg-zinc-600",
   },
+  {
+    id: "map",
+    name: "Mapa",
+    icon: <MapPinned />,
+  },
+  {
+    id: "minigames",
+    name: "Mini Jogos",
+    icon: <Gamepad2 />
+  }
 ];
 
 export const Dock = ({ onSelectApp }: DockProps) => {

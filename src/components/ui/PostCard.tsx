@@ -5,12 +5,12 @@ import ShareRoundedIcon from "@mui/icons-material/ShareRounded";
 import { useState } from "react";
 import { useTheme } from "@/context/ThemeContext";
 import { themes } from "@/utils/themes";
-import { getCharacterById } from "@/utils/characterUtils";
 import { Icon } from "@/components/ui/Icon";
 import { Link } from "react-router-dom";
 import { CommentCard } from "@/components/ui/CommentCard";
 import { PostType } from "@/types/Post";
 import { highlightHashtags } from "./Hashtags";
+import { getCharacterById } from "@/utils/characterUtils"
 
 type PostCardProps = {
   post: PostType;
@@ -29,7 +29,7 @@ export const PostCard = ({
 }: PostCardProps) => {
   const [likes, setLikes] = useState(post.likes || 0);
   const [liked, setLiked] = useState(false);
-  const [showComments, setShowComments] = useState(expandido); // já abre se estiver expandido
+  const [showComments, setShowComments] = useState(expandido);
   const { theme } = useTheme();
   const currentTheme = themes[theme];
 
@@ -54,7 +54,7 @@ export const PostCard = ({
     >
       {/* Header */}
       <div className="flex items-center gap-4 mb-3">
-        <Link to={`/perfil/${post.userId}`}>
+        <Link to={`/perfil/${post.userId || ""}`}>
           {character?.avatar ? (
             <Icon
               src={character.avatar}
@@ -68,7 +68,7 @@ export const PostCard = ({
         </Link>
 
         <div className="flex flex-col">
-          <Link to={`/perfil/${post.userId}`}>
+          <Link to={`/perfil/${post.userId || ""}`}>
             <span className="text-sm font-josefin font-semibold text-white">
               {character?.name || "Usuário Desconhecido"}
             </span>
@@ -142,7 +142,6 @@ export const PostCard = ({
 
         <button
           onClick={() => {
-            // lógica de compartilhamento (copiar link, etc.)
             navigator.clipboard.writeText(window.location.href + `?post=${post.id}`);
           }}
           className="flex items-center gap-1 hover:text-indigo-400 transition-colors"

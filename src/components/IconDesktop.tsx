@@ -1,10 +1,11 @@
 import { useState, Dispatch, SetStateAction } from "react";
 import {
-  Monitor,
   FolderOpen,
   MessageCircle,
   MapPinned,
   Ghost,
+  AtSign,
+  Gamepad2,
 } from "lucide-react";
 
 interface IconDesktopProps {
@@ -15,7 +16,7 @@ const apps = [
   {
     id: "feed",
     name: "Rede Social",
-    icon: <MessageCircle />,
+    icon: <AtSign />,
     color: "bg-indigo-500",
   },
   { id: "forum", name: "Deepfeed", icon: <Ghost />, color: "bg-purple-600" },
@@ -24,6 +25,24 @@ const apps = [
     name: "Arquivos",
     icon: <FolderOpen />,
     color: "bg-emerald-600",
+  },
+  {
+    id: "chat",
+    name: "Chat",
+    icon: <MessageCircle />,
+    color: "bg-blue-600",
+  },
+  {
+    id: "map",
+    name: "Mapa",
+    icon: <MapPinned />,
+    color: "bg-yellow-500",
+  },
+  {
+    id: "minigames",
+    name: "Mini Jogos",
+    icon: <Gamepad2 />,
+    color: "bg-rose-400",
   },
 ];
 

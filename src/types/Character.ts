@@ -1,9 +1,18 @@
+export enum CharacterID {
+  SEBASTIAN = "sebastian",
+  BEATRIZ = "beatriz",
+  OTAVIO = "otavio",
+  // Adicione outros conforme necessário
+}
+
 export type CharacterType = {
-    id: string; // Identificador único do personagem
-    name: string; // Nome do personagem
-    user: string; // User do personagem
-    avatar: string; // Avatar do personagem
-    bio: string; // Bio do personagem
-    trust?: number; // Confiança do personagem em relação ao jogador, pode ser entre 0 e 10
-  };
-  
+  id: CharacterID;
+  name: string;
+  user: string;
+  avatar: string;
+  bio: string;
+  trust?: number;          // 0 a 10
+  relationship?: number;   // -5 (ódio) a +5 (amizade profunda)
+  visible?: boolean;
+  tags?: string[];
+};

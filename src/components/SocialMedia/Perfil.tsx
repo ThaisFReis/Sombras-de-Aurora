@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 // import { PostCard } from "@/features/feed/components/PostCard";
 import { Highlights } from "@/components/Highlights";
 import { ProgressBar } from "@/components/ProgressBar";
-import { CharactersData } from "@/data/CharactersData";
+import { characters } from "@/data/CharactersData";
 import { posts } from "@/data/PostData";
 import { Icon } from "@/components/ui/Icon";
 import { useTheme } from "@/context/ThemeContext"; // Importe o useTheme
@@ -18,7 +18,7 @@ export const Perfil = (props: { userId?: string } = {}) => {
 
   if (!userId) return null;
 
-  const character = CharactersData.find((char) => char.id === userId);
+  const character = Object.values(characters).find((char: { id: string }) => char.id === userId);
   const characterPosts = posts.filter((post) => post.userId === userId);
 
   if (!character) {

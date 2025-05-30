@@ -5,7 +5,6 @@ import { Sidebar } from "@/components/SocialMedia/Sidebar";
 import { posts } from "@/data/PostData";
 import { useState, useEffect } from "react";
 import { Perfil } from "@/components/SocialMedia/Perfil";
-import { Chat } from "@/components/SocialMedia/Chat";
 import { Notificacoes } from "@/components/SocialMedia/Notificacoes";
 import { Configuracoes } from "@/components/SocialMedia/Configuracoes";
 import { PostModal } from "@/components/SocialMedia/PostModal";
@@ -31,8 +30,6 @@ export const SocialMedia = ({ onClose }: { onClose: () => void }) => {
             ))}
           </div>
         );
-      case "Mensagens":
-        return <Chat onClose={onClose} />;
       case "Perfil":
         return <Perfil userId="1" />;
       case "Notificacoes":

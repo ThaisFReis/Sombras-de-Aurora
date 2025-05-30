@@ -1,11 +1,4 @@
-import {
-  Home,
-  User,
-  Mail,
-  Bell,
-  Plus,
-  Settings,
-} from "lucide-react";
+import { Home, User, Bell, Plus, Settings } from "lucide-react";
 
 interface SidebarProps {
   onNavigate: (componente: string) => void;
@@ -31,13 +24,7 @@ export const Sidebar = ({ onNavigate }: SidebarProps) => {
           <User size={18} />
           Perfil
         </button>
-        <button
-          onClick={() => onNavigate("Mensagens")}
-          className="flex items-center gap-3 text-zinc-300 hover:text-white transition"
-        >
-          <Mail size={18} />
-          Mensagens
-        </button>
+
         <button
           onClick={() => onNavigate("Notificacoes")}
           className="flex items-center gap-3 text-zinc-300 hover:text-white transition"

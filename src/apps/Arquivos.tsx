@@ -71,7 +71,7 @@ export const Arquivos = ({ onClose }: { onClose: () => void }) => {
   const [selectedFolder, setSelectedFolder] = useState<FolderItem>(folders[0]);
 
   return (
-    <WindowApp title="Explorador de Arquivos" onClose={onClose}>
+    <WindowApp title="Explorador de Arquivos" onClose={onClose} isChat={false}>
       <div className="flex h-full w-full bg-zinc-900 text-zinc-100 rounded-lg overflow-hidden">
         {/* Sidebar das pastas */}
         <aside className="w-60 bg-zinc-800 p-4 border-r border-zinc-700 flex flex-col">
