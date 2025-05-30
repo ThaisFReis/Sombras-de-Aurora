@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/Button";
 import { FrequencyWaveComplex } from "./FrequencyWaveComplex";
 
@@ -57,6 +57,7 @@ export const AudioDecoderMinigame = ({
   useEffect(() => {
     const id = setInterval(() => {
       setWaveTick((t) => t + 1);
+      console.log(waveTick)
     }, 50);
     return () => clearInterval(id);
   }, []);

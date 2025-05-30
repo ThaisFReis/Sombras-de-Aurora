@@ -15,7 +15,7 @@ export const Home = () => {
         renderApp()
       </div>
 
-      <Dock onSelectApp={setActiveApp} />
+      <Dock onSelectApp={setActiveApp} activeApp={activeApp} />
     </div>
   );
 };

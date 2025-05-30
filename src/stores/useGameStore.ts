@@ -25,7 +25,7 @@ interface GameStore {
 
 export const useGameStore = create<GameStore>()(
   persist(
-    (set, get) => ({
+    (set) => ({
       capituloAtual: 1,
       decisoes: {},
       minigamesResolvidos: [],

@@ -47,7 +47,7 @@ const mockNotifications: Notification[] = [
 ];
 
 export const Notificacoes = ({ onClose }: { onClose: () => void }) => {
-  const [notificacoes, setNotificacoes] = useState(mockNotifications);
+  const [notificacoes] = useState(mockNotifications);
 
   const getIcon = (type: Notification["type"]) => {
     switch (type) {

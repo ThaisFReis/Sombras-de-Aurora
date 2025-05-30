@@ -1,6 +1,6 @@
 import { WindowApp } from "@/components/WindowApp";
 import { useState } from "react";
-import { Plus, MessageSquare, X } from "lucide-react";
+import { Plus, X } from "lucide-react";
 
 type Topic = {
   id: number;

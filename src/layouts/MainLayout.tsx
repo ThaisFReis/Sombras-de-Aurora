@@ -26,7 +26,7 @@ const MainLayout = () => {
   const currentTheme = themes[theme];
   const [janelaAtiva, setJanelaAtiva] = useState<string | null>(null);
   const [mostrarDock, setMostrarDock] = useState(false);
-  const [janelaAtivaPayload, setJanelaAtivaPayload] = useState<{
+  const [janelaAtivaPayload] = useState<{
     gameId?: string;
   } | null>(null);
 

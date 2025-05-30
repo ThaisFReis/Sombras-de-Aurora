@@ -1,5 +1,5 @@
-import { useTheme } from "@/context/ThemeContext";
-import { themes } from "@/utils/themes";
+// import { useTheme } from "@/context/ThemeContext";
+// import { themes } from "@/utils/themes";
 import { getCharacterById } from "@/utils/characterUtils";
 import { Icon } from "@/components/ui/Icon";
 import { Link } from "react-router-dom";
@@ -8,8 +8,8 @@ import { CommentType } from "@/types/Post";
 type Comment = CommentType;
 
 export const CommentCard = ({ comment }: { comment: Comment }) => {
-  const { theme } = useTheme();
-  const currentTheme = themes[theme];
+  //const { theme } = useTheme();
+  //const currentTheme = themes[theme];
   const character = getCharacterById(comment.userId);
 
   return (

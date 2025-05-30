@@ -12,7 +12,7 @@ import { PostModal } from "@/components/SocialMedia/PostModal";
 export const SocialMedia = ({ onClose }: { onClose: () => void }) => {
   const [componenteAtivo, setComponenteAtivo] = useState("Feed");
   const [postSelecionado, setPostSelecionado] = useState<string | null>(null);
-  const [perfilAberto, setPerfilAberto] = useState<string | null>(null);
+  // const [perfilAberto, setPerfilAberto] = useState<string | null>(null);
 
 
   const renderComponente = () => {

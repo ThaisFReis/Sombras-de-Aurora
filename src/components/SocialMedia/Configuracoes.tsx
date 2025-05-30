@@ -2,11 +2,11 @@ import { useState } from "react";
 import { Switch } from "@/components/ui/Switch";
 import { WindowApp } from "@/components/WindowApp";
 import { useTheme } from "@/context/ThemeContext";
-import { themes } from "@/utils/themes";
+//import { themes } from "@/utils/themes";
 
 export const Configuracoes = ({ onClose }: { onClose: () => void }) => {
   const { theme, setTheme } = useTheme();
-  const currentTheme = themes[theme];
+  //const currentTheme = themes[theme];
 
   const [username, setUsername] = useState("aurora_eco");
   const [bio, setBio] = useState("Observando o que não devia ser visto.");

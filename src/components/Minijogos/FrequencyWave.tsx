@@ -1,5 +1,3 @@
-import React from "react";
-
 type FrequencyWaveProps = {
   intensity: number; // 0 a 1 para controlar a amplitude da onda
   color?: string;

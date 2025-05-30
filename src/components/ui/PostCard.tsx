@@ -3,8 +3,8 @@ import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
 import InsertCommentRoundedIcon from "@mui/icons-material/InsertCommentRounded";
 import ShareRoundedIcon from "@mui/icons-material/ShareRounded";
 import { useState } from "react";
-import { useTheme } from "@/context/ThemeContext";
-import { themes } from "@/utils/themes";
+// import { useTheme } from "@/context/ThemeContext";
+//import { themes } from "@/utils/themes";
 import { Icon } from "@/components/ui/Icon";
 import { Link } from "react-router-dom";
 import { CommentCard } from "@/components/ui/CommentCard";
@@ -30,8 +30,8 @@ export const PostCard = ({
   const [likes, setLikes] = useState(post.likes || 0);
   const [liked, setLiked] = useState(false);
   const [showComments, setShowComments] = useState(expandido);
-  const { theme } = useTheme();
-  const currentTheme = themes[theme];
+  //const { theme } = useTheme();
+  //const currentTheme = themes[theme];
 
   const character = getCharacterById(post.userId);
 

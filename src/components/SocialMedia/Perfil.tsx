@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 // import { PostCard } from "@/features/feed/components/PostCard";
 import { Highlights } from "@/components/Highlights";
-import { ProgressBar } from "@/components/ProgressBar";
+//import { ProgressBar } from "@/components/ProgressBar";
 import { characters } from "@/data/CharactersData";
 import { posts } from "@/data/PostData";
 import { Icon } from "@/components/ui/Icon";
