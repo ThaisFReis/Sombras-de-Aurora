@@ -1,4 +1,3 @@
-import { WindowApp } from "@/components/WindowApp";
 import { Folder, FileText, Image, Video, Music } from "lucide-react";
 import { useState } from "react";
 
@@ -67,7 +66,7 @@ const FileIcon = ({ type }: { type: string }) => {
   }
 };
 
-export const Arquivos = ({ onClose }: { onClose: () => void }) => {
+export const Arquivos = () => {
   const [selectedFolder, setSelectedFolder] = useState<FolderItem>(folders[0]);
 
   return (

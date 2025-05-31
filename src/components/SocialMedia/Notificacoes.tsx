@@ -1,4 +1,3 @@
-import { WindowApp } from "@/components/WindowApp";
 import { Bell, MessageCircle, Heart, AlertTriangle } from "lucide-react";
 import { useState } from "react";
 
@@ -46,7 +45,7 @@ const mockNotifications: Notification[] = [
   },
 ];
 
-export const Notificacoes = ({ onClose }: { onClose: () => void }) => {
+export const Notificacoes = () => {
   const [notificacoes] = useState(mockNotifications);
 
   const getIcon = (type: Notification["type"]) => {
@@ -68,7 +67,6 @@ export const Notificacoes = ({ onClose }: { onClose: () => void }) => {
     new Date(iso).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
 
   return (
-    <WindowApp title="Notificações" onClose={onClose}>
       <div className="flex flex-col h-full w-full bg-zinc-950 text-zinc-100 overflow-y-auto">
         {notificacoes.length === 0 ? (
           <div className="flex-1 flex items-center justify-center text-zinc-500 text-sm">
@@ -96,6 +94,5 @@ export const Notificacoes = ({ onClose }: { onClose: () => void }) => {
           </ul>
         )}
       </div>
-    </WindowApp>
   );
 };

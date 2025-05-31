@@ -2,9 +2,8 @@ import { useState } from "react";
 import { themes } from "@/utils/themes";
 import { useTheme } from "@/context/ThemeContext";
 import { ProgressBar } from "@/components/ProgressBar";
-import { WindowApp } from "@/components/WindowApp";
 
-export const Settings = ({ onClose }: { onClose: () => void }) => {
+export const Settings = () => {
   const { theme, setTheme, isDarkMode, toggleDarkMode } = useTheme();
   const [selectedTheme, setSelectedTheme] =
     useState<keyof typeof themes>(theme);

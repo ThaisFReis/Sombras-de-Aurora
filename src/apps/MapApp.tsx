@@ -1,4 +1,3 @@
-import { WindowApp } from "@/components/WindowApp";
 import { MapPin } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { fictionalMap } from "@/data/mapData";
@@ -8,7 +7,7 @@ type MapAppProps = {
   onSelectLocation?: (locationId: string) => void;
 };
 
-export const MapApp = ({ onClose, onSelectLocation }: MapAppProps) => {
+export const MapApp = ({onSelectLocation }: MapAppProps) => {
   const [selectedLocation, setSelectedLocation] = useState<string | null>(null);
   const [zoom, setZoom] = useState(1);
   const [offset, setOffset] = useState({ x: 0, y: 0 });

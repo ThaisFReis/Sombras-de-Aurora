@@ -1,4 +1,3 @@
-import { WindowApp } from "@/components/WindowApp";
 import { Search } from "lucide-react";
 import { PostCard } from "@/components/ui/PostCard";
 import { Sidebar } from "@/components/SocialMedia/Sidebar";
@@ -9,7 +8,7 @@ import { Notificacoes } from "@/components/SocialMedia/Notificacoes";
 import { Configuracoes } from "@/components/SocialMedia/Configuracoes";
 import { PostModal } from "@/components/SocialMedia/PostModal";
 
-export const SocialMedia = ({ onClose }: { onClose: () => void }) => {
+export const SocialMedia = () => {
   const [componenteAtivo, setComponenteAtivo] = useState("Feed");
   const [postSelecionado, setPostSelecionado] = useState<string | null>(null);
   // const [perfilAberto, setPerfilAberto] = useState<string | null>(null);
@@ -33,9 +32,9 @@ export const SocialMedia = ({ onClose }: { onClose: () => void }) => {
       case "Perfil":
         return <Perfil userId="1" />;
       case "Notificacoes":
-        return <Notificacoes onClose={onClose} />;
+        return <Notificacoes/>;
       case "Configuracoes":
-        return <Configuracoes onClose={onClose} />;
+        return <Configuracoes/>;
       default:
         return <div className="p-4">Componente não encontrado.</div>;
     }

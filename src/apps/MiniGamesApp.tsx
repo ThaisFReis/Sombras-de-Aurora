@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
-import { WindowApp } from "@/components/WindowApp";
 import { AudioDecoderMinigame } from "@/components/Minijogos/AudioDecoderMinigame";
 import { Button } from "@/components/ui/Button";
 
 type MiniGamesAppProps = {
-  onClose: () => void;
   gameId?: string;
 };
 
@@ -29,7 +27,7 @@ const PlaceholderMinigame = ({
   );
 };
 
-export const MiniGamesApp = ({ onClose, gameId }: MiniGamesAppProps) => {
+export const MiniGamesApp = ({ gameId }: MiniGamesAppProps) => {
   const [activeMinigame, setActiveMinigame] = useState<string | null>(null);
 
   const minigames = [

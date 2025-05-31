@@ -1,4 +1,3 @@
-import { WindowApp } from "@/components/WindowApp";
 import { useState } from "react";
 import { Plus, X } from "lucide-react";
 
@@ -40,7 +39,7 @@ const initialTopics: Topic[] = [
   },
 ];
 
-export const Forum = ({ onClose }: { onClose: () => void }) => {
+export const Forum = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("Geral");
   const [topics, setTopics] = useState<Topic[]>(initialTopics);
   const [showNewTopic, setShowNewTopic] = useState(false);

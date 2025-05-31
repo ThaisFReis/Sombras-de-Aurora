@@ -26,7 +26,7 @@ export const MainLayout = () => {
   const currentTheme = themes[theme];
   const [janelaAtiva, setJanelaAtiva] = useState<string | null>(null);
   const [mostrarDock, setMostrarDock] = useState(false);
-  const [janelaAtivaPayload, setJanelaAtivaPayload] = useState<{
+  const [janelaAtivaPayload] = useState<{
     gameId?: string;
   } | null>(null);
 
@@ -44,28 +44,28 @@ export const MainLayout = () => {
 
     switch (janelaAtiva) {
       case "feed":
-        appContent = <SocialMedia onClose={onClose} />;
+        appContent = <SocialMedia />;
         title = "Rede Social";
         break;
       case "forum":
-        appContent = <Forum onClose={onClose} />;
+        appContent = <Forum />;
         title = "Fórum";
         break;
       case "arquivos":
-        appContent = <Arquivos onClose={onClose} />;
+        appContent = <Arquivos />;
         title = "Arquivos";
         break;
       case "settings":
-        appContent = <Settings onClose={onClose} />;
+        appContent = <Settings />;
         title = "Configurações";
         break;
       case "chat":
-        appContent = <ChatApp onClose={onClose} onOpenApp={setJanelaAtiva} />;
+        appContent = <ChatApp onOpenApp={setJanelaAtiva} />;
         title = "Mensagens";
         break;
       case "minigames":
         appContent = (
-          <MiniGamesApp onClose={onClose} gameId={janelaAtivaPayload?.gameId} />
+          <MiniGamesApp gameId={janelaAtivaPayload?.gameId} />
         );
         title = "Minijogos";
         break;
