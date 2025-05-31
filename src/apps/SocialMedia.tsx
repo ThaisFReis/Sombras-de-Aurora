@@ -50,7 +50,7 @@ export const SocialMedia = ({ onClose }: { onClose: () => void }) => {
   }, []);
 
   return (
-    <WindowApp title="Rede Social" onClose={onClose}>
+    <>
       <div className="flex h-full w-full bg-zinc-950 text-zinc-100">
         {/* Sidebar esquerda com controle de navegação */}
         <Sidebar onNavigate={setComponenteAtivo} />
@@ -96,6 +96,6 @@ export const SocialMedia = ({ onClose }: { onClose: () => void }) => {
           onClose={() => setPostSelecionado(null)}
         />
       )}
-    </WindowApp>
+    </>
   );
 };

@@ -55,7 +55,7 @@ export const Settings = ({ onClose }: { onClose: () => void }) => {
   };
 
   return (
-    <WindowApp title="settings" onClose={onClose}>
+    <>
       <div className="flex-1 flex flex-col items-center gap-6">
         <div className="w-full max-w-xl bg-white/10 backdrop-blur-md rounded-2xl shadow-lg p-6 border border-white/10">
           <h1 className="text-2xl font-semibold mb-4 text-center tracking-wide">
@@ -114,6 +114,6 @@ export const Settings = ({ onClose }: { onClose: () => void }) => {
       <div className="md:w-64 w-full">
         <ProgressBar />
       </div>
-    </WindowApp>
+    </>
   );
 };

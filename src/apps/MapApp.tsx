@@ -61,11 +61,6 @@ export const MapApp = ({ onClose, onSelectLocation }: MapAppProps) => {
   }, [isDragging]);
 
   return (
-    <WindowApp
-      title="Mapa de Aurora"
-      onClose={onClose}
-      className="!backdrop-blur-[3px] bg-zinc-900/50"
-    >
       <div
         ref={containerRef}
         className="relative w-[80vw] h-[80vh] bg-zinc-800 overflow-hidden rounded-xl cursor-grab active:cursor-grabbing mx-auto"
@@ -125,6 +120,5 @@ export const MapApp = ({ onClose, onSelectLocation }: MapAppProps) => {
           </div>
         )}
       </div>
-    </WindowApp>
   );
 };

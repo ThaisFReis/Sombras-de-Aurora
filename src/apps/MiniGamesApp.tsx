@@ -91,7 +91,7 @@ export const MiniGamesApp = ({ onClose, gameId }: MiniGamesAppProps) => {
   }, [gameId]);
 
   return (
-    <WindowApp title="Mini Games" onClose={onClose} isChat={false}>
+    <>
       {selected ? (
         <div className="p-4">{selected.component}</div>
       ) : (
@@ -110,6 +110,6 @@ export const MiniGamesApp = ({ onClose, gameId }: MiniGamesAppProps) => {
           ))}
         </div>
       )}
-    </WindowApp>
+    </>
   );
 };

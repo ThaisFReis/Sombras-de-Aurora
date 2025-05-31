@@ -6,6 +6,7 @@ import { useTheme } from "@/context/ThemeContext";
 import { themes } from "@/utils/themes";
 import { SystemHeader } from "@/components/SystemHeader";
 import { AnimatePresence, motion } from "framer-motion";
+import { WindowApp } from "@/components/WindowApp";
 
 // App imports
 import { SocialMedia } from "@/apps/SocialMedia";
@@ -15,7 +16,6 @@ import { Settings } from "@/apps/Settings";
 import { ChatApp } from "@/apps/ChatApp";
 import { MiniGamesApp } from "@/apps/MiniGamesApp";
 import { MapApp } from "@/apps/MapApp";
-import { TerminalApp } from "@/apps/TerminalApp";
 
 // Seed notifications
 import { seedNotifications } from "@/utils/seedNotifications";
@@ -26,7 +26,7 @@ const MainLayout = () => {
   const currentTheme = themes[theme];
   const [janelaAtiva, setJanelaAtiva] = useState<string | null>(null);
   const [mostrarDock, setMostrarDock] = useState(false);
-  const [janelaAtivaPayload] = useState<{
+  const [janelaAtivaPayload, setJanelaAtivaPayload] = useState<{
     gameId?: string;
   } | null>(null);
 
@@ -37,36 +37,69 @@ const MainLayout = () => {
   }, []);
 
   const renderApp = () => {
+    if (!janelaAtiva) return <IconDesktop setJanelaAtiva={setJanelaAtiva} />;
+
+    const onClose = () => setJanelaAtiva(null);
+
+    let appContent = null;
+    let title = "";
+    let isChat = false;
+
     switch (janelaAtiva) {
       case "feed":
-        return <SocialMedia onClose={() => setJanelaAtiva(null)} />;
+        appContent = <SocialMedia onClose={onClose} />;
+        title = "Rede Social";
+        break;
       case "forum":
-        return <Forum onClose={() => setJanelaAtiva(null)} />;
+        appContent = <Forum onClose={onClose} />;
+        title = "Fórum";
+        break;
       case "arquivos":
-        return <Arquivos onClose={() => setJanelaAtiva(null)} />;
+        appContent = <Arquivos onClose={onClose} />;
+        title = "Arquivos";
+        break;
       case "settings":
-        return <Settings onClose={() => setJanelaAtiva(null)} />;
+        appContent = <Settings onClose={onClose} />;
+        title = "Configurações";
+        break;
       case "chat":
-        return (
-          <ChatApp
-            onClose={() => setJanelaAtiva(null)}
-            onOpenApp={setJanelaAtiva}
-          />
+        appContent = (
+          <ChatApp onClose={onClose} onOpenApp={setJanelaAtiva} />
         );
+        title = "Mensagens";
+        isChat = true;
+        break;
       case "minigames":
-        return (
+        appContent = (
           <MiniGamesApp
-            onClose={() => setJanelaAtiva(null)}
+            onClose={onClose}
             gameId={janelaAtivaPayload?.gameId}
           />
         );
+        title = "Minijogos";
+        break;
       case "map":
-        return <MapApp onClose={() => setJanelaAtiva(null)} />;
-      case "terminal":
-        return <TerminalApp onClose={() => setJanelaAtiva(null)} />;
+        appContent = <MapApp onClose={onClose} />;
+        title = "Mapa";
+        break;
       default:
-        return <IconDesktop setJanelaAtiva={setJanelaAtiva} />;
+        return null;
     }
+
+    return (
+      <motion.div
+        key={janelaAtiva}
+        initial={{ opacity: 0, scale: 0.95, y: 10 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.95, y: 10 }}
+        transition={{ duration: 0.2, ease: "easeOut" }}
+        className="absolute inset-0"
+      >
+        <WindowApp title={title} onClose={onClose} >
+          {appContent}
+        </WindowApp>
+      </motion.div>
+    );
   };
 
   return (
@@ -84,32 +117,10 @@ const MainLayout = () => {
 
         <div className="flex-1 relative overflow-hidden">
           <Suspense fallback={<div>Carregando...</div>}>
-            <AnimatePresence mode="wait">
-              {janelaAtiva ? (
-                <motion.div
-                  key={janelaAtiva}
-                  initial={{ opacity: 0, scale: 0.95, y: 10 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.95, y: 10 }}
-                  transition={{ duration: 0.2, ease: "easeOut" }}
-                  className="absolute inset-1 bg-zinc-900/80 backdrop-blur-md rounded-2xl shadow-2xl overflow-hidden"
-                >
-                  {renderApp()}
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="desktop"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="absolute inset-0"
-                >
-                  <IconDesktop setJanelaAtiva={setJanelaAtiva} />
-                </motion.div>
-              )}
-            </AnimatePresence>
+            <AnimatePresence mode="wait">{renderApp()}</AnimatePresence>
           </Suspense>
+
+          {/* Dock */}
           <div
             className="absolute bottom-0 flex justify-center items-center mt-auto mb-0 w-full h-28 z-40"
             onMouseEnter={() => setMostrarDock(true)}

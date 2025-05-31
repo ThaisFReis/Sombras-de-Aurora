@@ -100,12 +100,6 @@ export const ChatApp = ({ onClose, onOpenApp }: MensagensAppProps) => {
   };
 
   return (
-    <WindowApp
-      title="Mensagens"
-      onClose={onClose}
-      className="!backdrop-blur-[3px] bg-zinc-900/50"
-      isChat={true}
-    >
       <div className="rounded-lg w-fit h-fit bg-green-800 mx-auto">
         <div className="flex items-center justify-between px-4 py-2 bg-zinc-800 border-b border-zinc-700">
           <h2 className="text-sm font-medium text-zinc-200 tracking-wide">
@@ -198,6 +192,5 @@ export const ChatApp = ({ onClose, onOpenApp }: MensagensAppProps) => {
           </main>
         </div>
       </div>
-    </WindowApp>
   );
 };

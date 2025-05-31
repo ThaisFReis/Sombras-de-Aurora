@@ -68,7 +68,6 @@ export const Forum = ({ onClose }: { onClose: () => void }) => {
   };
 
   return (
-    <WindowApp title="Fórum" onClose={onClose}>
       <div className="flex h-full w-full bg-zinc-900 text-zinc-100 rounded-lg overflow-hidden">
         {/* Sidebar categorias */}
         <aside className="w-56 bg-zinc-800 p-4 border-r border-zinc-700 flex flex-col">
@@ -171,6 +170,5 @@ export const Forum = ({ onClose }: { onClose: () => void }) => {
           </div>
         )}
       </div>
-    </WindowApp>
   );
 };
