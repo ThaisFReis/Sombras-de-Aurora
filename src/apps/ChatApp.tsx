@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import { WindowApp } from "@/components/WindowApp";
 import { MessageSquare } from "lucide-react";
 import { characters } from "@/data/CharactersData";
 import { Icon } from "@/components/ui/Icon";
