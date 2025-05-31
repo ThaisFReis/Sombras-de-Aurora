@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 
 interface IconDesktopProps {
-  setJanelaAtiva: Dispatch<SetStateAction<string | null>>;
+  setJanelaAtiva: (tipo: string, payload?: { gameId?: string }) => void;
 }
 
 const apps = [

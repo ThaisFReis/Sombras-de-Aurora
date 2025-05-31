@@ -21,7 +21,7 @@ import { MapApp } from "@/apps/MapApp";
 import { seedNotifications } from "@/utils/seedNotifications";
 import { useNotificationStore } from "@/stores/notificationStore";
 
-const MainLayout = () => {
+export const MainLayout = () => {
   const { theme } = useTheme();
   const currentTheme = themes[theme];
   const [janelaAtiva, setJanelaAtiva] = useState<string | null>(null);
@@ -37,13 +37,10 @@ const MainLayout = () => {
   }, []);
 
   const renderApp = () => {
-    if (!janelaAtiva) return <IconDesktop setJanelaAtiva={setJanelaAtiva} />;
-
     const onClose = () => setJanelaAtiva(null);
 
     let appContent = null;
     let title = "";
-    let isChat = false;
 
     switch (janelaAtiva) {
       case "feed":
@@ -63,18 +60,12 @@ const MainLayout = () => {
         title = "Configurações";
         break;
       case "chat":
-        appContent = (
-          <ChatApp onClose={onClose} onOpenApp={setJanelaAtiva} />
-        );
+        appContent = <ChatApp onClose={onClose} onOpenApp={setJanelaAtiva} />;
         title = "Mensagens";
-        isChat = true;
         break;
       case "minigames":
         appContent = (
-          <MiniGamesApp
-            onClose={onClose}
-            gameId={janelaAtivaPayload?.gameId}
-          />
+          <MiniGamesApp onClose={onClose} gameId={janelaAtivaPayload?.gameId} />
         );
         title = "Minijogos";
         break;
@@ -95,7 +86,7 @@ const MainLayout = () => {
         transition={{ duration: 0.2, ease: "easeOut" }}
         className="absolute inset-0"
       >
-        <WindowApp title={title} onClose={onClose} >
+        <WindowApp title={title} onClose={onClose}>
           {appContent}
         </WindowApp>
       </motion.div>
@@ -119,6 +110,7 @@ const MainLayout = () => {
           <Suspense fallback={<div>Carregando...</div>}>
             <AnimatePresence mode="wait">{renderApp()}</AnimatePresence>
           </Suspense>
+          <IconDesktop setJanelaAtiva={setJanelaAtiva} />
 
           {/* Dock */}
           <div
