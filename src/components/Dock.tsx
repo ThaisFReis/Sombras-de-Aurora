@@ -47,7 +47,7 @@ const categories = [
   },
 ];
 
-export const Dock = ({ onSelectApp, activeApp }: DockProps) => {
+export const Dock = ({ onSelectApp }: DockProps) => {
   const [openCategory, setOpenCategory] = useState<string | null>(null);
   const submenuRef = useRef<HTMLDivElement | null>(null);
   const dockRef = useRef<HTMLDivElement | null>(null);
@@ -60,10 +60,6 @@ export const Dock = ({ onSelectApp, activeApp }: DockProps) => {
       return () => clearTimeout(timeout);
     }
   }, [isHoveringDock, isHoveringMenu]);
-
-  const handleCategoryClick = (categoryId: string) => {
-    setOpenCategory((prev) => (prev === categoryId ? null : categoryId));
-  };
 
   // Fechar submenu ao clicar fora
   useEffect(() => {
@@ -125,9 +121,7 @@ export const Dock = ({ onSelectApp, activeApp }: DockProps) => {
                       onSelectApp(app.id);
                       setOpenCategory(null);
                     }}
-                    className="flex items-center gap-2 text-zinc-200 hover:text-white 
-              hover:bg-zinc-600 px-3 py-1.5 rounded-lg text-sm 
-              transition-colors duration-200"
+                    className="flex items-center gap-2 text-zinc-200 hover:text-white hover:bg-zinc-600 px-3 py-1.5 rounded-lg text-sm transition-colors duration-200"
                   >
                     {app.icon}
                     {app.name}
