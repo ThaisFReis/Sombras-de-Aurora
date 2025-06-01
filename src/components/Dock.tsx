@@ -153,7 +153,7 @@ export const Dock = ({ onSelectApp }: DockProps) => {
               onMouseLeave={() => setIsHoveringDock(false)}
             >
               <button
-                className={`w-10 h-[52.5px] flex items-center justify-center rounded-b-2xl 
+                className={`w-10 h-[52.5px] flex items-center justify-center rounded-b-2xl
           text-zinc-300 hover:text-white transition ${
             openCategory === cat.id ? "bg-zinc-700/90 backdrop-blur-[3px]" : ""
           }`}
