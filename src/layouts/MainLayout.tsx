@@ -99,7 +99,7 @@ export const MainLayout = () => {
       style={{
         backgroundImage: `url(${currentTheme.primaryBackground})`,
         backgroundRepeat: "repeat-y",
-        backgroundSize: "cover",
+        backgroundSize: "center",
         backgroundAttachment: "fixed",
       }}
     >

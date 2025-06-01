@@ -145,7 +145,7 @@ export const Dock = ({ onSelectApp }: DockProps) => {
           {categories.map((cat) => (
             <div
               key={cat.id}
-              className="relative flex flex-col items-center z-30"
+              className="relative flex flex-col items-end justify-end z-30"
               onMouseEnter={() => {
                 setOpenCategory(cat.id);
                 setIsHoveringDock(true);
@@ -153,7 +153,7 @@ export const Dock = ({ onSelectApp }: DockProps) => {
               onMouseLeave={() => setIsHoveringDock(false)}
             >
               <button
-                className={`w-10 h-[52.5px] flex items-center justify-center rounded-b-2xl
+                className={`w-10 h-[52.5px] flex items-end justify-center pb-[6.5px] rounded-b-2xl
           text-zinc-300 hover:text-white transition ${
             openCategory === cat.id ? "bg-zinc-700/90 backdrop-blur-[3px]" : ""
           }`}

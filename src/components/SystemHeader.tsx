@@ -36,21 +36,21 @@ export const SystemHeader = ({ onSelectApp, activeApp }: SystemHeaderProps) => {
   }, []);
 
   return (
-    <div className="w-full px-4 py-2 bg-zinc-900/70 backdrop-blur-md border-b border-white/10 rounded-t-xl shadow-md flex justify-between items-center text-zinc-300 text-xs font-medium z-50">
+    <div className="w-full px-4 py-2 backdrop-blur-[1px] rounded-t-xl shadow-md flex justify-between items-center text-white text-xs font-medium z-50">
       {/* Esquerda (vazio ou ícones futuros) */}
       <div className="flex items-center gap-3 min-w-[120px]" />
 
       {/* Centro - Data e clima */}
-      <div className="text-zinc-100 font-mono text-sm text-center mx-auto">
+      <div className="text-white font-mono text-sm text-center mx-auto">
         {time.format("ddd HH:mm A")} &nbsp;•&nbsp; 72° & Sunny
       </div>
 
       {/* Direita - Ícones do sistema */}
-      <div className="flex items-center gap-3 text-zinc-400 relative">
+      <div className="flex items-center gap-3 text-white relative">
         <div className="relative">
           <button
             onClick={() => setShowPanel(!showPanel)}
-            className="hover:text-white transition-colors"
+            className="hover:text-slate-500 transition-colors"
             title="Notificações"
           >
             <Bell className="w-4 h-4" />
@@ -89,17 +89,17 @@ export const SystemHeader = ({ onSelectApp, activeApp }: SystemHeaderProps) => {
         </div>
 
         <span title="Wi-Fi">
-          <Wifi className="w-4 h-4 hover:text-white" />
+          <Wifi className="w-4 h-4 hover:text-slate-300" />
         </span>
         <span title="Volume">
-          <Volume2 className="w-4 h-4 hover:text-white" />
+          <Volume2 className="w-4 h-4 hover:text-slate-300" />
         </span>
 
         {apps.map((app) => (
           <button
             key={app.id}
             onClick={() => onSelectApp(activeApp === app.id ? null : app.id)}
-            className="hover:text-white"
+            className="hover:text-slate-300"
             title={app.name}
           >
             {app.icon}
@@ -108,7 +108,7 @@ export const SystemHeader = ({ onSelectApp, activeApp }: SystemHeaderProps) => {
 
         <button
           onClick={() => onSelectApp("profile")}
-          className="hover:text-white"
+          className="hover:text-slate-300"
           title="Perfil"
         >
           <User className="w-4 h-4" />
