@@ -17,7 +17,7 @@ const apps = [
   {
     id: "settings",
     name: "Configurações",
-    icon: <Settings />,
+    icon: <Settings size={16} />,
   },
 ];
 
@@ -36,32 +36,30 @@ export const SystemHeader = ({ onSelectApp, activeApp }: SystemHeaderProps) => {
   }, []);
 
   return (
-    <div className="w-full bg-zinc-900/80 backdrop-blur-sm border-b border-zinc-800 px-4 py-2 flex justify-between items-center text-zinc-300 text-sm shadow-md z-50">
-      {/* Lado esquerdo */}
-      <div className="font-medium tracking-wide flex items-center gap-2">
-        <span className="text-emerald-400">●</span>
-        <span>Online • Sombras de Aurora OS</span>
+    <div className="w-full px-4 py-2 bg-zinc-900/70 backdrop-blur-md border-b border-white/10 rounded-t-xl shadow-md flex justify-between items-center text-zinc-300 text-xs font-medium z-50">
+      {/* Esquerda (vazio ou ícones futuros) */}
+      <div className="flex items-center gap-3 min-w-[120px]" />
+
+      {/* Centro - Data e clima */}
+      <div className="text-zinc-100 font-mono text-sm text-center mx-auto">
+        {time.format("ddd HH:mm A")} &nbsp;•&nbsp; 72° & Sunny
       </div>
 
-      {/* Centro - Relógio */}
-      <div className="font-mono text-zinc-100">
-        {time.format("ddd, D [de] MMMM • HH:mm:ss")}
-      </div>
-
-      {/* Lado direito */}
-      <div className="flex items-center gap-4 text-zinc-400 relative">
+      {/* Direita - Ícones do sistema */}
+      <div className="flex items-center gap-3 text-zinc-400 relative">
         <div className="relative">
-          <div
-            className="cursor-pointer"
+          <button
             onClick={() => setShowPanel(!showPanel)}
+            className="hover:text-white transition-colors"
+            title="Notificações"
           >
-            <Bell className="w-4 h-4 hover:text-zinc-100" />
+            <Bell className="w-4 h-4" />
             {unreadCount > 0 && (
               <span className="absolute -top-1 -right-2 bg-red-500 text-white text-[10px] rounded-full px-1">
                 {unreadCount}
               </span>
             )}
-          </div>
+          </button>
 
           {showPanel && (
             <div className="absolute right-0 mt-2 w-72 max-h-96 overflow-y-auto bg-zinc-800 border border-zinc-700 shadow-lg rounded-md p-2 z-50 space-y-3">
@@ -90,27 +88,30 @@ export const SystemHeader = ({ onSelectApp, activeApp }: SystemHeaderProps) => {
           )}
         </div>
 
-        <Wifi className="w-4 h-4 hover:text-zinc-100" />
-        <Volume2 className="w-4 h-4 hover:text-zinc-100" />
+        <span title="Wi-Fi">
+          <Wifi className="w-4 h-4 hover:text-white" />
+        </span>
+        <span title="Volume">
+          <Volume2 className="w-4 h-4 hover:text-white" />
+        </span>
 
-        {/* Apps */}
         {apps.map((app) => (
           <button
             key={app.id}
             onClick={() => onSelectApp(activeApp === app.id ? null : app.id)}
-            className="flex flex-col items-center hover:text-white"
+            className="hover:text-white"
+            title={app.name}
           >
             {app.icon}
           </button>
         ))}
 
-        {/* Ícone usuário, exemplo: poderia abrir app de perfil ou algo */}
         <button
-          className="flex flex-col items-center hover:text-white"
-          title="Perfil"
           onClick={() => onSelectApp("profile")}
+          className="hover:text-white"
+          title="Perfil"
         >
-          <User className="w-4 h-4 hover:text-zinc-100" />
+          <User className="w-4 h-4" />
         </button>
       </div>
     </div>

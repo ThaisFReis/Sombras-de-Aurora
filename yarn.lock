@@ -4122,6 +4122,11 @@ tailwind-merge@^2.4.0:
   resolved "https://registry.yarnpkg.com/tailwind-merge/-/tailwind-merge-2.6.0.tgz#ac5fb7e227910c038d458f396b7400d93a3142d5"
   integrity sha512-P+Vu1qXfzediirmHOC3xKGAYeZtPcV9g76X+xg2FD4tYgR71ewMA35Y3sCz3zhiN/dwefRpJX0yBcgwi1fXNQA==
 
+tailwind-rounded-out@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/tailwind-rounded-out/-/tailwind-rounded-out-1.0.1.tgz#0995991abad8c8c183cd50fd2a73d36a7e057dfa"
+  integrity sha512-HgwPI8r2MHc+ik3frrxREj+gNxiY98r6Neqcv38q/eL9OrmGXvKb8/LFvBcsUEP2RX7Db5F5dJiP3HvFZu9y7g==
+
 tailwind-scrollbar@^4.0.1:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/tailwind-scrollbar/-/tailwind-scrollbar-4.0.2.tgz#764dbc00aede9c8b885a2b8e8191f7785e05a92b"
