@@ -25,6 +25,7 @@ export const WindowApp = ({
   children,
   className,
   startMaximized,
+  title,
 }: WindowAppProps) => {
   const [isMaximized, setIsMaximized] = useState(startMaximized ?? true);
   const windowRef = useRef<HTMLDivElement>(null);
@@ -75,11 +76,7 @@ export const WindowApp = ({
         width: windowSize.width,
         height: windowSize.height,
       }}
-      size={
-        isMaximized
-          ? { width: "100%", height: "100%" }
-          : windowSize
-      }
+      size={isMaximized ? { width: "100%", height: "100%" } : windowSize}
       position={isMaximized ? { x: 0, y: 0 } : undefined}
       minWidth={320}
       minHeight={240}
@@ -125,23 +122,33 @@ export const WindowApp = ({
             </button>
           </div>
         </div>
-
         {/* Barra superior 2 */}
-        <div className="drag-handle flex items-center justify-between px-3 sm:px-4 py-2 bg-zinc-700/60 backdrop-blur-[3px] border-b border-white/10 select-none cursor-move h-fit">
-          <div className="flex items-center gap-4 sm:gap-6">
-            <ChevronLeft className="text-zinc-400 hover:text-white" size={18} />
-            <ChevronRight className="text-zinc-400 hover:text-white" size={18} />
-            <RotateCw className="text-zinc-400 hover:text-white" size={18} />
-          </div>
+        {title === "Rede Social" || title === "Fórum" ? (
+          <div className="drag-handle flex items-center justify-between px-3 sm:px-4 py-2 bg-zinc-700/60 backdrop-blur-[3px] border-b border-white/10 select-none cursor-move h-fit">
+            <div className="flex items-center gap-4 sm:gap-6">
+              <ChevronLeft
+                className="text-zinc-400 hover:text-white"
+                size={18}
+              />
+              <ChevronRight
+                className="text-zinc-400 hover:text-white"
+                size={18}
+              />
+              <RotateCw className="text-zinc-400 hover:text-white" size={18} />
+            </div>
 
-          <div className="text-[10px] text-zinc-500 font-medium absolute left-1/2 -translate-x-1/2 pointer-events-none bg-zinc-800/90 backdrop-blur-[3px] w-4/5 sm:w-[400px] rounded-xl py-1 px-4 text-center">
-            http://www.redesocial.com/
-          </div>
+            <div className="text-[10px] text-zinc-500 font-medium absolute left-1/2 -translate-x-1/2 pointer-events-none bg-zinc-800/90 backdrop-blur-[3px] w-4/5 sm:w-[400px] rounded-xl py-1 px-4 text-center">
+              http://www.redesocial.com/
+            </div>
 
-          <div className="flex gap-2 items-center">
-            <EllipsisVertical className="text-zinc-400 hover:text-white" size={18} />
+            <div className="flex gap-2 items-center">
+              <EllipsisVertical
+                className="text-zinc-400 hover:text-white"
+                size={18}
+              />
+            </div>
           </div>
-        </div>
+        ) : null}
 
         {/* Conteúdo */}
         <div className="flex-1 overflow-y-auto p-3 sm:p-4 text-zinc-100 scrollbar-thin scrollbar-thumb-white/10">
