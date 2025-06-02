@@ -16,6 +16,7 @@ import { Settings } from "@/apps/Settings";
 import { ChatApp } from "@/apps/ChatApp";
 import { MiniGamesApp } from "@/apps/MiniGamesApp";
 import { MapApp } from "@/apps/MapApp";
+import { TerminalApp } from "@/apps/TerminalApp";
 
 // Seed notifications
 import { seedNotifications } from "@/utils/seedNotifications";
@@ -64,14 +65,16 @@ export const MainLayout = () => {
         title = "Mensagens";
         break;
       case "minigames":
-        appContent = (
-          <MiniGamesApp gameId={janelaAtivaPayload?.gameId} />
-        );
+        appContent = <MiniGamesApp gameId={janelaAtivaPayload?.gameId} />;
         title = "Minijogos";
         break;
       case "map":
         appContent = <MapApp onClose={onClose} />;
         title = "Mapa";
+        break;
+      case "terminal":
+        appContent = <TerminalApp onClose={onClose} />;
+        title = "Terminal";
         break;
       default:
         return null;
@@ -86,9 +89,13 @@ export const MainLayout = () => {
         transition={{ duration: 0.2, ease: "easeOut" }}
         className="absolute inset-0"
       >
-        <WindowApp title={title} onClose={onClose}>
-          {appContent}
-        </WindowApp>
+        {title === "Terminal" ? (
+          appContent
+        ) : (
+          <WindowApp title={title} onClose={onClose}>
+            {appContent}
+          </WindowApp>
+        )}
       </motion.div>
     );
   };
