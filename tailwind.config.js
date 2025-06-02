@@ -35,6 +35,15 @@ export default {
           "0%": { opacity: 0, transform: "translateY(4px)" },
           "100%": { opacity: 1, transform: "translateY(0)" },
         },
+        "fade-in": {
+          from: { opacity: 0, transform: "scale(0.98)" },
+          to: { opacity: 1, transform: "scale(1)" },
+        },
+      },
+      animation: {
+        "fade-in": "fade-in 0.25s ease-out forwards",
+        "fade-in-up": "fadeIn 0.4s ease-out",
+        ping: "ping 1s cubic-bezier(0, 0, 0.2, 1) infinite",
       },
     },
   },

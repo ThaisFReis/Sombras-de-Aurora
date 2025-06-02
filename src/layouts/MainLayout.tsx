@@ -121,7 +121,7 @@ export const MainLayout = () => {
 
           {/* Dock */}
           <div
-            className="absolute bottom-0 flex justify-center items-center mt-auto mb-0 w-full h-28 z-50"
+            className="absolute bottom-14 flex justify-center items-end mt-auto mb-0 w-full h-20 z-50"
             onMouseEnter={() => setMostrarDock(true)}
             onMouseLeave={() => setMostrarDock(false)}
           >
